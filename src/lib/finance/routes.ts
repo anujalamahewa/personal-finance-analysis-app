@@ -4,8 +4,8 @@ export type FinanceRouteId =
   | "dreams"
   | "income"
   | "risks"
-  | "client-profile"
-  | "four-major-needs"
+  | "profile"
+  | "needs"
   | "retirement-planning"
   | "income-protection"
   | "education-fund"
@@ -48,15 +48,15 @@ export const financeRoutes: FinanceRoute[] = [
     shortLabel: "Risks",
   },
   {
-    id: "client-profile",
+    id: "profile",
     title: "Client Profile",
-    path: "/client-profile",
+    path: "/profile",
     shortLabel: "Profile",
   },
   {
-    id: "four-major-needs",
+    id: "needs",
     title: "Four Major Needs",
-    path: "/four-major-needs",
+    path: "/needs",
     shortLabel: "Needs",
   },
   {

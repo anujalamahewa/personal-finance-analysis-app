@@ -1,0 +1,199 @@
+.needsLayout {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.needsLabel {
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #d31145;
+  margin-bottom: 10px;
+}
+
+.needsTitle {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -1px;
+  color: #111827;
+}
+
+.needsTitle span {
+  font-size: clamp(34px, 5vw, 66px);
+}
+
+.needsTitleAccent {
+  color: #d31145;
+}
+
+.needsTitleUnderline {
+  width: 72px;
+  height: 4px;
+  border-radius: 999px;
+  background: #d31145;
+  margin: 18px auto 14px;
+}
+
+.needsIntro {
+  max-width: 840px;
+  margin: 0 auto;
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.needsGrid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.needCard {
+  background: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 16px;
+  padding: 24px 20px 20px;
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.03);
+}
+
+.toneRetirement {
+  border-top: 4px solid #d31145;
+}
+
+.toneFamily {
+  border-top: 4px solid #2b7abf;
+}
+
+.toneEducation {
+  border-top: 4px solid #16a34a;
+}
+
+.toneMedical {
+  border-top: 4px solid #d97706;
+}
+
+.needIcon {
+  font-size: 38px;
+  line-height: 1;
+}
+
+.needTitle {
+  margin: 16px 0 0;
+  font-size: 34px;
+  line-height: 1.28;
+  color: #111827;
+  font-weight: 800;
+}
+
+.needBody {
+  margin: 10px auto 0;
+  max-width: 240px;
+  font-size: 14px;
+  line-height: 1.42;
+  color: #6b7280;
+}
+
+.needsCallout {
+  margin: 28px auto 0;
+  max-width: 860px;
+  border: 1px solid #f3c1cd;
+  background: #fff2f6;
+  border-radius: 14px;
+  color: #d31145;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.4;
+  padding: 18px 20px;
+}
+
+@media (max-width: 1360px) {
+  .needTitle {
+    font-size: 30px;
+  }
+
+  .needBody {
+    font-size: 14px;
+  }
+
+  .needsCallout {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 1120px) {
+  .needsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .needsIntro {
+    font-size: 15px;
+    max-width: 720px;
+  }
+
+  .needBody {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .needsCallout {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .needsLabel {
+    font-size: 11px;
+    letter-spacing: 2.8px;
+  }
+
+  .needsTitle span {
+    font-size: clamp(30px, 10vw, 42px);
+  }
+
+  .needsTitleUnderline {
+    width: 58px;
+    margin-top: 14px;
+  }
+
+  .needsIntro {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .needsGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .needCard {
+    padding: 18px 14px 16px;
+  }
+
+  .needIcon {
+    font-size: 34px;
+  }
+
+  .needTitle {
+    font-size: 28px;
+    margin-top: 12px;
+  }
+
+  .needBody {
+    font-size: 16px;
+  }
+
+  .needsCallout {
+    margin-top: 20px;
+    font-size: 17px;
+    padding: 14px 12px;
+  }
+}

@@ -28,13 +28,13 @@ const LEGACY_STORAGE_KEY = "personal-finance-analysis-state-v1";
 const defaultProfile: ClientProfile = {
   fullName: "",
   dateOfBirth: "",
-  age: 35,
-  retirementAge: 60,
+  age: 0,
+  retirementAge: 0,
   occupation: "",
   spouseName: "",
-  monthlyIncome: 150_000,
-  monthlyExpenses: 120_000,
-  monthlySavings: 30_000,
+  monthlyIncome: 0,
+  monthlyExpenses: 0,
+  monthlySavings: 0,
   outstandingLoans: 0,
 };
 
@@ -110,11 +110,30 @@ function createChild(overrides?: Partial<ChildProfile>): ChildProfile {
   return {
     id,
     name: "",
-    age: 5,
-    universityAge: 18,
-    currentEducationCost: 3_000_000,
+    age: 0,
+    universityAge: 0,
+    currentEducationCost: 0,
     ...overrides,
   };
+}
+
+function isUntouchedLegacyProfile(profile: Partial<ClientProfile> | undefined): boolean {
+  if (!profile) {
+    return false;
+  }
+
+  return (
+    (profile.fullName ?? "") === "" &&
+    (profile.occupation ?? "") === "" &&
+    (profile.spouseName ?? "") === "" &&
+    (profile.dateOfBirth ?? "") === "" &&
+    (profile.age ?? 0) === 35 &&
+    (profile.retirementAge ?? 0) === 60 &&
+    (profile.monthlyIncome ?? 0) === 150_000 &&
+    (profile.monthlyExpenses ?? 0) === 120_000 &&
+    (profile.monthlySavings ?? 0) === 30_000 &&
+    (profile.outstandingLoans ?? 0) === 0
+  );
 }
 
 function mergeState(raw: Partial<FinanceState>): FinanceState {
@@ -122,8 +141,21 @@ function mergeState(raw: Partial<FinanceState>): FinanceState {
     ? raw.children.map((child) => createChild(child))
     : [];
 
+  const mergedProfile = { ...defaultProfile, ...(raw.profile ?? {}) };
+  const profile = isUntouchedLegacyProfile(raw.profile)
+    ? {
+        ...mergedProfile,
+        age: 0,
+        retirementAge: 0,
+        monthlyIncome: 0,
+        monthlyExpenses: 0,
+        monthlySavings: 0,
+        outstandingLoans: 0,
+      }
+    : mergedProfile;
+
   return {
-    profile: { ...defaultProfile, ...(raw.profile ?? {}) },
+    profile,
     coverage: { ...defaultCoverage, ...(raw.coverage ?? {}) },
     assumptions: { ...defaultAssumptions, ...(raw.assumptions ?? {}) },
     children,

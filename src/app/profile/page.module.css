@@ -1,0 +1,190 @@
+.profileHeroLabel {
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #d31145;
+  margin-bottom: 8px;
+}
+
+.profileTitle {
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.8px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  margin-top: 24px;
+  margin-bottom: 10px;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.formGrid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid #d5dae2;
+  border-radius: 9px;
+  padding: 10px 11px;
+  font-size: 14px;
+  color: #1f2937;
+  background: #fff;
+}
+
+.input:focus {
+  outline: 2px solid rgba(211, 17, 69, 0.15);
+  border-color: #d31145;
+}
+
+.childrenWrap {
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.childRow {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px;
+  background: #fff;
+}
+
+.childHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.childTitle {
+  font-size: 13px;
+  font-weight: 800;
+  color: #d31145;
+}
+
+.rowActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 1px solid #d5dae2;
+  border-radius: 10px;
+  background: #fff;
+  color: #374151;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 9px 12px;
+  cursor: pointer;
+  min-height: 42px;
+}
+
+.btn:hover {
+  border-color: #d31145;
+  color: #d31145;
+}
+
+.btnPrimary {
+  border-color: #d31145;
+  background: #d31145;
+  color: #fff;
+}
+
+.btnPrimary:hover {
+  background: #b00e39;
+  color: #fff;
+}
+
+.addChildButton {
+  border-radius: 999px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #ffd8e4;
+  background: #fff4f7;
+  color: #d31145;
+  border-radius: 999px;
+  font-size: 12px;
+  padding: 6px 10px;
+  font-weight: 700;
+}
+
+.cardMuted {
+  color: #5c6470;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+@media (max-width: 960px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .profileTitle {
+    font-size: clamp(24px, 7.4vw, 34px);
+  }
+
+  .cardMuted {
+    font-size: 14px;
+    line-height: 1.62;
+  }
+}
+
+@media (max-width: 640px) {
+  .profileHeroLabel {
+    letter-spacing: 1.2px;
+    font-size: 10px;
+  }
+
+  .profileTitle {
+    font-size: clamp(24px, 9vw, 36px);
+    letter-spacing: -0.4px;
+    margin-bottom: 10px;
+  }
+
+  .childRow {
+    padding: 13px;
+  }
+
+  .sectionTitle {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .input {
+    font-size: 16px;
+  }
+
+  .btn {
+    min-height: 44px;
+  }
+
+  .badge {
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+  }
+}
