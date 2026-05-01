@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { computeFinance, formatCurrency } from "@/lib/finance/calculations";
 import {
   financeRoutes,
@@ -27,9 +27,22 @@ export default function FinanceRoutePage({ routeId }: FinanceRoutePageProps) {
   const routeIndex = getRouteIndex(routeId);
   const prevRoute = routeIndex > 0 ? financeRoutes[routeIndex - 1] : null;
   const nextRoute = routeIndex < financeRoutes.length - 1 ? financeRoutes[routeIndex + 1] : null;
-  const { state, computed, setProfileField, setCoverageField, setAssumptionField, addChild, updateChild, removeChild, movePriorityUp, movePriorityDown, resetAll } =
-    useFinance();
-  const [riskStep, setRiskStep] = useState(0);
+  const {
+    state,
+    ui,
+    computed,
+    setProfileField,
+    setCoverageField,
+    setAssumptionField,
+    addChild,
+    updateChild,
+    removeChild,
+    movePriorityUp,
+    movePriorityDown,
+    setLastRoute,
+    setRiskStep,
+    resetAll,
+  } = useFinance();
 
   const needsByKey = useMemo(() => {
     const map = new Map<NeedKey, (typeof computed.needs)[number]>();
@@ -63,7 +76,12 @@ export default function FinanceRoutePage({ routeId }: FinanceRoutePageProps) {
     },
   ];
 
+  const riskStep = Math.min(threeRisks.length - 1, Math.max(0, ui.riskStep));
   const currentRisk = threeRisks[riskStep];
+
+  useEffect(() => {
+    setLastRoute(routeId);
+  }, [routeId]);
 
   const body = (() => {
     switch (routeId) {
@@ -186,13 +204,13 @@ export default function FinanceRoutePage({ routeId }: FinanceRoutePageProps) {
               <div className={styles.rowActions} style={{ marginTop: 12 }}>
                 <button
                   className={styles.btn}
-                  onClick={() => setRiskStep((step) => Math.max(0, step - 1))}
+                  onClick={() => setRiskStep(riskStep - 1)}
                 >
                   Previous
                 </button>
                 <button
                   className={`${styles.btn} ${styles.btnPrimary}`}
-                  onClick={() => setRiskStep((step) => Math.min(threeRisks.length - 1, step + 1))}
+                  onClick={() => setRiskStep(riskStep + 1)}
                 >
                   Next Risk
                 </button>
