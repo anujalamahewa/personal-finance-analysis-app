@@ -1,0 +1,337 @@
+.incomeLayout {
+  margin-top: 2px;
+  display: grid;
+  grid-template-columns: minmax(300px, 0.95fr) minmax(300px, 1fr) minmax(220px, 0.85fr);
+  align-items: center;
+  column-gap: clamp(14px, 2.4vw, 34px);
+}
+
+.incomeLeft {
+  max-width: 430px;
+}
+
+.incomeHeroLabel {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #d31145;
+  margin-bottom: 10px;
+}
+
+.incomeTitle {
+  font-size: clamp(38px, 4.8vw, 58px);
+  line-height: 1;
+  letter-spacing: -0.8px;
+  font-weight: 900;
+  color: #1b2230;
+  max-width: 350px;
+}
+
+.incomeAccent {
+  margin-top: 14px;
+  width: 62px;
+  height: 3px;
+  border-radius: 999px;
+  background: #d31145;
+}
+
+.incomeBody {
+  margin-top: 18px;
+  max-width: 400px;
+  color: #5f6672;
+  font-size: 15px;
+  line-height: 1.58;
+}
+
+.incomeBody strong {
+  color: #d31145;
+  font-weight: 800;
+}
+
+.incomeStatCard {
+  margin-top: 20px;
+  background: #f7eef2;
+  border: 1px solid #f1ccd8;
+  border-radius: 18px;
+  padding: 18px 20px;
+  max-width: 400px;
+}
+
+.incomeStatValue {
+  font-size: clamp(68px, 7vw, 100px);
+  line-height: 0.9;
+  font-weight: 900;
+  color: #d31145;
+}
+
+.incomeStatText {
+  margin-top: 6px;
+  color: #5f6672;
+  font-size: 14px;
+  line-height: 1.42;
+  max-width: 335px;
+}
+
+.incomeCenter {
+  display: flex;
+  justify-content: center;
+}
+
+.incomeChart {
+  width: min(100%, 352px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: relative;
+  background: conic-gradient(
+    #2fa95c 0deg 90deg,
+    #d6235c 90deg 180deg,
+    #d6235c 180deg 270deg,
+    #9e95a7 270deg 360deg
+  );
+}
+
+.incomeChart::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 3px #f6f1f3;
+}
+
+.incomeChart::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: #f6f1f3;
+}
+
+.incomeDividerHorizontal {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 3px;
+  background: #f6f1f3;
+  z-index: 1;
+}
+
+.incomeChartCenter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 32%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #f4f2f3;
+  display: grid;
+  place-items: center;
+  color: #2b2f38;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  z-index: 2;
+}
+
+.incomeSliceValue {
+  position: absolute;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 110px;
+  height: 60px;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.incomeSlicePercent {
+  font-size: 23px;
+  font-weight: 800;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.incomeSliceName {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.1px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.14);
+}
+
+.sliceTopLeft {
+  left: 30%;
+  top: 30%;
+}
+
+.sliceTopRight {
+  left: 70%;
+  top: 30%;
+}
+
+.sliceBottomLeft {
+  left: 30%;
+  top: 70%;
+}
+
+.sliceBottomRight {
+  left: 70%;
+  top: 70%;
+}
+
+.incomeLegend {
+  display: grid;
+  gap: 10px;
+}
+
+.incomeLegendItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 10px;
+}
+
+.incomeLegendDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-top: 7px;
+}
+
+.dotStudent {
+  background: #2fa95c;
+}
+
+.dotYouth,
+.dotAdult {
+  background: #d6235c;
+}
+
+.dotRetirement {
+  background: #9e95a7;
+}
+
+.incomeLegendTitle {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1f2430;
+  line-height: 1.16;
+}
+
+.incomeLegendText {
+  margin-top: 2px;
+  color: #67707f;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+@media (max-width: 1120px) {
+  .incomeLayout {
+    grid-template-columns: minmax(240px, 1fr) minmax(240px, 1fr);
+    row-gap: 24px;
+  }
+
+  .incomeLeft,
+  .incomeLegend {
+    grid-column: 1 / -1;
+  }
+
+  .incomeCenter {
+    justify-content: flex-start;
+  }
+
+  .incomeLegend {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 22px;
+  }
+
+  .incomeTitle {
+    max-width: none;
+  }
+
+  .incomeCenter {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 860px) {
+  .incomeLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .incomeLegend {
+    grid-template-columns: 1fr;
+  }
+
+  .incomeCenter {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .incomeHeroLabel {
+    font-size: 10px;
+    letter-spacing: 1.4px;
+  }
+
+  .incomeTitle {
+    font-size: clamp(32px, 9.2vw, 44px);
+    line-height: 1.02;
+  }
+
+  .incomeBody,
+  .incomeStatText {
+    font-size: 14px;
+  }
+
+  .incomeLegendTitle {
+    font-size: 16px;
+  }
+
+  .incomeLegendText {
+    font-size: 14px;
+  }
+
+  .incomeStatCard {
+    padding: 14px;
+  }
+
+  .incomeChart {
+    width: min(100%, 310px);
+  }
+
+  .incomeSliceValue {
+    min-width: 78px;
+  }
+
+.incomeSlicePercent {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.incomeSliceName {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  opacity: 0.95;
+}
+
+  .incomeChartCenter {
+    font-size: 12px;
+  }
+
+  .incomeLegendDot {
+    width: 12px;
+    height: 12px;
+  }
+}

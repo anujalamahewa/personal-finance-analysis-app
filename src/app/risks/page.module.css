@@ -1,0 +1,140 @@
+.riskLayout {
+  max-width: 1180px;
+}
+
+.riskLabel {
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #d31145;
+  margin-bottom: 8px;
+}
+
+.riskTitle {
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.8px;
+  font-weight: 900;
+  margin-bottom: 14px;
+  color: #0f172a;
+}
+
+.riskGrid {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.riskCard {
+  background: #f8f8f8;
+  border: 1px solid #d5dae2;
+  border-radius: 18px;
+  padding: 22px 22px 18px;
+  text-align: center;
+}
+
+.riskIcon {
+  font-size: 50px;
+  line-height: 1;
+}
+
+.riskCardTitle {
+  margin-top: 12px;
+  font-size: 40px;
+  font-weight: 800;
+  color: #d31145;
+}
+
+.riskCardBody {
+  margin-top: 12px;
+  color: #5f6672;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.riskDivider {
+  margin: 16px 0 14px;
+  border: none;
+  border-top: 1px solid #d5dae2;
+}
+
+.riskScaleLabel {
+  font-size: 16px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #d31145;
+}
+
+.riskScaleBody {
+  margin-top: 8px;
+  color: #5f6672;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.riskActions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.riskStepPill {
+  border: 1px solid #d5dae2;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #334155;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 7px 12px;
+}
+
+.riskHint {
+  margin-top: 14px;
+  color: #5f6672;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media (max-width: 1120px) {
+  .riskGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .riskCardTitle {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 768px) {
+  .riskTitle {
+    font-size: clamp(24px, 7.4vw, 34px);
+  }
+
+  .riskCardBody,
+  .riskScaleBody,
+  .riskHint {
+    font-size: 14px;
+    line-height: 1.62;
+  }
+
+  .riskScaleLabel {
+    letter-spacing: 2px;
+    font-size: 14px;
+  }
+
+  .riskCard {
+    padding: 16px 14px;
+  }
+
+  .riskCardTitle {
+    font-size: 30px;
+  }
+
+  .riskIcon {
+    font-size: 42px;
+  }
+}

@@ -19,9 +19,28 @@ body {
   flex-direction: column;
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-geist-sans), "Segoe UI", sans-serif;
+  font-family: var(--font-poppins), "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:where(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  [class*="Title"],
+  [class*="title"]
+) {
+  font-family: var(--font-geist-sans), "Segoe UI", sans-serif;
+  font-size: 20px;
+}
+
+p {
+  font-family: var(--font-poppins), "Segoe UI", sans-serif;
+  font-size: 16px;
 }
 
 * {

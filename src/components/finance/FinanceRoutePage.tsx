@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo } from "react";
+import { type ReactNode, useEffect, useMemo } from "react";
 import { computeFinance, formatCurrency } from "@/lib/finance/calculations";
 import {
   financeRoutes,
@@ -15,6 +15,7 @@ import styles from "./FinanceRoutePage.module.css";
 
 type FinanceRoutePageProps = {
   routeId: FinanceRouteId;
+  customBody?: ReactNode;
 };
 
 function toNumber(value: string): number {
@@ -22,14 +23,14 @@ function toNumber(value: string): number {
   return Number.isFinite(parsed) ? parsed : 0;
 }
 
-export default function FinanceRoutePage({ routeId }: FinanceRoutePageProps) {
+export default function FinanceRoutePage({ routeId, customBody }: FinanceRoutePageProps) {
+  const isWelcomeRoute = routeId === "welcome";
   const route = getRouteById(routeId);
   const routeIndex = getRouteIndex(routeId);
   const prevRoute = routeIndex > 0 ? financeRoutes[routeIndex - 1] : null;
   const nextRoute = routeIndex < financeRoutes.length - 1 ? financeRoutes[routeIndex + 1] : null;
   const {
     state,
-    ui,
     computed,
     setProfileField,
     setCoverageField,
@@ -40,7 +41,6 @@ export default function FinanceRoutePage({ routeId }: FinanceRoutePageProps) {
     movePriorityUp,
     movePriorityDown,
     setLastRoute,
-    setRiskStep,
     resetAll,
   } = useFinance();
 
@@ -58,166 +58,104 @@ export default function FinanceRoutePage({ routeId }: FinanceRoutePageProps) {
       .filter((need): need is NonNullable<typeof need> => Boolean(need));
   }, [state.priorities, needsByKey]);
 
-  const threeRisks = [
-    {
-      title: "Death",
-      icon: "💀",
-      body: "Income stops immediately and your family relies on what is already planned.",
-    },
-    {
-      title: "Disease",
-      icon: "🦠",
-      body: "Critical illness can remove earning capacity while treatment costs rise.",
-    },
-    {
-      title: "Disability",
-      icon: "♿",
-      body: "Permanent disability can wipe out future earnings while expenses continue.",
-    },
-  ];
-
-  const riskStep = Math.min(threeRisks.length - 1, Math.max(0, ui.riskStep));
-  const currentRisk = threeRisks[riskStep];
+  const formattedSessionDate = useMemo(
+    () =>
+      new Intl.DateTimeFormat("en-GB", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      }).format(new Date()),
+    []
+  );
 
   useEffect(() => {
     setLastRoute(routeId);
   }, [routeId]);
 
-  const body = (() => {
-    switch (routeId) {
+  const body =
+    customBody !== undefined
+      ? customBody
+      : (() => {
+          switch (routeId) {
       case "welcome":
         return (
-          <>
-            <div className={styles.heroLabel}>Financial Planning Session</div>
-            <h1 className={styles.heroTitle}>Designing Your Financial Future</h1>
-            <p className={styles.heroBody}>
-              This experience walks through every major need area, quantifies the gap between
-              required and existing cover, and helps you prioritize action with real numbers.
-            </p>
-            <div className={styles.grid2}>
-              <div className={styles.statCard}>
-                <div className={styles.statValue}>{formatCurrency(computed.totalGap)}</div>
-                <div className={styles.statLabel}>Current total protection gap across all needs.</div>
+          <div className={styles.welcomeLayout}>
+            <section className={styles.welcomePanel}>
+              <div className={styles.heroLabel}>Financial Planning Session</div>
+              <h1 className={styles.welcomeTitle}>
+                Designing
+                <br />
+                Your Financial
+                <br />
+                <span>Future</span>
+              </h1>
+              <div className={styles.welcomeAccent} aria-hidden="true" />
+              <p className={styles.welcomeBody}>
+                A structured, data-driven need analysis to understand exactly where you are, where
+                you need to be, and what it takes to get there.
+              </p>
+              <div className={styles.welcomeMetaRow}>
+                <div className={`${styles.welcomeMetaCard} ${styles.welcomeMetaPrimary}`}>
+                  <div className={styles.welcomeMetaLabel}>Session Type</div>
+                  <div className={styles.welcomeMetaValue}>Personal Financial Analysis</div>
+                </div>
+                <div className={styles.welcomeMetaCard}>
+                  <div className={styles.welcomeMetaLabel}>Date</div>
+                  <div className={styles.welcomeMetaValue}>{formattedSessionDate}</div>
+                </div>
               </div>
-              <div className={styles.card}>
-                <div className={styles.cardTitle}>What You Get</div>
-                <p className={styles.cardMuted}>
-                  A guided profile, retirement and protection calculations, education and medical
-                  projections, then a clear priority order and report-ready summary.
-                </p>
-              </div>
-            </div>
-          </>
+            </section>
+            <div className={styles.welcomeCanvas} aria-hidden="true" />
+          </div>
         );
 
-      case "discussion-design":
+      case "discussion-design": {
+        const dreamsPath = getRouteById("dreams")?.path ?? "/dreams";
+
         return (
           <>
             <div className={styles.heroLabel}>How This Is Structured</div>
             <h1 className={styles.heroTitle}>Discussion Design</h1>
-            <div className={styles.grid3}>
-              <div className={styles.card}>
-                <div className={styles.cardTitle}>Phase 01</div>
-                <p className={styles.cardMuted}>
-                  Need identification across retirement, protection, education, and medical risks.
-                </p>
-              </div>
-              <div className={styles.card}>
-                <div className={styles.cardTitle}>Phase 02</div>
-                <p className={styles.cardMuted}>
-                  Gap analysis comparing required cover with your current financial position.
-                </p>
-              </div>
-              <div className={styles.card}>
-                <div className={styles.cardTitle}>Phase 03</div>
-                <p className={styles.cardMuted}>
-                  Priority and solution design that can be implemented in a realistic sequence.
-                </p>
-              </div>
-            </div>
-          </>
-        );
 
-      case "dreams-and-wealth":
-        return (
-          <>
-            <div className={styles.heroLabel}>Financial Life Cycle</div>
-            <h1 className={styles.heroTitle}>Dreams = Wealth</h1>
-            <p className={styles.heroBody}>
-              Every life milestone has a cost. The objective is to ensure wealth growth is strong
-              enough to fund each phase without creating debt pressure.
-            </p>
-            <div className={styles.grid4}>
-              <div className={styles.card}>
-                <div className={styles.cardTitle}>0-20</div>
-                <p className={styles.cardMuted}>Foundation years and family-supported expenses.</p>
-              </div>
-              <div className={styles.card}>
-                <div className={styles.cardTitle}>20-40</div>
-                <p className={styles.cardMuted}>Income starts, responsibilities grow quickly.</p>
-              </div>
-              <div className={styles.card}>
-                <div className={styles.cardTitle}>40-60</div>
-                <p className={styles.cardMuted}>Peak earnings with peak obligations.</p>
-              </div>
-              <div className={styles.card}>
-                <div className={styles.cardTitle}>60+</div>
-                <p className={styles.cardMuted}>Retirement years requiring stored wealth.</p>
-              </div>
-            </div>
-          </>
-        );
-
-      case "income-cycle":
-        return (
-          <>
-            <div className={styles.heroLabel}>The Financial Reality</div>
-            <h1 className={styles.heroTitle}>The Income Cycle</h1>
-            <div className={styles.grid2}>
-              <div className={styles.statCard}>
-                <div className={styles.statValue}>50%</div>
-                <div className={styles.statLabel}>
-                  Half of life often has no active income, so planning must fund non-working years.
-                </div>
-              </div>
-              <div className={styles.card}>
-                <div className={styles.cardTitle}>What This Means</div>
-                <p className={styles.cardMuted}>
-                  You earn for a limited window, but spend for much longer. Long-term funds and
-                  protection are not optional if lifestyle continuity matters.
+            <div className={styles.discussionPhaseGrid}>
+              <article
+                className={`${styles.discussionPhaseCard} ${styles.discussionPhaseNeed}`}
+              >
+                <div className={styles.discussionPhaseTag}>Phase 01</div>
+                <h2 className={styles.discussionPhaseTitle}>Need Identification</h2>
+                <p className={styles.discussionPhaseBody}>
+                  We explore each of the 4 major financial needs, building the full picture of
+                  what you require with real numbers.
                 </p>
-              </div>
-            </div>
-          </>
-        );
+              </article>
 
-      case "three-critical-risks":
-        return (
-          <>
-            <div className={styles.heroLabel}>Key Risk Events</div>
-            <h1 className={styles.heroTitle}>Three Events That Break Plans</h1>
-            <div className={styles.card}>
-              <div className={styles.cardTitle}>
-                {currentRisk.icon} {currentRisk.title}
-              </div>
-              <p className={styles.cardMuted}>{currentRisk.body}</p>
-              <div className={styles.rowActions} style={{ marginTop: 12 }}>
-                <button
-                  className={styles.btn}
-                  onClick={() => setRiskStep(riskStep - 1)}
-                >
-                  Previous
-                </button>
-                <button
-                  className={`${styles.btn} ${styles.btnPrimary}`}
-                  onClick={() => setRiskStep(riskStep + 1)}
-                >
-                  Next Risk
-                </button>
-              </div>
+              <article className={`${styles.discussionPhaseCard} ${styles.discussionPhaseGap}`}>
+                <div className={styles.discussionPhaseTag}>Phase 02</div>
+                <h2 className={styles.discussionPhaseTitle}>Gap Evaluation</h2>
+                <p className={styles.discussionPhaseBody}>
+                  We compare what you currently have against what you need. The difference is your
+                  financial vulnerability.
+                </p>
+              </article>
+
+              <article
+                className={`${styles.discussionPhaseCard} ${styles.discussionPhaseSolution}`}
+              >
+                <div className={styles.discussionPhaseTag}>Phase 03</div>
+                <h2 className={styles.discussionPhaseTitle}>Solution Presentation</h2>
+                <p className={styles.discussionPhaseBody}>
+                  A tailored strategy to close the gaps, delivered as a written report you leave
+                  with today.
+                </p>
+              </article>
             </div>
+
+            <Link href={dreamsPath} className={styles.discussionBeginLink}>
+              Let&apos;s begin with your profile.
+            </Link>
           </>
         );
+      }
 
       case "client-profile":
         return (
@@ -940,43 +878,45 @@ export default function FinanceRoutePage({ routeId }: FinanceRoutePageProps) {
           </>
         );
 
-      default:
-        return (
-          <>
-            <div className={styles.heroLabel}>Financial Analysis</div>
-            <h1 className={styles.heroTitle}>{route?.title ?? "Page"}</h1>
-          </>
-        );
-    }
-  })();
+            default:
+              return (
+                <>
+                  <div className={styles.heroLabel}>Financial Analysis</div>
+                  <h1 className={styles.heroTitle}>{route?.title ?? "Page"}</h1>
+                </>
+              );
+          }
+        })();
 
   return (
-    <div className={styles.shell}>
-      <header className={styles.header}>
-        <div className={styles.headerInner}>
-          <div className={styles.titleRow}>
-            <div className={styles.appTitle}>Personal Financial Analysis</div>
-            <div className={styles.progress}>
-              Step {routeIndex + 1} / {financeRoutes.length}
+    <div className={`${styles.shell} ${isWelcomeRoute ? styles.shellWelcome : ""}`}>
+      {!isWelcomeRoute && (
+        <header className={styles.header}>
+          <div className={styles.headerInner}>
+            <div className={styles.titleRow}>
+              <div className={styles.appTitle}>Personal Financial Analysis</div>
+              <div className={styles.progress}>
+                Step {routeIndex + 1} / {financeRoutes.length}
+              </div>
             </div>
+            <nav className={styles.routeMenu}>
+              {financeRoutes.map((routeOption) => (
+                <Link
+                  key={routeOption.id}
+                  href={routeOption.path}
+                  className={`${styles.routeLink} ${
+                    routeOption.id === routeId ? styles.routeLinkActive : ""
+                  }`}
+                >
+                  {routeOption.shortLabel}
+                </Link>
+              ))}
+            </nav>
           </div>
-          <nav className={styles.routeMenu}>
-            {financeRoutes.map((routeOption) => (
-              <Link
-                key={routeOption.id}
-                href={routeOption.path}
-                className={`${styles.routeLink} ${
-                  routeOption.id === routeId ? styles.routeLinkActive : ""
-                }`}
-              >
-                {routeOption.shortLabel}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </header>
+        </header>
+      )}
 
-      <main className={styles.main}>
+      <main className={`${styles.main} ${isWelcomeRoute ? styles.mainWelcome : ""}`}>
         {body}
 
         <div className={styles.navRow}>

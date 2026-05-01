@@ -1,5 +1,5 @@
-import FinanceRoutePage from "@/components/finance/FinanceRoutePage";
+import { redirect } from "next/navigation";
 
-export default function ThreeCriticalRisksPage() {
-  return <FinanceRoutePage routeId="three-critical-risks" />;
+export default function ThreeCriticalRisksRedirectPage() {
+  redirect("/risks");
 }

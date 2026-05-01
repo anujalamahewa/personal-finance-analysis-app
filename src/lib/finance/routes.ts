@@ -1,9 +1,9 @@
 export type FinanceRouteId =
   | "welcome"
   | "discussion-design"
-  | "dreams-and-wealth"
-  | "income-cycle"
-  | "three-critical-risks"
+  | "dreams"
+  | "income"
+  | "risks"
   | "client-profile"
   | "four-major-needs"
   | "retirement-planning"
@@ -30,21 +30,21 @@ export const financeRoutes: FinanceRoute[] = [
     shortLabel: "Design",
   },
   {
-    id: "dreams-and-wealth",
-    title: "Dreams and Wealth",
-    path: "/dreams-and-wealth",
-    shortLabel: "Life Cycle",
+    id: "dreams",
+    title: "Dreams = Wealth",
+    path: "/dreams",
+    shortLabel: "Dreams",
   },
   {
-    id: "income-cycle",
+    id: "income",
     title: "The Income Cycle",
-    path: "/income-cycle",
+    path: "/income",
     shortLabel: "Income",
   },
   {
-    id: "three-critical-risks",
+    id: "risks",
     title: "Three Critical Risks",
-    path: "/three-critical-risks",
+    path: "/risks",
     shortLabel: "Risks",
   },
   {

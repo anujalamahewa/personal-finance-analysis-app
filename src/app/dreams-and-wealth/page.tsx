@@ -1,5 +1,5 @@
-import FinanceRoutePage from "@/components/finance/FinanceRoutePage";
+import { redirect } from "next/navigation";
 
 export default function DreamsAndWealthPage() {
-  return <FinanceRoutePage routeId="dreams-and-wealth" />;
+  redirect("/dreams");
 }

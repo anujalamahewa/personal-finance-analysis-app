@@ -1,0 +1,247 @@
+.dreamsHeroLabel {
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #d31145;
+  margin-bottom: 8px;
+}
+
+.dreamsTitle {
+  font-size: clamp(34px, 4.6vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.8px;
+  font-weight: 900;
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.dreamsTitle span {
+  color: #d31145;
+}
+
+.dreamsBody {
+  max-width: 740px;
+  color: #525965;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.dreamsChartWrap {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 980px);
+  align-items: stretch;
+  column-gap: 12px;
+}
+
+.dreamsYAxisLabel {
+  align-self: center;
+  justify-self: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 13px;
+  color: #16a34a;
+}
+
+.dreamsChart {
+  position: relative;
+  height: 620px;
+  border-left: 3px solid #d31145;
+  border-bottom: 3px solid #d31145;
+  overflow: visible;
+  background: #f7f7f7;
+}
+
+.dreamsGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(211, 17, 69, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(211, 17, 69, 0.1) 1px, transparent 1px);
+  background-size: 25% 100%, 100% 25%;
+  pointer-events: none;
+}
+
+.dreamsTrendLine {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+.dreamsTrendLine line {
+  stroke: #d31145;
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+}
+
+.dreamsIcon {
+  position: absolute;
+  transform: translate(-50%, 50%);
+  font-size: 38px;
+  line-height: 1;
+}
+
+.dreamsIconBaby {
+  left: 0;
+  bottom: 0;
+}
+
+.dreamsIconSchool {
+  left: 11%;
+  bottom: 12%;
+}
+
+.dreamsIconRun {
+  left: 20%;
+  bottom: 22%;
+}
+
+.dreamsIconRing {
+  left: 37%;
+  bottom: 36%;
+}
+
+.dreamsIconCareer {
+  left: 44%;
+  bottom: 47%;
+}
+
+.dreamsIconFamily {
+  left: 52%;
+  bottom: 57%;
+}
+
+.dreamsIconGrad {
+  left: 63%;
+  bottom: 68%;
+}
+
+.dreamsIconTravel {
+  left: 73%;
+  bottom: 79%;
+}
+
+.dreamsIconSenior {
+  left: 84%;
+  bottom: 88%;
+}
+
+.dreamsXAxisTicks {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -28px;
+  display: flex;
+  justify-content: space-between;
+  color: #d31145;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.dreamsXAxisLabel {
+  position: absolute;
+  right: -28px;
+  bottom: -18px;
+  color: #d31145;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 960px) {
+  .dreamsChartWrap {
+    margin-top: 22px;
+    grid-template-columns: auto 1fr;
+    column-gap: 8px;
+  }
+
+  .dreamsYAxisLabel {
+    font-size: 11px;
+  }
+
+  .dreamsChart {
+    height: 520px;
+  }
+
+  .dreamsIcon {
+    font-size: 32px;
+  }
+
+  .dreamsXAxisTicks {
+    font-size: 11px;
+  }
+
+  .dreamsXAxisLabel {
+    font-size: 11px;
+    right: -24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dreamsChartWrap {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .dreamsYAxisLabel {
+    writing-mode: horizontal-tb;
+    transform: none;
+    justify-self: start;
+    font-size: 10px;
+    letter-spacing: 0.7px;
+  }
+
+  .dreamsChart {
+    height: 440px;
+  }
+
+  .dreamsIcon {
+    font-size: 28px;
+  }
+
+  .dreamsXAxisTicks {
+    bottom: -22px;
+    font-size: 10px;
+  }
+
+  .dreamsXAxisLabel {
+    font-size: 10px;
+    right: 0;
+    bottom: -34px;
+  }
+
+  .dreamsBody {
+    font-size: 14px;
+    line-height: 1.62;
+  }
+}
+
+@media (max-width: 640px) {
+  .dreamsTitle {
+    font-size: clamp(30px, 9.4vw, 40px);
+  }
+
+  .dreamsChart {
+    height: 360px;
+  }
+
+  .dreamsIcon {
+    font-size: 24px;
+  }
+
+  .dreamsXAxisTicks {
+    font-size: 10px;
+  }
+
+  .dreamsXAxisLabel {
+    font-size: 10px;
+  }
+}
