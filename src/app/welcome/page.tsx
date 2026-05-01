@@ -1,5 +1,5 @@
 import FinanceRoutePage from "@/components/finance/FinanceRoutePage";
 
-export default function Home() {
+export default function WelcomePage() {
   return <FinanceRoutePage routeId="welcome" />;
 }
