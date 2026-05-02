@@ -45,3 +45,15 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+:global(html[data-theme='dark']) .label {
+  color: #ff5f8d;
+}
+
+:global(html[data-theme='dark']) .title {
+  color: #f1f5f9;
+}
+
+:global(html[data-theme='dark']) .description {
+  color: #a7b4c8;
+}

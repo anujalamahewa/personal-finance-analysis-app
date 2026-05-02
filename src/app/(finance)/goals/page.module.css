@@ -132,3 +132,28 @@
   text-transform: uppercase;
   letter-spacing: 0.3px;
 }
+
+:global(html[data-theme='dark']) .dreamsYAxisLabel {
+  color: #4ade80;
+}
+
+:global(html[data-theme='dark']) .dreamsChart {
+  border-left-color: #ff5f8d;
+  border-bottom-color: #ff5f8d;
+  background: #121b2c;
+}
+
+:global(html[data-theme='dark']) .dreamsGrid {
+  background-image:
+    linear-gradient(to right, rgba(255, 95, 141, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 95, 141, 0.14) 1px, transparent 1px);
+}
+
+:global(html[data-theme='dark']) .dreamsTrendLine line {
+  stroke: #ff5f8d;
+}
+
+:global(html[data-theme='dark']) .dreamsXAxisTicks,
+:global(html[data-theme='dark']) .dreamsXAxisLabel {
+  color: #ff5f8d;
+}

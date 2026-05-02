@@ -107,6 +107,35 @@
   line-height: 1.5;
 }
 
+:global(html[data-theme='dark']) .card {
+  border-color: #2f3c52;
+  background: linear-gradient(180deg, #182336 0%, #121b2c 100%);
+  box-shadow: 0 16px 36px rgba(2, 8, 20, 0.55);
+}
+
+:global(html[data-theme='dark']) .card:hover,
+:global(html[data-theme='dark']) .card:focus-within {
+  box-shadow: 0 20px 42px rgba(2, 8, 20, 0.65);
+  border-color: #ff5f8d;
+}
+
+:global(html[data-theme='dark']) .phase {
+  color: #c8d3e2;
+}
+
+:global(html[data-theme='dark']) .iconBubble {
+  background: #121b2c;
+  border-color: #33435b;
+}
+
+:global(html[data-theme='dark']) .title {
+  color: #ff5f8d;
+}
+
+:global(html[data-theme='dark']) .body {
+  color: #a7b4c8;
+}
+
 @keyframes cardEnter {
   to {
     transform: translateY(0);
