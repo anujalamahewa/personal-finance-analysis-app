@@ -28,7 +28,7 @@ const needCards = [
 ] as const;
 
 export default function NeedsPage() {
-  const retirementPath = getRouteById('retirement')?.path ?? '/retirement';
+  const retirementPath = getRouteById('retirement')?.path ?? '/retirement-calculator';
 
   return (
     <FinanceRoutePage

@@ -61,8 +61,8 @@ export const financeRoutes: FinanceRoute[] = [
   },
   {
     id: 'retirement',
-    title: 'Retirement Planning',
-    path: '/retirement',
+    title: 'Retirement Calculator',
+    path: '/retirement-calculator',
     shortLabel: 'Retirement',
   },
   {
