@@ -12,7 +12,6 @@
 }
 
 .riskTitle {
-  font-size: clamp(28px, 4vw, 52px);
   line-height: 1.05;
   letter-spacing: -0.8px;
   font-weight: 900;
@@ -45,7 +44,6 @@
 
 .riskCardTitle {
   margin-top: 14px;
-  font-size: clamp(40px, 3.5vw, 54px);
   font-weight: 800;
   color: #d31145;
   line-height: 1.1;
@@ -107,17 +105,9 @@
   .riskGrid {
     grid-template-columns: 1fr;
   }
-
-  .riskCardTitle {
-    font-size: 42px;
-  }
 }
 
 @media (max-width: 768px) {
-  .riskTitle {
-    font-size: clamp(24px, 7.4vw, 34px);
-  }
-
   .riskCardBody,
   .riskScaleBody,
   .riskHint {
@@ -132,10 +122,6 @@
 
   .riskCard {
     padding: 18px 14px;
-  }
-
-  .riskCardTitle {
-    font-size: 36px;
   }
 
   .riskIcon {

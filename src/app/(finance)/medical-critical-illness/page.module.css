@@ -24,7 +24,6 @@
 }
 
 .pageTitle {
-  font-size: clamp(30px, 3.6vw, 40px);
   font-weight: 900;
   letter-spacing: -0.5px;
   color: #0f172a;
@@ -188,10 +187,6 @@
   .inputGrid,
   .statRow {
     grid-template-columns: 1fr;
-  }
-
-  .pageTitle {
-    font-size: 30px;
   }
 
   .inputField,

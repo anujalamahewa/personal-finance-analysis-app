@@ -24,7 +24,6 @@
 .pageTitle {
   margin: 0;
   color: #0f172a;
-  font-size: clamp(32px, 4vw, 48px);
   line-height: 1.06;
   letter-spacing: -0.6px;
   font-weight: 800;
@@ -32,7 +31,6 @@
 
 .sectionTitle {
   margin: 6px 0 10px;
-  font-size: 14px;
   letter-spacing: 2.6px;
   text-transform: uppercase;
   color: #d31145;
@@ -194,10 +192,6 @@
 }
 
 @media (max-width: 768px) {
-  .pageTitle {
-    font-size: clamp(26px, 7vw, 34px);
-  }
-
   .label {
     letter-spacing: 2px;
   }

@@ -20,7 +20,6 @@
 }
 
 .incomeTitle {
-  font-size: clamp(38px, 4.8vw, 58px);
   line-height: 1;
   letter-spacing: -0.8px;
   font-weight: 900;
@@ -221,7 +220,6 @@
 }
 
 .incomeLegendTitle {
-  font-size: 20px;
   font-weight: 800;
   color: #1f2430;
   line-height: 1.16;
@@ -284,17 +282,12 @@
   }
 
   .incomeTitle {
-    font-size: clamp(32px, 9.2vw, 44px);
     line-height: 1.02;
   }
 
   .incomeBody,
   .incomeStatText {
     font-size: 14px;
-  }
-
-  .incomeLegendTitle {
-    font-size: 16px;
   }
 
   .incomeLegendText {

@@ -12,7 +12,6 @@
 }
 
 .heroTitle {
-  font-size: clamp(28px, 4vw, 52px);
   line-height: 1.05;
   letter-spacing: -0.8px;
   font-weight: 900;
@@ -71,9 +70,6 @@
 }
 
 @media (max-width: 760px) {
-  .heroTitle {
-    font-size: clamp(24px, 7.4vw, 34px);
-  }
 }
 
 @media (max-width: 640px) {
@@ -83,7 +79,6 @@
   }
 
   .heroTitle {
-    font-size: clamp(24px, 9vw, 36px);
     letter-spacing: -0.4px;
     margin-bottom: 10px;
   }

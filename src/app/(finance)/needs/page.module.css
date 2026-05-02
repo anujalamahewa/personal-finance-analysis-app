@@ -25,10 +25,6 @@
   color: #111827;
 }
 
-.needsTitle span {
-  font-size: clamp(34px, 5vw, 66px);
-}
-
 .needsTitleAccent {
   color: #d31145;
 }
@@ -87,7 +83,6 @@
 
 .needTitle {
   margin: 16px 0 0;
-  font-size: 34px;
   line-height: 1.28;
   color: #111827;
   font-weight: 800;
@@ -115,10 +110,6 @@
 }
 
 @media (max-width: 1360px) {
-  .needTitle {
-    font-size: 30px;
-  }
-
   .needBody {
     font-size: 14px;
   }
@@ -154,10 +145,6 @@
     letter-spacing: 2.8px;
   }
 
-  .needsTitle span {
-    font-size: clamp(30px, 10vw, 42px);
-  }
-
   .needsTitleUnderline {
     width: 58px;
     margin-top: 14px;
@@ -183,7 +170,6 @@
   }
 
   .needTitle {
-    font-size: 28px;
     margin-top: 12px;
   }
 

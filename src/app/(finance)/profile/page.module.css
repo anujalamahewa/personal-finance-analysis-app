@@ -8,7 +8,6 @@
 }
 
 .profileTitle {
-  font-size: clamp(28px, 4vw, 52px);
   line-height: 1.05;
   letter-spacing: -0.8px;
   font-weight: 900;
@@ -18,7 +17,6 @@
 .sectionTitle {
   margin-top: 24px;
   margin-bottom: 10px;
-  font-size: 22px;
   font-weight: 800;
 }
 
@@ -143,10 +141,6 @@
 }
 
 @media (max-width: 768px) {
-  .profileTitle {
-    font-size: clamp(24px, 7.4vw, 34px);
-  }
-
   .cardMuted {
     font-size: 14px;
     line-height: 1.62;
@@ -160,7 +154,6 @@
   }
 
   .profileTitle {
-    font-size: clamp(24px, 9vw, 36px);
     letter-spacing: -0.4px;
     margin-bottom: 10px;
   }
@@ -170,7 +163,6 @@
   }
 
   .sectionTitle {
-    font-size: 20px;
     margin-top: 20px;
   }
 

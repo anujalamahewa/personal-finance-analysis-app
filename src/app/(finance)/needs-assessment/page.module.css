@@ -8,7 +8,6 @@
 }
 
 .heroTitle {
-  font-size: clamp(28px, 4vw, 52px);
   line-height: 1.05;
   letter-spacing: -0.8px;
   font-weight: 900;
@@ -51,7 +50,6 @@
 }
 
 .discussionPhaseTitle {
-  font-size: 35px;
   line-height: 1.2;
   letter-spacing: -0.2px;
   font-weight: 800;
@@ -94,10 +92,6 @@
     padding: 18px 14px;
   }
 
-  .discussionPhaseTitle {
-    font-size: 28px;
-  }
-
   .discussionBeginLink {
     margin-top: 20px;
     font-size: 29px;
@@ -107,10 +101,6 @@
 @media (max-width: 768px) {
   .discussionPhaseGrid {
     grid-template-columns: 1fr;
-  }
-
-  .discussionPhaseTitle {
-    font-size: 24px;
   }
 
   .discussionBeginLink {
@@ -126,7 +116,6 @@
   }
 
   .heroTitle {
-    font-size: clamp(24px, 9vw, 36px);
     letter-spacing: -0.4px;
     margin-bottom: 10px;
   }
