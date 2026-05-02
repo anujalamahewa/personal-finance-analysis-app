@@ -20,18 +20,24 @@
 }
 
 .dreamsBody {
-  max-width: 740px;
+  max-width: none;
   color: #525965;
   font-size: 15px;
   line-height: 1.8;
 }
 
+@media (min-width: 900px) {
+  .dreamsBody {
+    white-space: nowrap;
+  }
+}
+
 .dreamsChartWrap {
   margin-top: 30px;
   display: grid;
-  grid-template-columns: auto minmax(0, 980px);
+  grid-template-columns: 30px minmax(0, 980px);
   align-items: stretch;
-  column-gap: 12px;
+  column-gap: 6px;
 }
 
 .dreamsYAxisLabel {
@@ -48,7 +54,10 @@
 
 .dreamsChart {
   position: relative;
-  height: 620px;
+  width: 100%;
+  aspect-ratio: 16 / 8.6;
+  min-height: 320px;
+  max-height: 500px;
   border-left: 3px solid #d31145;
   border-bottom: 3px solid #d31145;
   overflow: visible;
@@ -85,53 +94,53 @@
 .dreamsIcon {
   position: absolute;
   transform: translate(-50%, 50%);
-  font-size: 38px;
+  font-size: clamp(32px, 3.6vw, 56px);
   line-height: 1;
 }
 
 .dreamsIconBaby {
-  left: 0;
-  bottom: 0;
+  left: 5%;
+  bottom: 5%;
 }
 
 .dreamsIconSchool {
-  left: 11%;
-  bottom: 12%;
+  left: 15%;
+  bottom: 15%;
 }
 
 .dreamsIconRun {
-  left: 20%;
-  bottom: 22%;
+  left: 25%;
+  bottom: 25%;
 }
 
 .dreamsIconRing {
-  left: 37%;
-  bottom: 36%;
+  left: 35%;
+  bottom: 35%;
 }
 
 .dreamsIconCareer {
-  left: 44%;
-  bottom: 47%;
+  left: 45%;
+  bottom: 45%;
 }
 
 .dreamsIconFamily {
-  left: 52%;
-  bottom: 57%;
+  left: 55%;
+  bottom: 55%;
 }
 
 .dreamsIconGrad {
-  left: 63%;
-  bottom: 68%;
+  left: 65%;
+  bottom: 65%;
 }
 
 .dreamsIconTravel {
-  left: 73%;
-  bottom: 79%;
+  left: 75%;
+  bottom: 75%;
 }
 
 .dreamsIconSenior {
-  left: 84%;
-  bottom: 88%;
+  left: 85%;
+  bottom: 85%;
 }
 
 .dreamsXAxisTicks {
@@ -148,8 +157,8 @@
 
 .dreamsXAxisLabel {
   position: absolute;
-  right: -28px;
-  bottom: -18px;
+  right: -36px;
+  bottom: -12px;
   color: #d31145;
   font-size: 13px;
   font-weight: 700;
@@ -160,8 +169,8 @@
 @media (max-width: 960px) {
   .dreamsChartWrap {
     margin-top: 22px;
-    grid-template-columns: auto 1fr;
-    column-gap: 8px;
+    grid-template-columns: 24px 1fr;
+    column-gap: 4px;
   }
 
   .dreamsYAxisLabel {
@@ -169,11 +178,14 @@
   }
 
   .dreamsChart {
-    height: 520px;
+    height: auto;
+    aspect-ratio: 16 / 7.2;
+    min-height: 280px;
+    max-height: 380px;
   }
 
   .dreamsIcon {
-    font-size: 32px;
+    font-size: clamp(28px, 4.4vw, 44px);
   }
 
   .dreamsXAxisTicks {
@@ -201,11 +213,14 @@
   }
 
   .dreamsChart {
-    height: 440px;
+    height: auto;
+    aspect-ratio: 16 / 6.8;
+    min-height: 240px;
+    max-height: 320px;
   }
 
   .dreamsIcon {
-    font-size: 28px;
+    font-size: clamp(28px, 5.6vw, 40px);
   }
 
   .dreamsXAxisTicks {
@@ -222,6 +237,7 @@
   .dreamsBody {
     font-size: 14px;
     line-height: 1.62;
+    white-space: normal;
   }
 }
 
@@ -231,11 +247,13 @@
   }
 
   .dreamsChart {
-    height: 360px;
+    height: auto;
+    min-height: 210px;
+    max-height: 280px;
   }
 
   .dreamsIcon {
-    font-size: 24px;
+    font-size: 36px;
   }
 
   .dreamsXAxisTicks {
