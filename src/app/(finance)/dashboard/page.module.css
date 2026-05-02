@@ -1,13 +1,20 @@
+.pageShell {
+  min-height: 100dvh;
+  background: #f1f5f9;
+}
+
 .shell {
   min-height: 100dvh;
-  padding: clamp(22px, 4vw, 50px);
-  background: radial-gradient(circle at 20% -20%, #ffe8ef 0%, #fff6ef 40%, #f3f6f8 100%);
-  display: grid;
-  place-items: center;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 88px 0 114px;
+  --body-inline-padding: 40px;
 }
 
 .panel {
-  width: min(980px, 100%);
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-inline: var(--body-inline-padding);
 }
 
 .eyebrow {
@@ -74,7 +81,11 @@
 }
 
 :global(html[data-theme='dark']) .shell {
-  background: radial-gradient(circle at 20% -20%, #321420 0%, #1c1a24 40%, #0b1220 100%);
+  background: transparent;
+}
+
+:global(html[data-theme='dark']) .pageShell {
+  background: #0b1220;
 }
 
 :global(html[data-theme='dark']) .eyebrow {

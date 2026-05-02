@@ -9,6 +9,7 @@ import {
   useState,
   type PropsWithChildren,
 } from 'react';
+import { THEME_STORAGE_KEY } from '@/lib/local-cache';
 
 export type ThemeMode = 'light' | 'dark';
 
@@ -17,8 +18,6 @@ type ThemeContextValue = {
   isDarkMode: boolean;
   toggleTheme: () => void;
 };
-
-const THEME_STORAGE_KEY = 'personal-finance-theme-mode-v1';
 
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 

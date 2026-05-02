@@ -10,11 +10,7 @@ export default function DreamsPage() {
         <>
           <SinglePageTitle
             label="The Financial Reality"
-            title={
-              <>
-                <span className={styles.goalsTitleAccent}>Your Life Goals</span>
-              </>
-            }
+            title="Your Life Goals"
             description="Every life goal comes with a financial responsibility. Define what matters to you so we can understand the cost and plan how to achieve it."
           />
 

@@ -12,15 +12,7 @@ export default function WelcomePage() {
         <section className={styles.welcomeLayout}>
           <SinglePageTitle
             label="Financial Planning Session"
-            title={
-              <>
-                Designing
-                <br />
-                Your Financial
-                <br />
-                Future
-              </>
-            }
+            title={<>Designing Your Financial Future</>}
             descriptionClassName={styles.welcomeDescription}
             description="A structured, data-driven need analysis to understand exactly where you are, where you need to be, and what it takes to get there."
           />

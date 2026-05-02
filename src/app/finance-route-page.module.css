@@ -19,6 +19,7 @@
   left: 0;
   right: 0;
   z-index: 20;
+  min-height: 52px;
   backdrop-filter: blur(12px);
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
@@ -28,14 +29,23 @@
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: var(--shell-bar-padding-y) var(--shell-bar-padding-x);
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  padding: var(--shell-bar-padding-y, 8px) var(--shell-bar-padding-x, 20px);
 }
 
 .headerControls {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+}
+
+.headerFiller {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .routeMenu {
@@ -57,8 +67,8 @@
 .themeToggle {
   flex: 0 0 auto;
   min-width: 42px;
-  min-height: var(--route-pill-height);
-  padding: var(--route-pill-padding-y) 10px;
+  min-height: var(--route-pill-height, 34px);
+  padding: var(--route-pill-padding-y, 8px) 10px;
   border-radius: 999px;
   border: 1px solid #dae1eb;
   background: #ffffff;
@@ -68,6 +78,31 @@
   justify-content: center;
   line-height: 1;
   cursor: pointer;
+}
+
+.clearStorageButton {
+  flex: 0 0 auto;
+  min-height: var(--route-pill-height, 34px);
+  border-radius: 999px;
+  border: 1px solid #f2c9d5;
+  background: #fff4f8;
+  color: #c91f49;
+  padding: var(--route-pill-padding-y, 8px) var(--route-pill-padding-x, 12px);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.clearStorageButton:hover {
+  border-color: #c91f49;
+  background: #ffe8ef;
+}
+
+.clearStorageButton:focus-visible {
+  outline: 3px solid rgba(201, 31, 73, 0.17);
+  outline-offset: 1px;
 }
 
 .themeToggle:hover {
@@ -99,14 +134,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: var(--route-pill-height);
+  min-height: var(--route-pill-height, 34px);
   line-height: 1;
   font-size: 14px;
   font-weight: 600;
   border: 1px solid #dae1eb;
   background: #ffffff;
   border-radius: 999px;
-  padding: var(--route-pill-padding-y) var(--route-pill-padding-x);
+  padding: var(--route-pill-padding-y, 8px) var(--route-pill-padding-x, 12px);
   color: #475569;
   white-space: nowrap;
   flex: 0 0 auto;
@@ -114,9 +149,9 @@
 
 .routeLinkHome {
   width: auto;
-  min-height: var(--route-pill-height);
+  min-height: var(--route-pill-height, 34px);
   min-width: 42px;
-  padding: var(--route-pill-padding-y) 10px;
+  padding: var(--route-pill-padding-y, 8px) 10px;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
@@ -477,7 +512,8 @@
   right: 0;
   bottom: 0;
   width: 100%;
-  padding: var(--shell-bar-padding-y) var(--shell-bar-padding-x);
+  min-height: 52px;
+  padding: var(--shell-bar-padding-y, 8px) var(--shell-bar-padding-x, 20px);
   border-top: 1px solid #e5e7eb;
   background: #ffffff;
   backdrop-filter: blur(8px);
@@ -494,13 +530,13 @@
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  padding: var(--route-pill-padding-y) var(--route-pill-padding-x);
+  padding: var(--route-pill-padding-y, 8px) var(--route-pill-padding-x, 12px);
   font-size: 14px;
   font-weight: 600;
   border: 1px solid #d3dae6;
   color: #334155;
   background: #fff;
-  min-height: var(--route-pill-height);
+  min-height: var(--route-pill-height, 34px);
   white-space: nowrap;
 }
 
@@ -596,7 +632,8 @@
 :global(html[data-theme='dark']) .routeLink,
 :global(html[data-theme='dark']) .navLink,
 :global(html[data-theme='dark']) .mobileNavLink,
-:global(html[data-theme='dark']) .themeToggle {
+:global(html[data-theme='dark']) .themeToggle,
+:global(html[data-theme='dark']) .clearStorageButton {
   background: #182336;
   border-color: #2f3c52;
   color: #dbe4ef;

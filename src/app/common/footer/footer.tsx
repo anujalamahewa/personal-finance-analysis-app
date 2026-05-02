@@ -10,10 +10,36 @@ type FooterProps = {
   nextRoute: FinanceRoute | null;
   routeIndex: number;
   totalSteps: number;
+  showControls?: boolean;
 };
 
-export default function Footer({ prevRoute, nextRoute, routeIndex, totalSteps }: FooterProps) {
+export default function Footer({
+  prevRoute,
+  nextRoute,
+  routeIndex,
+  totalSteps,
+  showControls = true,
+}: FooterProps) {
   const reducedMotion = useReducedMotion();
+
+  if (!showControls) {
+    return (
+      <>
+        <div className={styles.navRow} aria-hidden="true">
+          <div className={styles.navGroup}>
+            <span />
+          </div>
+          <div className={styles.navGroup}>
+            <span />
+          </div>
+        </div>
+
+        <div className={styles.mobileNavSpacer} aria-hidden="true" />
+
+        <div className={styles.mobileNav} aria-hidden="true" />
+      </>
+    );
+  }
 
   return (
     <>
@@ -43,7 +69,14 @@ export default function Footer({ prevRoute, nextRoute, routeIndex, totalSteps }:
               </Link>
             </motion.div>
           ) : (
-            <span className={styles.badge}>End of Journey</span>
+            <motion.div
+              whileHover={reducedMotion ? undefined : { scale: 1.02 }}
+              whileTap={reducedMotion ? undefined : { scale: 0.98 }}
+            >
+              <Link href="/dashboard" className={`${styles.navLink} ${styles.navLinkPrimary}`}>
+                End of Journey
+              </Link>
+            </motion.div>
           )}
         </div>
       </div>
@@ -84,7 +117,14 @@ export default function Footer({ prevRoute, nextRoute, routeIndex, totalSteps }:
             </Link>
           </motion.div>
         ) : (
-          <span className={`${styles.mobileNavLink} ${styles.mobileNavMuted}`}>Done</span>
+          <motion.div
+            whileHover={reducedMotion ? undefined : { scale: 1.02 }}
+            whileTap={reducedMotion ? undefined : { scale: 0.98 }}
+          >
+            <Link href="/dashboard" className={`${styles.mobileNavLink} ${styles.mobileNavNext}`}>
+              Done
+            </Link>
+          </motion.div>
         )}
       </div>
     </>

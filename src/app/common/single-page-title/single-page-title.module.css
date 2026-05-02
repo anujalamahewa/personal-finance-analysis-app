@@ -22,8 +22,9 @@
   font-weight: 900;
   color: #0f172a;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow: visible;
+  text-overflow: clip;
+  padding-bottom: 2px;
 }
 
 .title br {

@@ -18,9 +18,7 @@ import {
   type ClientProfile,
 } from '@/lib/types';
 import { getRouteById, type FinanceRouteId } from '@/lib/routes';
-
-const STORAGE_KEY = 'personal-finance-analysis-cache-v2';
-const LEGACY_STORAGE_KEY = 'personal-finance-analysis-state-v1';
+import { FINANCE_LEGACY_STORAGE_KEY, FINANCE_STORAGE_KEY } from '@/lib/local-cache';
 
 const defaultProfile: ClientProfile = {
   fullName: '',
@@ -200,7 +198,7 @@ export function FinanceProvider({ children }: PropsWithChildren) {
 
   useEffect(() => {
     try {
-      const rawCache = window.localStorage.getItem(STORAGE_KEY);
+      const rawCache = window.localStorage.getItem(FINANCE_STORAGE_KEY);
       if (rawCache) {
         const parsed = JSON.parse(rawCache) as
           | Partial<PersistedFinanceCache>
@@ -216,7 +214,7 @@ export function FinanceProvider({ children }: PropsWithChildren) {
           setState(mergeState(parsed as Partial<FinanceState>));
         }
       } else {
-        const legacyRaw = window.localStorage.getItem(LEGACY_STORAGE_KEY);
+        const legacyRaw = window.localStorage.getItem(FINANCE_LEGACY_STORAGE_KEY);
         if (legacyRaw) {
           const legacyParsed = JSON.parse(legacyRaw) as Partial<FinanceState>;
           if (legacyParsed && typeof legacyParsed === 'object') {
@@ -242,8 +240,8 @@ export function FinanceProvider({ children }: PropsWithChildren) {
       ui,
     };
 
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(cache));
-    window.localStorage.setItem(LEGACY_STORAGE_KEY, JSON.stringify(state));
+    window.localStorage.setItem(FINANCE_STORAGE_KEY, JSON.stringify(cache));
+    window.localStorage.setItem(FINANCE_LEGACY_STORAGE_KEY, JSON.stringify(state));
   }, [state, ui, isHydrated]);
 
   const computed = useMemo(() => computeFinance(state), [state]);
