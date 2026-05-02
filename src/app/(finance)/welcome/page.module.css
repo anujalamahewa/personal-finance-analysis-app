@@ -12,11 +12,12 @@
   grid-template-columns: minmax(320px, 0.88fr) minmax(420px, 1.12fr);
   align-items: start;
   gap: clamp(20px, 2.7vw, 40px);
-  min-height: calc(100dvh - 110px);
+  min-height: 0;
+  flex: 1;
 }
 
 .welcomePanel {
-  padding: clamp(28px, 4.8vh, 52px) 0 20px;
+  padding: clamp(14px, 2.8vh, 28px) 0 10px;
 }
 
 .welcomeTitle {
@@ -211,11 +212,11 @@
   .welcomeLayout {
     grid-template-columns: minmax(300px, 0.86fr) minmax(360px, 1.14fr);
     gap: 18px;
-    min-height: calc(100dvh - 116px);
+    min-height: 0;
   }
 
   .welcomePanel {
-    padding-top: 18px;
+    padding-top: 8px;
   }
 
   .welcomeTitle {

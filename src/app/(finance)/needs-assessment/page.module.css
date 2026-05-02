@@ -17,95 +17,19 @@
 .discussionPhaseGrid {
   margin-top: 20px;
   display: grid;
-  gap: 18px;
+  gap: 20px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.discussionPhaseCard {
-  border: 2px solid #d5dae2;
-  border-radius: 16px;
-  background: #fafafa;
-  padding: 22px 20px;
-}
-
-.discussionPhaseNeed {
-  border-color: #d31145;
-}
-
-.discussionPhaseGap {
-  border-color: #1f78ad;
-}
-
-.discussionPhaseSolution {
-  border-color: #16a34a;
-}
-
-.discussionPhaseTag {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-weight: 800;
-  color: #64748b;
-  margin-bottom: 10px;
-}
-
-.discussionPhaseTitle {
-  line-height: 1.2;
-  letter-spacing: -0.2px;
-  font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 10px;
-}
-
-.discussionPhaseBody {
-  color: #576171;
-  font-size: 15px;
-  line-height: 1.56;
-}
-
-.discussionBeginLink {
-  margin-top: 28px;
-  min-height: 58px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #f1ccd8;
-  border-radius: 14px;
-  background: #f7eef2;
-  color: #d31145;
-  font-size: 33px;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.discussionBeginLink:hover {
-  border-color: #dfb5c3;
-  background: #fbf4f7;
 }
 
 @media (max-width: 980px) {
   .discussionPhaseGrid {
     gap: 12px;
   }
-
-  .discussionPhaseCard {
-    padding: 18px 14px;
-  }
-
-  .discussionBeginLink {
-    margin-top: 20px;
-    font-size: 29px;
-  }
 }
 
 @media (max-width: 768px) {
   .discussionPhaseGrid {
     grid-template-columns: 1fr;
-  }
-
-  .discussionBeginLink {
-    min-height: 52px;
-    font-size: 24px;
   }
 }
 
@@ -118,20 +42,5 @@
   .heroTitle {
     letter-spacing: -0.4px;
     margin-bottom: 10px;
-  }
-
-  .discussionPhaseTag {
-    letter-spacing: 2.5px;
-  }
-
-  .discussionPhaseBody {
-    font-size: 14px;
-    line-height: 1.55;
-  }
-
-  .discussionBeginLink {
-    font-size: 20px;
-    text-align: center;
-    padding: 0 10px;
   }
 }

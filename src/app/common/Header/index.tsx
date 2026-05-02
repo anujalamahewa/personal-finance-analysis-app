@@ -2,14 +2,14 @@
 
 import Link from 'next/link';
 import { financeRoutes, type FinanceRouteId } from '@/lib/routes';
-import styles from './FinanceRoutePage.module.css';
+import styles from '../../FinanceRoutePage.module.css';
 
-type FinanceHeaderProps = {
+type HeaderProps = {
   routeId: FinanceRouteId;
   routeIndex: number;
 };
 
-export default function FinanceHeader({ routeId, routeIndex }: FinanceHeaderProps) {
+export default function Header({ routeId, routeIndex }: HeaderProps) {
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>

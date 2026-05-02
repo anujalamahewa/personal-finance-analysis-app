@@ -1,9 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import { type ReactNode, useEffect } from 'react';
 import { financeRoutes, getRouteById, getRouteIndex, type FinanceRouteId } from '@/lib/routes';
-import FinanceHeader from './FinanceHeader';
+import Header from '@/app/common/Header';
+import Footer from '@/app/common/Footer';
 import { useFinance } from './FinanceProvider';
 import styles from './FinanceRoutePage.module.css';
 
@@ -41,56 +41,17 @@ export default function FinanceRoutePage({ routeId, customBody }: FinanceRoutePa
 
   return (
     <div className={`${styles.shell} ${isWelcomeRoute ? styles.shellWelcome : ''}`}>
-      <FinanceHeader routeId={routeId} routeIndex={routeIndex} />
+      <Header routeId={routeId} routeIndex={routeIndex} />
 
       <main className={`${styles.main} ${isWelcomeRoute ? styles.mainWelcome : ''}`}>
         {body}
-
-        <div className={styles.navRow}>
-          <div className={styles.navGroup}>
-            {prevRoute ? (
-              <Link href={prevRoute.path} className={styles.navLink}>
-                Back: {prevRoute.shortLabel}
-              </Link>
-            ) : (
-              <span />
-            )}
-          </div>
-          <div className={styles.navGroup}>
-            {nextRoute ? (
-              <Link href={nextRoute.path} className={`${styles.navLink} ${styles.navLinkPrimary}`}>
-                Next: {nextRoute.shortLabel}
-              </Link>
-            ) : (
-              <span className={styles.badge}>End of Journey</span>
-            )}
-          </div>
-        </div>
-
-        <div className={styles.mobileNavSpacer} aria-hidden="true" />
+        <Footer
+          prevRoute={prevRoute}
+          nextRoute={nextRoute}
+          routeIndex={routeIndex}
+          totalSteps={financeRoutes.length}
+        />
       </main>
-
-      <div className={styles.mobileNav} aria-label="Mobile page navigation">
-        {prevRoute ? (
-          <Link href={prevRoute.path} className={`${styles.mobileNavLink} ${styles.mobileNavBack}`}>
-            Back
-          </Link>
-        ) : (
-          <span className={`${styles.mobileNavLink} ${styles.mobileNavMuted}`}>Start</span>
-        )}
-
-        <div className={styles.mobileNavStep}>
-          {routeIndex + 1}/{financeRoutes.length}
-        </div>
-
-        {nextRoute ? (
-          <Link href={nextRoute.path} className={`${styles.mobileNavLink} ${styles.mobileNavNext}`}>
-            Next
-          </Link>
-        ) : (
-          <span className={`${styles.mobileNavLink} ${styles.mobileNavMuted}`}>Done</span>
-        )}
-      </div>
     </div>
   );
 }
