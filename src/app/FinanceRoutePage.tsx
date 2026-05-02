@@ -44,7 +44,7 @@ export default function FinanceRoutePage({ routeId, customBody }: FinanceRoutePa
       <Header routeId={routeId} routeIndex={routeIndex} />
 
       <main className={`${styles.main} ${isWelcomeRoute ? styles.mainWelcome : ''}`}>
-        {body}
+        <div className={styles.bodyContent}>{body}</div>
         <Footer
           prevRoute={prevRoute}
           nextRoute={nextRoute}

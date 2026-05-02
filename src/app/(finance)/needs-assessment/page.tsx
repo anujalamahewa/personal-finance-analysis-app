@@ -14,6 +14,10 @@ export default function NeedsAssessmentPage() {
         <>
           <div className={styles.heroLabel}>How This Is Structured</div>
           <h1 className={styles.heroTitle}>Needs Assessment</h1>
+          <p className={styles.heroBody}>
+            We identify the right priorities by mapping each need, measuring your current position,
+            and defining the exact gaps to close.
+          </p>
 
           <div className={styles.discussionPhaseGrid}>
             <Card

@@ -89,17 +89,23 @@
 .main {
   max-width: 1320px;
   margin: 0 auto;
-  padding: 118px 20px 114px;
+  padding: 118px 0 114px;
+  --body-inline-padding: 40px;
 }
 
 .mainWelcome {
   max-width: 1320px;
   margin: 0 auto;
   min-height: calc(100dvh - 220px);
-  padding: 104px 20px 106px;
+  padding: 104px 0 106px;
+  --body-inline-padding: 40px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.bodyContent {
+  padding-inline: var(--body-inline-padding);
 }
 
 .heroLabel {
@@ -502,6 +508,11 @@
 }
 
 @media (max-width: 960px) {
+  .main,
+  .mainWelcome {
+    --body-inline-padding: 28px;
+  }
+
   .titleRow {
     flex-wrap: wrap;
     align-items: flex-start;
@@ -525,7 +536,7 @@
   }
 
   .main {
-    padding: 108px 14px 104px;
+    padding: 108px 0 104px;
   }
 
   .headerInner {
@@ -534,7 +545,7 @@
 
   .mainWelcome {
     min-height: auto;
-    padding: 102px 14px 98px;
+    padding: 102px 0 98px;
   }
 
   .navRow {
@@ -560,8 +571,13 @@
 }
 
 @media (min-width: 769px) and (max-width: 1180px) {
+  .main,
+  .mainWelcome {
+    --body-inline-padding: 28px;
+  }
+
   .main {
-    padding: 108px 14px 106px;
+    padding: 108px 0 106px;
   }
 
   .headerInner {
@@ -620,6 +636,11 @@
 }
 
 @media (min-width: 900px) and (max-width: 1368px) and (orientation: landscape) {
+  .main,
+  .mainWelcome {
+    --body-inline-padding: 28px;
+  }
+
   .headerInner {
     padding: 10px 14px;
     gap: 7px;
@@ -643,7 +664,7 @@
   }
 
   .main {
-    padding: 102px 14px 102px;
+    padding: 102px 0 102px;
   }
 
   .heroTitle {
@@ -663,8 +684,13 @@
 }
 
 @media (max-width: 768px) {
+  .main,
+  .mainWelcome {
+    --body-inline-padding: 24px;
+  }
+
   .main {
-    padding: 104px 12px 22px;
+    padding: 104px 0 22px;
   }
 
   .headerInner {
@@ -713,7 +739,7 @@
 
   .mainWelcome {
     min-height: auto;
-    padding: 98px 12px 14px;
+    padding: 98px 0 14px;
   }
 }
 
@@ -814,8 +840,13 @@
 }
 
 @media (max-width: 430px) {
+  .main,
+  .mainWelcome {
+    --body-inline-padding: 20px;
+  }
+
   .main {
-    padding: 100px 10px 20px;
+    padding: 100px 0 20px;
   }
 
   .headerInner {
@@ -852,9 +883,9 @@
 }
 
 @media (max-width: 360px) {
-  .main {
-    padding-left: 8px;
-    padding-right: 8px;
+  .main,
+  .mainWelcome {
+    --body-inline-padding: 16px;
   }
 
   .routeLink {
