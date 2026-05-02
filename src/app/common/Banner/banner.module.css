@@ -8,11 +8,11 @@
   border-radius: 14px;
   background: #f7eef2;
   color: #d31145;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.3;
   text-decoration: none;
-  padding: 8px 12px;
+  padding: 10px 14px;
   text-align: center;
 }
 
@@ -24,13 +24,13 @@
 @media (max-width: 768px) {
   .banner {
     min-height: 52px;
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
 @media (max-width: 640px) {
   .banner {
-    font-size: 16px;
+    font-size: 15px;
     padding: 10px;
   }
 }

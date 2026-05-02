@@ -19,86 +19,18 @@
   color: #0f172a;
 }
 
+.riskDescription {
+  max-width: 780px;
+  color: #5f6672;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
 .riskGrid {
-  margin-top: 10px;
+  margin-top: 18px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
-}
-
-.riskCard {
-  background: #f9fafb;
-  border: 1px solid #d1d5db;
-  border-radius: 16px;
-  padding: 24px 20px 20px;
-  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.03);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.riskIcon {
-  font-size: 42px;
-  line-height: 1;
-}
-
-.riskCardTitle {
-  margin-top: 14px;
-  font-weight: 800;
-  color: #d31145;
-  line-height: 1.1;
-}
-
-.riskCardBody {
-  margin-top: 12px;
-  color: #6b7280;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.riskDivider {
-  margin: 16px 0 14px;
-  border: none;
-  border-top: 1px solid #d1d5db;
-}
-
-.riskScaleLabel {
-  font-size: 16px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #d31145;
-}
-
-.riskScaleBody {
-  margin-top: 8px;
-  color: #6b7280;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.riskActions {
-  margin-top: 10px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.riskStepPill {
-  border: 1px solid #d5dae2;
-  border-radius: 999px;
-  background: #ffffff;
-  color: #334155;
-  font-weight: 700;
-  font-size: 12px;
-  padding: 7px 12px;
-}
-
-.riskHint {
-  margin-top: 14px;
-  color: #5f6672;
-  font-size: 16px;
-  line-height: 1.5;
 }
 
 @media (max-width: 1120px) {
@@ -108,23 +40,8 @@
 }
 
 @media (max-width: 768px) {
-  .riskCardBody,
-  .riskScaleBody,
-  .riskHint {
+  .riskDescription {
     font-size: 14px;
     line-height: 1.62;
-  }
-
-  .riskScaleLabel {
-    letter-spacing: 2px;
-    font-size: 14px;
-  }
-
-  .riskCard {
-    padding: 18px 14px;
-  }
-
-  .riskIcon {
-    font-size: 38px;
   }
 }

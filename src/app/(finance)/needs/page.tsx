@@ -1,77 +1,64 @@
 'use client';
 
+import Banner from '@/app/common/Banner';
+import Card from '@/app/common/Card';
 import FinanceRoutePage from '@/app/FinanceRoutePage';
+import { getRouteById } from '@/lib/routes';
 import styles from './page.module.css';
 
 const needCards = [
   {
-    icon: '💰',
+    icon: '🏖️',
     title: 'Happy Retirement',
     body: 'Having enough to live comfortably after you stop working',
-    tone: 'retirement',
+    phase: 'Need 01',
   },
   {
     icon: '👨‍👩‍👧',
     title: 'Family Income Protection',
     body: "Protecting your family's lifestyle if you can no longer provide",
-    tone: 'family',
-  },
-  {
-    icon: '🎓',
-    title: 'Higher Education Funds',
-    body: "Ensuring your children's education is funded regardless of what happens",
-    tone: 'education',
+    phase: 'Need 02',
   },
   {
     icon: '🏥',
     title: 'Medical Emergency Funds',
     body: 'Covering healthcare costs without destroying your savings',
-    tone: 'medical',
+    phase: 'Need 03',
   },
 ] as const;
 
-const toneClassByKey = {
-  retirement: styles.toneRetirement,
-  family: styles.toneFamily,
-  education: styles.toneEducation,
-  medical: styles.toneMedical,
-} as const;
-
 export default function NeedsPage() {
+  const retirementPath = getRouteById('retirement')?.path ?? '/retirement';
+
   return (
     <FinanceRoutePage
       routeId="needs"
       customBody={
         <section className={styles.needsLayout}>
           <div className={styles.needsLabel}>Before We Calculate</div>
-          <h1 className={styles.needsTitle}>
-            <span>Understanding the</span>
-            <span className={styles.needsTitleAccent}>4 Major Life Risks</span>
-          </h1>
-          <div className={styles.needsTitleUnderline} aria-hidden="true" />
+          <h1 className={styles.needsTitle}>Understanding the 3 Major Life Needs</h1>
           <p className={styles.needsIntro}>
-            Before we look at numbers, it&apos;s important to understand the four financial pillars
+            Before we look at numbers, it&apos;s important to understand the three financial pillars
             that every complete financial plan must address.
           </p>
 
           <div className={styles.needsGrid}>
             {needCards.map((card) => (
-              <article
+              <Card
                 key={card.title}
-                className={`${styles.needCard} ${toneClassByKey[card.tone]}`}
-              >
-                <div className={styles.needIcon} aria-hidden="true">
-                  {card.icon}
-                </div>
-                <h2 className={styles.needTitle}>{card.title}</h2>
-                <p className={styles.needBody}>{card.body}</p>
-              </article>
+                phase={card.phase}
+                title={card.title}
+                description={card.body}
+                icon={card.icon}
+              />
             ))}
           </div>
 
-          <div className={styles.needsCallout}>
-            We will now calculate your exact position for each of these four needs.
-          </div>
+          <Banner
+            href={retirementPath}
+            label="Next: Build your retirement need"
+            className={styles.needsBanner}
+          />
         </section>
       }
     />
