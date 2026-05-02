@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import FinanceRoutePage from '@/lib/FinanceRoutePage';
+import FinanceRoutePage from '@/app/FinanceRoutePage';
 import { getRouteById } from '@/lib/routes';
 import styles from './page.module.css';
 
