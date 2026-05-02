@@ -2,6 +2,11 @@
   min-height: 100dvh;
   background: #f1f5f9;
   color: #1a2028;
+  --route-pill-height: 34px;
+  --route-pill-padding-y: 8px;
+  --route-pill-padding-x: 12px;
+  --shell-bar-padding-y: 8px;
+  --shell-bar-padding-x: 20px;
 }
 
 .shellWelcome {
@@ -20,9 +25,10 @@
 }
 
 .headerInner {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 8px 20px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: var(--shell-bar-padding-y) var(--shell-bar-padding-x);
 }
 
 .routeMenu {
@@ -39,14 +45,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 34px;
+  min-height: var(--route-pill-height);
   line-height: 1;
   font-size: 14px;
   font-weight: 600;
   border: 1px solid #dae1eb;
   background: #ffffff;
   border-radius: 999px;
-  padding: 8px 12px;
+  padding: var(--route-pill-padding-y) var(--route-pill-padding-x);
   color: #475569;
   white-space: nowrap;
   flex: 0 0 auto;
@@ -54,9 +60,9 @@
 
 .routeLinkHome {
   width: auto;
-  min-height: 34px;
+  min-height: var(--route-pill-height);
   min-width: 42px;
-  padding: 8px 10px;
+  padding: var(--route-pill-padding-y) 10px;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
@@ -417,7 +423,7 @@
   right: 0;
   bottom: 0;
   width: 100%;
-  padding: 10px 20px;
+  padding: var(--shell-bar-padding-y) var(--shell-bar-padding-x);
   border-top: 1px solid #e5e7eb;
   background: #ffffff;
   backdrop-filter: blur(8px);
@@ -434,13 +440,13 @@
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  padding: 10px 14px;
+  padding: var(--route-pill-padding-y) var(--route-pill-padding-x);
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   border: 1px solid #d3dae6;
   color: #334155;
   background: #fff;
-  min-height: 42px;
+  min-height: var(--route-pill-height);
   white-space: nowrap;
 }
 
@@ -548,7 +554,11 @@
   }
 
   .headerInner {
-    padding: 8px 14px;
+    padding: var(--shell-bar-padding-y) var(--shell-bar-padding-x);
+  }
+
+  .shell {
+    --shell-bar-padding-x: 14px;
   }
 
   .mainWelcome {
@@ -589,7 +599,11 @@
   }
 
   .headerInner {
-    padding: 8px 14px;
+    padding: var(--shell-bar-padding-y) var(--shell-bar-padding-x);
+  }
+
+  .shell {
+    --shell-bar-padding-x: 14px;
   }
 
   .routeMenu {
@@ -654,7 +668,11 @@
   }
 
   .headerInner {
-    padding: 8px 14px;
+    padding: var(--shell-bar-padding-y) var(--shell-bar-padding-x);
+  }
+
+  .shell {
+    --shell-bar-padding-x: 14px;
   }
 
   .routeMenu {
@@ -701,7 +719,11 @@
   }
 
   .headerInner {
-    padding: 8px 12px;
+    padding: var(--shell-bar-padding-y) var(--shell-bar-padding-x);
+  }
+
+  .shell {
+    --shell-bar-padding-x: 12px;
   }
 
   .routeLink {

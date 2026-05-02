@@ -4,6 +4,7 @@ import { type ReactNode, useEffect } from 'react';
 import { financeRoutes, getRouteById, getRouteIndex, type FinanceRouteId } from '@/lib/routes';
 import Header from '@/app/common/header/header';
 import Footer from '@/app/common/footer/footer';
+import { AnimatedPage } from '@/app/common/animations/animations';
 import { useFinance } from './finance-provider';
 import styles from './finance-route-page.module.css';
 
@@ -44,7 +45,9 @@ export default function FinanceRoutePage({ routeId, customBody }: FinanceRoutePa
       <Header routeId={routeId} />
 
       <main className={`${styles.main} ${isWelcomeRoute ? styles.mainWelcome : ''}`}>
-        <div className={styles.bodyContent}>{body}</div>
+        <AnimatedPage pageKey={routeId} className={styles.bodyContent}>
+          {body}
+        </AnimatedPage>
         <Footer
           prevRoute={prevRoute}
           nextRoute={nextRoute}

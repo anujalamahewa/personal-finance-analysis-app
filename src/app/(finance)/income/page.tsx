@@ -11,7 +11,7 @@ export default function IncomeCyclePage() {
         <>
           <section className={styles.incomeHeader}>
             <SinglePageTitle
-              label="The Financial Reality"
+              label="Your Financial Life Cycle"
               title="The Income Cycle"
               description={
                 <>

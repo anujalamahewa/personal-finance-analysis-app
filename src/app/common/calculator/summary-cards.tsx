@@ -1,3 +1,7 @@
+'use client';
+
+import { PopValue, StaggerGroup, StaggerItem } from '@/app/common/animations/animations';
+
 type SummaryCardsProps = {
   need: string;
   have: string;
@@ -31,20 +35,42 @@ export default function SummaryCards({
   haveLabel = 'I Have',
   gapLabel = 'My Gap',
 }: SummaryCardsProps) {
+  const cards = [
+    {
+      id: 'need',
+      label: needLabel,
+      value: need,
+      cardClassName: needCardClassName,
+      valueClassName: valueClassName,
+    },
+    {
+      id: 'have',
+      label: haveLabel,
+      value: have,
+      cardClassName: haveCardClassName,
+      valueClassName: valueClassName,
+    },
+    {
+      id: 'gap',
+      label: gapLabel,
+      value: gap,
+      cardClassName: gapCardClassName,
+      valueClassName: `${valueClassName} ${gapValueClassName ?? ''}`.trim(),
+    },
+  ] as const;
+
   return (
-    <div className={containerClassName}>
-      <article className={`${cardClassName} ${needCardClassName}`}>
-        <div className={labelClassName}>{needLabel}</div>
-        <div className={valueClassName}>{need}</div>
-      </article>
-      <article className={`${cardClassName} ${haveCardClassName}`}>
-        <div className={labelClassName}>{haveLabel}</div>
-        <div className={valueClassName}>{have}</div>
-      </article>
-      <article className={`${cardClassName} ${gapCardClassName}`}>
-        <div className={labelClassName}>{gapLabel}</div>
-        <div className={`${valueClassName} ${gapValueClassName ?? ''}`.trim()}>{gap}</div>
-      </article>
-    </div>
+    <StaggerGroup className={containerClassName}>
+      {cards.map((card, index) => (
+        <StaggerItem key={card.id} index={index}>
+          <article className={`${cardClassName} ${card.cardClassName}`}>
+            <div className={labelClassName}>{card.label}</div>
+            <PopValue valueKey={`${card.id}-${card.value}`} className={card.valueClassName}>
+              {card.value}
+            </PopValue>
+          </article>
+        </StaggerItem>
+      ))}
+    </StaggerGroup>
   );
 }

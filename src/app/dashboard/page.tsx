@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { RevealSection } from '@/app/common/animations/animations';
 import Card from '@/app/common/card/card';
 import styles from './page.module.css';
 
@@ -10,7 +11,7 @@ export default function DashboardPage() {
         <h1 className={styles.title}>Choose Your Workspace</h1>
         <p className={styles.body}>Select how you want to proceed:</p>
 
-        <div className={styles.cardGrid}>
+        <RevealSection className={styles.cardGrid}>
           <div className={`${styles.cardDisabled} ${styles.cardStatic}`} aria-disabled="true">
             <Card
               phase="Admin"
@@ -18,6 +19,7 @@ export default function DashboardPage() {
               description="Manage users, data, and system settings."
               icon="⚙️"
               className={styles.dashboardCard}
+              delay={0}
             />
           </div>
 
@@ -28,6 +30,7 @@ export default function DashboardPage() {
               description="Run client assessments and generate reports."
               icon="📊"
               className={styles.dashboardCard}
+              delay={0.06}
             />
           </Link>
 
@@ -38,9 +41,10 @@ export default function DashboardPage() {
               description="View client profiles, progress, and ongoing plans."
               icon="👥"
               className={styles.dashboardCard}
+              delay={0.12}
             />
           </div>
-        </div>
+        </RevealSection>
       </section>
     </main>
   );

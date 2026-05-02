@@ -1,10 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import Card from '@/app/common/card/card';
+import { RevealSection } from '@/app/common/animations/animations';
 import FinanceRoutePage from '@/app/finance-route-page';
 import SinglePageTitle from '@/app/common/single-page-title/single-page-title';
-import { getRouteById } from '@/lib/routes';
 import styles from './page.module.css';
 
 const needCards = [
@@ -29,8 +28,6 @@ const needCards = [
 ] as const;
 
 export default function NeedsPage() {
-  const retirementPath = getRouteById('retirement')?.path ?? '/retirement';
-
   return (
     <FinanceRoutePage
       routeId="needs"
@@ -39,24 +36,21 @@ export default function NeedsPage() {
           <SinglePageTitle
             label="Before We Calculate"
             title="Understanding the 3 Major Life Needs"
-            description="Before we look at numbers, it's important to understand the three financial pillars that every complete financial plan must address."
+            description="Before we look at numbers, it's important to understand the three financial pillars that every financial plan must address."
           />
 
-          <div className={styles.needsGrid}>
-            {needCards.map((card) => (
+          <RevealSection className={styles.needsGrid}>
+            {needCards.map((card, index) => (
               <Card
                 key={card.title}
                 phase={card.phase}
                 title={card.title}
                 description={card.body}
                 icon={card.icon}
+                delay={index * 0.06}
               />
             ))}
-          </div>
-
-          <Link href={retirementPath} className={styles.needsBanner}>
-            Next: Build your retirement need
-          </Link>
+          </RevealSection>
         </section>
       }
     />

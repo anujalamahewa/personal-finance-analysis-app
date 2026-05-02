@@ -1,4 +1,5 @@
 import { type ReactNode } from 'react';
+import { RevealSection } from '@/app/common/animations/animations';
 import RedLine from '@/app/common/red-line/red-line';
 import styles from './single-page-title.module.css';
 
@@ -24,11 +25,11 @@ export default function SinglePageTitle({
   descriptionClassName,
 }: SinglePageTitleProps) {
   return (
-    <section className={`${styles.root} ${className ?? ''}`}>
+    <RevealSection className={`${styles.root} ${className ?? ''}`}>
       <h2 className={`${styles.label} ${labelClassName ?? ''}`}>{label}</h2>
       <h1 className={`${styles.title} ${titleClassName ?? ''}`}>{title}</h1>
       <RedLine className={`${styles.line} ${lineClassName ?? ''}`} />
       <p className={`${styles.description} ${descriptionClassName ?? ''}`}>{description}</p>
-    </section>
+    </RevealSection>
   );
 }

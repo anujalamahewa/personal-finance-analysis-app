@@ -1,6 +1,7 @@
 'use client';
 
 import Card from '@/app/common/card/card';
+import { RevealSection } from '@/app/common/animations/animations';
 import FinanceRoutePage from '@/app/finance-route-page';
 import SinglePageTitle from '@/app/common/single-page-title/single-page-title';
 import styles from './page.module.css';
@@ -35,7 +36,7 @@ export default function RisksPage() {
             description="Prioritize by impact and build protection where a single event could stop income the fastest."
           />
 
-          <div className={styles.riskGrid}>
+          <RevealSection className={styles.riskGrid}>
             {risks.map((risk, index) => (
               <Card
                 key={risk.title}
@@ -43,9 +44,10 @@ export default function RisksPage() {
                 title={risk.title}
                 description={risk.body}
                 icon={risk.icon}
+                delay={index * 0.06}
               />
             ))}
-          </div>
+          </RevealSection>
         </section>
       }
     />

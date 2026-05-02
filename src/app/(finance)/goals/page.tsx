@@ -9,17 +9,17 @@ export default function DreamsPage() {
       customBody={
         <>
           <SinglePageTitle
-            label="Your Financial Life Cycle"
+            label="The Financial Reality"
             title={
               <>
-                Dreams <span className={styles.goalsTitleAccent}>= Wealth</span>
+                <span className={styles.goalsTitleAccent}>Your Life Goals</span>
               </>
             }
-            description="Every milestone in life carries a financial cost. The question is whether your finances are growing fast enough to keep up with your dreams."
+            description="Every life goal comes with a financial responsibility. Define what matters to you so we can understand the cost and plan how to achieve it."
           />
 
           <div className={styles.dreamsChartWrap}>
-            <div className={styles.dreamsYAxisLabel}>Dreams = Wealth</div>
+            <div className={styles.dreamsYAxisLabel}>Your Life Goals</div>
             <div className={styles.dreamsChart}>
               <div className={styles.dreamsGrid} aria-hidden="true" />
 
