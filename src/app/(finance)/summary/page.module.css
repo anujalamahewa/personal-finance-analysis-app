@@ -68,18 +68,3 @@
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
-@media (max-width: 760px) {
-}
-
-@media (max-width: 640px) {
-  .heroLabel {
-    letter-spacing: 1.2px;
-    font-size: 10px;
-  }
-
-  .heroTitle {
-    letter-spacing: -0.4px;
-    margin-bottom: 10px;
-  }
-}

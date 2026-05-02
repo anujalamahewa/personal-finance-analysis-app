@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useTheme } from '@/app/theme-provider';
 import { usePathname } from 'next/navigation';
 import { financeRoutes, type FinanceRouteId } from '@/lib/routes';
 import styles from '../../finance-route-page.module.css';
@@ -12,7 +12,7 @@ type HeaderProps = {
 
 export default function Header({ routeId }: HeaderProps) {
   const pathname = usePathname();
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { isDarkMode, toggleTheme } = useTheme();
   const isHomeActive = pathname === '/' || pathname === '/dashboard';
 
   return (
@@ -51,7 +51,7 @@ export default function Header({ routeId }: HeaderProps) {
             className={styles.themeToggle}
             aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             aria-pressed={isDarkMode}
-            onClick={() => setIsDarkMode((current) => !current)}
+            onClick={toggleTheme}
           >
             <span className={styles.themeIcon} aria-hidden="true">
               {isDarkMode ? (

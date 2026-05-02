@@ -15,6 +15,19 @@
   --radius-lg: 20px;
 }
 
+html[data-theme='dark'] {
+  --background: #0b1220;
+  --foreground: #e2e8f0;
+  --surface: #121b2c;
+  --surface-soft: #182336;
+  --brand: #ff4f7f;
+  --brand-strong: #db2a5d;
+  --ring: rgba(255, 79, 127, 0.3);
+  --stroke: #273348;
+  --stroke-soft: #1f2a3d;
+  --shadow-md: 0 18px 40px rgba(2, 8, 20, 0.6);
+}
+
 html {
   height: 100%;
 }
@@ -42,57 +55,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html[data-theme='dark'] body {
+  background:
+    radial-gradient(circle at 10% -22%, rgba(255, 79, 127, 0.2) 0%, rgba(255, 79, 127, 0) 40%),
+    radial-gradient(circle at 92% 2%, rgba(51, 153, 236, 0.16) 0%, rgba(51, 153, 236, 0) 35%),
+    var(--background);
+}
+
 .app-landscape-root {
   min-height: 100dvh;
 }
 
 .portrait-lock-screen {
   display: none;
-}
-
-@media (orientation: portrait) {
-  body {
-    overflow: hidden;
-  }
-
-  .app-landscape-root {
-    display: none;
-  }
-
-  .portrait-lock-screen {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    display: grid;
-    place-items: center;
-    padding: 20px;
-    background:
-      radial-gradient(circle at 20% 0%, rgba(201, 31, 73, 0.2), rgba(201, 31, 73, 0) 45%),
-      radial-gradient(circle at 85% 100%, rgba(18, 141, 196, 0.2), rgba(18, 141, 196, 0) 50%),
-      #f3f6f8;
-  }
-
-  .portrait-lock-card {
-    width: min(460px, 100%);
-    border: 1px solid #d7dee7;
-    border-radius: 20px;
-    padding: 24px;
-    background: #ffffff;
-    box-shadow: 0 14px 34px rgba(17, 24, 39, 0.1);
-    text-align: center;
-  }
-
-  .portrait-lock-card h2 {
-    margin-bottom: 10px;
-    font-size: clamp(24px, 5.2vw, 30px) !important;
-    line-height: 1.2 !important;
-    font-weight: 800 !important;
-  }
-
-  .portrait-lock-card p {
-    font-size: 16px;
-    color: #334155;
-  }
 }
 
 :where(h1, h2, h3) {

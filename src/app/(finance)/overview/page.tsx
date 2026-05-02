@@ -9,7 +9,7 @@ export default function OverviewPage() {
     <FinanceRoutePage
       routeId="overview"
       customBody={
-        <>
+        <section className={styles.overviewLayout}>
           <SinglePageTitle
             label="How This Is Structured"
             title="Overview"
@@ -42,7 +42,7 @@ export default function OverviewPage() {
               delay={0.12}
             />
           </RevealSection>
-        </>
+        </section>
       }
     />
   );

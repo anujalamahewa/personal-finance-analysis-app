@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { poppins } from '../lib/fonts';
 import OrientationLock from './orientation-lock';
+import { ThemeProvider } from './theme-provider';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -20,14 +21,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={poppins.variable}>
       <body>
-        <OrientationLock />
-        <div className="app-landscape-root">{children}</div>
-        <div className="portrait-lock-screen" role="alert" aria-live="assertive">
-          <div className="portrait-lock-card">
-            <h2>Landscape Mode Required</h2>
-            <p>Rotate your device to landscape to continue using this app.</p>
+        <ThemeProvider>
+          <OrientationLock />
+          <div className="app-landscape-root">{children}</div>
+          <div className="portrait-lock-screen" role="alert" aria-live="assertive">
+            <div className="portrait-lock-card">
+              <h2>Landscape Mode Required</h2>
+              <p>Rotate your device to landscape to continue using this app.</p>
+            </div>
           </div>
-        </div>
+        </ThemeProvider>
       </body>
     </html>
   );

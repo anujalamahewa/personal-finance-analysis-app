@@ -73,12 +73,22 @@
   border-color: #c91f49;
 }
 
-@media (max-width: 768px) {
-  .body {
-    font-size: 15px;
-  }
+:global(html[data-theme='dark']) .shell {
+  background: radial-gradient(circle at 20% -20%, #321420 0%, #1c1a24 40%, #0b1220 100%);
+}
 
-  .cardGrid {
-    grid-template-columns: 1fr;
-  }
+:global(html[data-theme='dark']) .eyebrow {
+  color: #ff5f8d;
+}
+
+:global(html[data-theme='dark']) .title {
+  color: #f1f5f9;
+}
+
+:global(html[data-theme='dark']) .body {
+  color: #a7b4c8;
+}
+
+:global(html[data-theme='dark']) .cardLink:hover .dashboardCard {
+  border-color: #ff5f8d;
 }

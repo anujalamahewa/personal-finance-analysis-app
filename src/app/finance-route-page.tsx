@@ -44,7 +44,7 @@ export default function FinanceRoutePage({ routeId, customBody }: FinanceRoutePa
     <div className={`${styles.shell} ${isWelcomeRoute ? styles.shellWelcome : ''}`}>
       <Header routeId={routeId} />
 
-      <main className={`${styles.main} ${isWelcomeRoute ? styles.mainWelcome : ''}`}>
+      <main className={styles.main}>
         <AnimatedPage pageKey={routeId} className={styles.bodyContent}>
           {body}
         </AnimatedPage>

@@ -46,8 +46,12 @@
   min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
-  scrollbar-width: thin;
+  scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+}
+
+.routeMenu::-webkit-scrollbar {
+  display: none;
 }
 
 .themeToggle {
@@ -571,408 +575,95 @@
   background: #fff3f6;
   color: #c91f49;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 14px;
   padding: 6px 10px;
   font-weight: 700;
 }
 
-@media (max-width: 960px) {
-  .main,
-  .mainWelcome {
-    --body-inline-padding: 28px;
-  }
-
-  .routeMenu {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 4px;
-    scrollbar-width: thin;
-  }
-
-  .grid2,
-  .grid3,
-  .grid4,
-  .formGrid,
-  .kpiGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .main {
-    padding: 86px 0 104px;
-  }
-
-  .headerInner {
-    padding: var(--shell-bar-padding-y) var(--shell-bar-padding-x);
-  }
-
-  .shell {
-    --shell-bar-padding-x: 14px;
-  }
-
-  .mainWelcome {
-    min-height: calc(100dvh - 104px);
-    padding: 76px 0 18px;
-  }
-
-  .navRow {
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    left: 0;
-    right: 0;
-  }
-
-  .navGroup {
-    width: auto;
-    display: flex;
-  }
-
-  .navLink {
-    width: auto;
-  }
-
-  .table {
-    min-width: 680px;
-  }
+:global(html[data-theme='dark']) .shell,
+:global(html[data-theme='dark']) .shellWelcome {
+  background: #0b1220;
+  color: #e2e8f0;
 }
 
-@media (min-width: 769px) and (max-width: 1180px) {
-  .main,
-  .mainWelcome {
-    --body-inline-padding: 28px;
-  }
-
-  .main {
-    padding: 86px 0 106px;
-  }
-
-  .headerInner {
-    padding: var(--shell-bar-padding-y) var(--shell-bar-padding-x);
-  }
-
-  .shell {
-    --shell-bar-padding-x: 14px;
-  }
-
-  .routeMenu {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding-bottom: 2px;
-  }
-
-  .routeLink {
-    font-size: 14px;
-    padding: 7px 10px;
-  }
-
-  .routeLinkHome {
-    padding: 7px 10px;
-  }
-
-  .heroTitle {
-    line-height: 1.08;
-  }
-
-  .heroBody {
-    max-width: none;
-    line-height: 1.72;
-  }
-
-  .grid2,
-  .formGrid,
-  .kpiGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .grid3,
-  .grid4 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .navRow {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .navGroup {
-    width: auto;
-    display: flex;
-  }
-
-  .navLink {
-    width: auto;
-    min-width: 170px;
-  }
-
-  .table {
-    min-width: 720px;
-  }
+:global(html[data-theme='dark']) .header,
+:global(html[data-theme='dark']) .navRow,
+:global(html[data-theme='dark']) .mobileNav {
+  background: #121b2c;
+  border-color: #273348;
 }
 
-@media (min-width: 900px) and (max-width: 1368px) and (orientation: landscape) {
-  .main,
-  .mainWelcome {
-    --body-inline-padding: 28px;
-  }
-
-  .headerInner {
-    padding: var(--shell-bar-padding-y) var(--shell-bar-padding-x);
-  }
-
-  .shell {
-    --shell-bar-padding-x: 14px;
-  }
-
-  .routeMenu {
-    gap: 6px;
-  }
-
-  .routeLink {
-    font-size: 14px;
-    padding: 7px 10px;
-  }
-
-  .routeLinkHome {
-    padding: 7px 10px;
-  }
-
-  .main {
-    padding: 82px 0 102px;
-  }
-
-  .heroTitle {
-    margin-bottom: 8px;
-  }
-
-  .sectionTitle {
-    margin-top: 18px;
-    margin-bottom: 8px;
-    font-size: 20px;
-  }
-
-  .grid3,
-  .grid4 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+:global(html[data-theme='dark']) .routeLink,
+:global(html[data-theme='dark']) .navLink,
+:global(html[data-theme='dark']) .mobileNavLink,
+:global(html[data-theme='dark']) .themeToggle {
+  background: #182336;
+  border-color: #2f3c52;
+  color: #dbe4ef;
 }
 
-@media (max-width: 768px) {
-  .main,
-  .mainWelcome {
-    --body-inline-padding: 24px;
-  }
-
-  .main {
-    padding: 82px 0 22px;
-  }
-
-  .headerInner {
-    padding: var(--shell-bar-padding-y) var(--shell-bar-padding-x);
-  }
-
-  .shell {
-    --shell-bar-padding-x: 12px;
-  }
-
-  .routeLink {
-    font-size: 14px;
-    padding: 7px 10px;
-  }
-
-  .routeLinkHome {
-    padding: 7px 10px;
-  }
-
-  .heroTitle {
-    line-height: 1.08;
-  }
-
-  .heroBody,
-  .cardMuted {
-    font-size: 14px;
-    line-height: 1.62;
-  }
-
-  .navRow {
-    display: none;
-  }
-
-  .mobileNavSpacer {
-    display: block;
-    height: 84px;
-  }
-
-  .mobileNav {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 30;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 8px;
-    align-items: center;
-    border-top: 1px solid #e5e7eb;
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(8px);
-    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
-  }
-
-  .mainWelcome {
-    min-height: calc(100dvh - 96px);
-    padding: 72px 0 14px;
-  }
+:global(html[data-theme='dark']) .routeLinkActive,
+:global(html[data-theme='dark']) .navLinkPrimary,
+:global(html[data-theme='dark']) .mobileNavNext,
+:global(html[data-theme='dark']) .btnPrimary {
+  border-color: #ff4f7f;
+  background: #ff4f7f;
+  color: #0b1220;
 }
 
-@media (max-width: 640px) {
-  .heroLabel {
-    letter-spacing: 1.2px;
-    font-size: 10px;
-  }
-
-  .heroTitle {
-    letter-spacing: -0.4px;
-    margin-bottom: 10px;
-  }
-
-  .heroBody {
-    font-size: 14px;
-    line-height: 1.65;
-  }
-
-  .card,
-  .statCard,
-  .kpiItem,
-  .priorityItem,
-  .childRow {
-    padding: 13px;
-  }
-
-  .sectionTitle {
-    font-size: 20px;
-    margin-top: 20px;
-  }
-
-  .input,
-  .select,
-  .textarea {
-    font-size: 16px;
-  }
-
-  .btn,
-  .navLink {
-    min-height: 44px;
-  }
-
-  .priorityItem {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .priorityItem .rowActions {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .priorityItem .rowActions .btn {
-    width: 100%;
-  }
-
-  .badge {
-    white-space: normal;
-    text-align: center;
-    justify-content: center;
-  }
-
-  .mobileNav {
-    gap: 6px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .mobileNavLink {
-    font-size: 12px;
-    padding: 0 8px;
-  }
-
-  .mobileNavStep {
-    min-width: 52px;
-    font-size: 11px;
-  }
-
-  .table {
-    min-width: 620px;
-  }
-
-  .table th,
-  .table td {
-    font-size: 12px;
-    padding: 9px 10px;
-  }
+:global(html[data-theme='dark']) .routeLinkHome {
+  color: #ff6a95;
+  border-color: #5e2d3b;
+  background: #2a1a22;
 }
 
-@media (max-width: 430px) {
-  .main,
-  .mainWelcome {
-    --body-inline-padding: 20px;
-  }
-
-  .main {
-    padding: 78px 0 20px;
-  }
-
-  .headerInner {
-    padding: 8px 10px;
-  }
-
-  .heroTitle {
-    line-height: 1.07;
-  }
-
-  .cardTitle {
-    font-size: 15px;
-  }
-
-  .statValue {
-    font-size: clamp(22px, 8vw, 32px);
-  }
-
-  .kpiValue {
-    font-size: 17px;
-  }
-
-  .table {
-    min-width: 560px;
-  }
+:global(html[data-theme='dark']) .heroLabel,
+:global(html[data-theme='dark']) .childTitle,
+:global(html[data-theme='dark']) .statValue,
+:global(html[data-theme='dark']) .kpiGap {
+  color: #ff5f8d;
 }
 
-@media (max-width: 360px) {
-  .main,
-  .mainWelcome {
-    --body-inline-padding: 16px;
-  }
+:global(html[data-theme='dark']) .heroBody,
+:global(html[data-theme='dark']) .cardMuted,
+:global(html[data-theme='dark']) .statLabel,
+:global(html[data-theme='dark']) .kpiLabel,
+:global(html[data-theme='dark']) .table th,
+:global(html[data-theme='dark']) .mobileNavStep,
+:global(html[data-theme='dark']) .label {
+  color: #98a7bb;
+}
 
-  .routeLink {
-    padding: 6px 9px;
-  }
+:global(html[data-theme='dark']) .card,
+:global(html[data-theme='dark']) .statCard,
+:global(html[data-theme='dark']) .kpiItem,
+:global(html[data-theme='dark']) .priorityItem,
+:global(html[data-theme='dark']) .childRow,
+:global(html[data-theme='dark']) .table,
+:global(html[data-theme='dark']) .input,
+:global(html[data-theme='dark']) .select,
+:global(html[data-theme='dark']) .textarea,
+:global(html[data-theme='dark']) .btn,
+:global(html[data-theme='dark']) .badge {
+  background: #182336;
+  border-color: #2f3c52;
+  color: #dbe4ef;
+}
 
-  .routeLinkHome {
-    padding: 6px 9px;
-  }
+:global(html[data-theme='dark']) .table th,
+:global(html[data-theme='dark']) .table td,
+:global(html[data-theme='dark']) .childHeader {
+  border-color: #253247;
+}
 
-  .heroTitle {
-    line-height: 1.08;
-  }
+:global(html[data-theme='dark']) .table th {
+  background: #121b2c;
+}
 
-  .mobileNav {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
+:global(html[data-theme='dark']) .kpiNeed {
+  color: #64b5f6;
+}
 
-  .mobileNavLink {
-    min-height: 42px;
-  }
+:global(html[data-theme='dark']) .kpiHave {
+  color: #4ade80;
 }

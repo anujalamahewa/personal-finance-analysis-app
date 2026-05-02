@@ -74,13 +74,3 @@
   color: #374151;
   line-height: 1.5;
 }
-
-@media (max-width: 640px) {
-  .modal {
-    padding: 14px;
-  }
-
-  .stepText {
-    font-size: 14px;
-  }
-}

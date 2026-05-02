@@ -168,20 +168,3 @@
     opacity: 1;
   }
 }
-
-@media (max-width: 1100px) {
-  .iconBubble {
-    width: 88px;
-    height: 88px;
-  }
-
-  .icon {
-    font-size: 35px;
-  }
-}
-
-@media (max-width: 768px) {
-  .card {
-    padding: 16px 14px 18px;
-  }
-}
