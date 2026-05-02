@@ -35,10 +35,121 @@ const disabilityRatioOptions = [
   { label: '75% of income', value: 0.75 },
 ] as const;
 
+type RealityTone = 'income' | 'expense';
+type RealityIcon = 'briefcase' | 'cart' | 'home' | 'bolt' | 'chart' | 'house';
+
+const realityItems: Array<{
+  title: string;
+  tone: RealityTone;
+  icon: RealityIcon;
+}> = [
+  {
+    title: 'Salary / Business',
+    tone: 'income',
+    icon: 'briefcase',
+  },
+  {
+    title: 'Food and Groceries',
+    tone: 'expense',
+    icon: 'cart',
+  },
+  {
+    title: 'Rental Income',
+    tone: 'income',
+    icon: 'home',
+  },
+  {
+    title: 'Electricity / Water',
+    tone: 'expense',
+    icon: 'bolt',
+  },
+  {
+    title: 'Investments',
+    tone: 'income',
+    icon: 'chart',
+  },
+  {
+    title: 'Rent / Mortgage',
+    tone: 'expense',
+    icon: 'house',
+  },
+];
+
+function RealitySvgIcon({ icon }: { icon: RealityIcon }) {
+  if (icon === 'briefcase') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 7V5.8C9 4.8 9.8 4 10.8 4h2.4C14.2 4 15 4.8 15 5.8V7" />
+        <rect x="3.5" y="7" width="17" height="12.5" rx="2.4" />
+        <path d="M3.5 11.5H20.5" />
+      </svg>
+    );
+  }
+
+  if (icon === 'cart') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 5H6L8.2 15.2H18.5L20 8H7" />
+        <circle cx="9.8" cy="18.2" r="1.6" />
+        <circle cx="17.2" cy="18.2" r="1.6" />
+      </svg>
+    );
+  }
+
+  if (icon === 'home') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4.5 10.2L12 4L19.5 10.2" />
+        <path d="M6.5 9.4V20H17.5V9.4" />
+        <path d="M10.5 20V14H13.5V20" />
+      </svg>
+    );
+  }
+
+  if (icon === 'bolt') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M13.8 3L6.8 13.1H11.5L10.2 21L17.2 10.9H12.5L13.8 3Z" />
+      </svg>
+    );
+  }
+
+  if (icon === 'chart') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 20H20" />
+        <path d="M7 17V12" />
+        <path d="M12 17V9" />
+        <path d="M17 17V6" />
+        <path d="M6.8 9.4L11.6 6.4L16.2 3.8" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4.5 10.2L12 4L19.5 10.2" />
+      <path d="M6.5 9.4V20H17.5V9.4" />
+      <path d="M10.5 20V14H13.5V20" />
+    </svg>
+  );
+}
+
+function RealityFooterIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3L19 6V11.2C19 15.4 16.3 19.2 12 21C7.7 19.2 5 15.4 5 11.2V6L12 3Z" />
+      <path d="M12 8.2V14.8" />
+      <path d="M12 17.3V17.4" />
+    </svg>
+  );
+}
+
 export default function LifeCoverPage() {
   const { state, computed, setProfileField, setAssumptionField } = useFinance();
 
   const lifeNeed = computed.needs.find((need) => need.key === 'life');
+  const disabilityNeed = computed.needs.find((need) => need.key === 'disability');
 
   return (
     <FinanceRoutePage
@@ -64,24 +175,43 @@ export default function LifeCoverPage() {
             </p>
 
             <div className={styles.realityCard}>
-              <div className={styles.realityTitle}>Income vs Expenses Reality</div>
-              <div className={styles.realityGrid}>
-                <div className={`${styles.realityItem} ${styles.realityIncome}`}>
-                  Salary / Business
-                </div>
-                <div className={`${styles.realityItem} ${styles.realityExpense}`}>
-                  Food and Groceries
-                </div>
-                <div className={`${styles.realityItem} ${styles.realityIncome}`}>Rental Income</div>
-                <div className={`${styles.realityItem} ${styles.realityExpense}`}>
-                  Electricity / Water
-                </div>
-                <div className={`${styles.realityItem} ${styles.realityIncome}`}>Investments</div>
-                <div className={`${styles.realityItem} ${styles.realityExpense}`}>
-                  Rent / Mortgage
+              <div className={styles.realityHeader}>
+                <div>
+                  <div className={styles.realityTitle}>Income vs Expenses Reality</div>
+                  <div className={styles.realityHeaderUnderline} aria-hidden="true" />
                 </div>
               </div>
-              <div className={styles.realityFooter}>If income stops - expenses don't.</div>
+              <div className={styles.realityGrid}>
+                {realityItems.map((item) => {
+                  const toneClass =
+                    item.tone === 'income' ? styles.realityIncome : styles.realityExpense;
+
+                  return (
+                    <article key={item.title} className={`${styles.realityItem} ${toneClass}`}>
+                      <div className={styles.realityItemIconWrap}>
+                        <div className={styles.realityItemIcon}>
+                          <RealitySvgIcon icon={item.icon} />
+                        </div>
+                      </div>
+                      <div>
+                        <h4 className={styles.realityItemTitle}>{item.title}</h4>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+              <div className={styles.realityFooter}>
+                <div className={styles.realityFooterIconWrap}>
+                  <div className={styles.realityFooterIcon}>
+                    <RealityFooterIcon />
+                  </div>
+                </div>
+                <div>
+                  <div className={styles.realityFooterTitle}>
+                    If income stops - expenses don&apos;t.
+                  </div>
+                </div>
+              </div>
             </div>
           </aside>
 
@@ -175,6 +305,62 @@ export default function LifeCoverPage() {
               <article className={`${styles.summaryCard} ${styles.cardGap}`}>
                 <div className={styles.summaryLabel}>My Gap</div>
                 <div className={styles.summaryValue}>{formatCurrency(lifeNeed?.gap ?? 0)}</div>
+              </article>
+            </div>
+
+            <div className={styles.sectionDivider} />
+
+            <h3 className={styles.sectionTitle}>Disability Income Protection</h3>
+            <div className={styles.formGrid}>
+              <div>
+                <label className={styles.label}>Income Replacement Rate</label>
+                <select
+                  className={styles.select}
+                  value={state.assumptions.disabilityReplacementRatio}
+                  onChange={(event) =>
+                    setAssumptionField('disabilityReplacementRatio', Number(event.target.value))
+                  }
+                >
+                  {disabilityRatioOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className={styles.label}>Years to Retirement</label>
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  className={styles.input}
+                  placeholder="60"
+                  value={formatNumber(state.profile.retirementAge)}
+                  onChange={(event) =>
+                    setProfileField('retirementAge', toNumber(event.target.value))
+                  }
+                />
+              </div>
+            </div>
+
+            <div className={styles.summaryCards}>
+              <article className={`${styles.summaryCard} ${styles.cardNeed}`}>
+                <div className={styles.summaryLabel}>I Need</div>
+                <div className={styles.summaryValue}>
+                  {formatCurrency(disabilityNeed?.need ?? 0)}
+                </div>
+              </article>
+              <article className={`${styles.summaryCard} ${styles.cardHave}`}>
+                <div className={styles.summaryLabel}>I Have</div>
+                <div className={styles.summaryValue}>
+                  {formatCurrency(disabilityNeed?.have ?? 0)}
+                </div>
+              </article>
+              <article className={`${styles.summaryCard} ${styles.cardGap}`}>
+                <div className={styles.summaryLabel}>My Gap</div>
+                <div className={styles.summaryValue}>
+                  {formatCurrency(disabilityNeed?.gap ?? 0)}
+                </div>
               </article>
             </div>
           </div>

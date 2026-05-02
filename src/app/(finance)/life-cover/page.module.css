@@ -73,53 +73,146 @@
 
 .realityCard {
   margin-top: 16px;
-  border: 1px solid #dde4ea;
-  border-radius: 14px;
-  background: #f8fafc;
-  padding: 14px;
+  border: 1px solid #e8edf3;
+  border-radius: 18px;
+  background: #fbfcfe;
+  padding: 16px;
+}
+
+.realityHeader {
+  display: block;
+  align-items: center;
 }
 
 .realityTitle {
-  font-size: 12px;
-  letter-spacing: 2px;
+  font-size: 19px;
+  letter-spacing: 0.2px;
   text-transform: uppercase;
   font-weight: 800;
-  color: #6b7280;
+  color: #17264a;
+}
+
+.realityHeaderUnderline {
+  width: 52px;
+  height: 4px;
+  border-radius: 999px;
+  background: #d31145;
+  margin-top: 10px;
 }
 
 .realityGrid {
-  margin-top: 12px;
+  margin-top: 14px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
+  gap: 10px;
 }
 
 .realityItem {
-  border-radius: 10px;
+  border-radius: 14px;
   border: 1px solid;
-  padding: 8px 10px;
-  font-weight: 600;
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.realityItemIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.realityItemIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.realityItemIcon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.realityItemTitle {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 700;
 }
 
 .realityIncome {
-  background: #eaf5ef;
-  border-color: #c2e6cf;
-  color: #1b9d5f;
+  background: #f5fbf7;
+  border-color: #d8ecdf;
+}
+
+.realityIncome .realityItemIconWrap {
+  background: #e8f7ed;
+}
+
+.realityIncome .realityItemIcon,
+.realityIncome .realityItemTitle {
+  color: #1f9f64;
 }
 
 .realityExpense {
-  background: #fff1f5;
-  border-color: #f4d2dd;
-  color: #d31145;
+  background: #fff8fa;
+  border-color: #f6dde5;
+}
+
+.realityExpense .realityItemIconWrap {
+  background: #fdeef3;
+}
+
+.realityExpense .realityItemIcon,
+.realityExpense .realityItemTitle {
+  color: #dc2d63;
 }
 
 .realityFooter {
-  margin-top: 12px;
-  border-radius: 8px;
-  background: #fff1f5;
+  margin-top: 14px;
+  border-radius: 12px;
+  background: #fef6f8;
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.realityFooterIconWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fcecf2;
+  display: grid;
+  place-items: center;
+}
+
+.realityFooterIcon {
+  width: 22px;
+  height: 22px;
   color: #d31145;
-  text-align: center;
-  padding: 8px 10px;
+}
+
+.realityFooterIcon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.realityFooterTitle {
+  color: #d31145;
   font-weight: 700;
 }
 
@@ -321,6 +414,10 @@
     border-bottom: 1px solid #efdae2;
   }
 
+  .realityHeader {
+    align-items: start;
+  }
+
   .formGrid,
   .summaryCards,
   .realityGrid {
@@ -354,5 +451,13 @@
 
   .summaryValue {
     font-size: 22px;
+  }
+
+  .realityTitle {
+    font-size: 16px;
+  }
+
+  .realityItemTitle {
+    font-size: 16px;
   }
 }
