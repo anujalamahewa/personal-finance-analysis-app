@@ -46,11 +46,8 @@
 }
 
 .storyUnderline {
-  width: 40px;
-  height: 4px;
-  border-radius: 999px;
-  background: #d31145;
   margin-top: 14px;
+  margin-bottom: 0;
 }
 
 .storyBody {
@@ -82,11 +79,8 @@
 }
 
 .realityHeaderUnderline {
-  width: 52px;
-  height: 4px;
-  border-radius: 999px;
-  background: #d31145;
   margin-top: 10px;
+  margin-bottom: 0;
 }
 
 .realityGrid {

@@ -46,11 +46,8 @@
 }
 
 .storyUnderline {
-  width: 40px;
-  height: 4px;
-  border-radius: 999px;
-  background: #d31145;
   margin-top: 12px;
+  margin-bottom: 0;
 }
 
 .storyBody {

@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import FinanceRoutePage from '@/app/finance-route-page';
 import LabeledField from '@/app/common/calculator/labeled-field';
 import SummaryCards from '@/app/common/calculator/summary-cards';
+import RedLine from '@/app/common/red-line/red-line';
 import { useFinance } from '@/app/finance-provider';
 import { formatCurrency } from '@/lib/calculations';
 import styles from './page.module.css';
@@ -87,7 +88,7 @@ export default function MedicalCriticalIllnessPage() {
               <span className={styles.storyTitleAccent}>Own Savings</span>
             </h1>
 
-            <div className={styles.storyUnderline} aria-hidden="true" />
+            <RedLine className={styles.storyUnderline} />
 
             <p className={styles.storyBody}>
               87% of all hospital bills in Sri Lanka are paid from household savings. Only 5% are

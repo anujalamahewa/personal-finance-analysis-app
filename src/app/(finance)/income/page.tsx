@@ -1,4 +1,5 @@
 import FinanceRoutePage from '@/app/finance-route-page';
+import RedLine from '@/app/common/red-line/red-line';
 import styles from './page.module.css';
 
 export default function IncomeCyclePage() {
@@ -47,7 +48,7 @@ export default function IncomeCyclePage() {
                   </svg>
                 </div>
                 <div className={styles.incomeStatValue}>50%</div>
-                <div className={styles.incomeStatAccent} aria-hidden="true" />
+                <RedLine className={styles.incomeStatAccent} />
                 <p className={styles.incomeStatText}>
                   of your life requires income you will not be actively earning. Planning today is
                   the only solution.

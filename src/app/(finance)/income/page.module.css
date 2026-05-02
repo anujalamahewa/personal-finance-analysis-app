@@ -79,10 +79,7 @@
 
 .incomeStatAccent {
   margin-top: 12px;
-  width: 64px;
-  height: 7px;
-  border-radius: 999px;
-  background: #d31145;
+  margin-bottom: 0;
 }
 
 .incomeStatText {
@@ -349,11 +346,6 @@
   .incomeStatIconSvg {
     width: 28px;
     height: 28px;
-  }
-
-  .incomeStatAccent {
-    width: 52px;
-    height: 6px;
   }
 
   .incomeLegendText {

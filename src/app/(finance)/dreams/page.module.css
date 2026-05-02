@@ -33,9 +33,10 @@
 }
 
 .dreamsChartWrap {
-  margin-top: 30px;
+  margin: 30px auto 0;
+  width: min(80%, 980px);
   display: grid;
-  grid-template-columns: 30px minmax(0, 980px);
+  grid-template-columns: 30px minmax(0, 1fr);
   align-items: stretch;
   column-gap: 6px;
 }
@@ -94,7 +95,7 @@
 .dreamsIcon {
   position: absolute;
   transform: translate(-50%, 50%);
-  font-size: clamp(32px, 3.6vw, 56px);
+  font-size: clamp(24px, 2.7vw, 42px);
   line-height: 1;
 }
 
@@ -169,6 +170,7 @@
 @media (max-width: 960px) {
   .dreamsChartWrap {
     margin-top: 22px;
+    width: 100%;
     grid-template-columns: 24px 1fr;
     column-gap: 4px;
   }
@@ -185,7 +187,7 @@
   }
 
   .dreamsIcon {
-    font-size: clamp(28px, 4.4vw, 44px);
+    font-size: clamp(21px, 3.3vw, 33px);
   }
 
   .dreamsXAxisTicks {
@@ -220,7 +222,7 @@
   }
 
   .dreamsIcon {
-    font-size: clamp(28px, 5.6vw, 40px);
+    font-size: clamp(21px, 4.2vw, 30px);
   }
 
   .dreamsXAxisTicks {
@@ -253,7 +255,7 @@
   }
 
   .dreamsIcon {
-    font-size: 36px;
+    font-size: 27px;
   }
 
   .dreamsXAxisTicks {

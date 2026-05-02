@@ -1,4 +1,5 @@
 import FinanceRoutePage from '@/app/finance-route-page';
+import RedLine from '@/app/common/red-line/red-line';
 import styles from './page.module.css';
 
 export default function DreamsPage() {
@@ -11,6 +12,7 @@ export default function DreamsPage() {
           <h1 className={styles.dreamsTitle}>
             Dreams <span>= Wealth</span>
           </h1>
+          <RedLine />
           <p className={styles.dreamsBody}>
             Every milestone in life carries a financial cost. The question is whether your finances
             are growing fast enough to keep up with your dreams.

@@ -1,6 +1,7 @@
 'use client';
 
 import FinanceRoutePage from '@/app/finance-route-page';
+import RedLine from '@/app/common/red-line/red-line';
 import styles from './page.module.css';
 
 export default function WelcomePage() {
@@ -73,7 +74,7 @@ export default function WelcomePage() {
                 <br />
                 <span>Future</span>
               </h1>
-              <div className={styles.welcomeAccent} aria-hidden="true" />
+              <RedLine className={styles.welcomeAccent} />
               <p className={styles.welcomeBody}>
                 A structured, data-driven need analysis to understand exactly where you are, where
                 you need to be, and what it takes to get there.

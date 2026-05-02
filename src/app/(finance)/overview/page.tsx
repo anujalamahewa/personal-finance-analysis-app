@@ -1,4 +1,5 @@
 import Card from '@/app/common/card/card';
+import RedLine from '@/app/common/red-line/red-line';
 import FinanceRoutePage from '@/app/finance-route-page';
 import styles from './page.module.css';
 
@@ -10,7 +11,7 @@ export default function OverviewPage() {
         <>
           <div className={styles.heroLabel}>How This Is Structured</div>
           <h1 className={styles.heroTitle}>Overview</h1>
-          <div className={styles.heroAccent} aria-hidden="true" />
+          <RedLine />
           <p className={styles.heroBody}>
             We identify the right priorities by mapping each need, measuring your current position,
             and defining the exact gaps to close.

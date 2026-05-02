@@ -3,6 +3,7 @@
 import FinanceRoutePage from '@/app/finance-route-page';
 import LabeledField from '@/app/common/calculator/labeled-field';
 import SummaryCards from '@/app/common/calculator/summary-cards';
+import RedLine from '@/app/common/red-line/red-line';
 import { useFinance } from '@/app/finance-provider';
 import { formatCurrency } from '@/lib/calculations';
 import styles from './page.module.css';
@@ -168,7 +169,7 @@ export default function LifeCoverPage() {
               <span className={styles.storyTitleAccent}>Lifestyle</span>
             </h1>
 
-            <div className={styles.storyUnderline} aria-hidden="true" />
+            <RedLine className={styles.storyUnderline} />
 
             <p className={styles.storyBody}>
               Money determines the quality of life we live. Every family deserves to feel safe about
@@ -179,7 +180,7 @@ export default function LifeCoverPage() {
               <div className={styles.realityHeader}>
                 <div>
                   <div className={styles.realityTitle}>Income vs Expenses Reality</div>
-                  <div className={styles.realityHeaderUnderline} aria-hidden="true" />
+                  <RedLine className={styles.realityHeaderUnderline} />
                 </div>
               </div>
               <div className={styles.realityGrid}>

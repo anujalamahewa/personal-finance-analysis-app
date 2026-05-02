@@ -5,6 +5,7 @@ import FinanceRoutePage from '@/app/finance-route-page';
 import Popup from '@/app/common/popup/popup';
 import LabeledField from '@/app/common/calculator/labeled-field';
 import SummaryCards from '@/app/common/calculator/summary-cards';
+import RedLine from '@/app/common/red-line/red-line';
 import { useFinance } from '@/app/finance-provider';
 import { formatCurrency } from '@/lib/calculations';
 import styles from './page.module.css';
@@ -122,7 +123,7 @@ export default function RetirementCalculatorPage() {
               <span className={styles.storyLabel}>Happy Retirement</span>
             </div>
             <h1 className={styles.storyTitle}>Will Your Savings Last As Long As You Do?</h1>
-            <div className={styles.storyUnderline} aria-hidden="true" />
+            <RedLine className={styles.storyUnderline} />
             <p className={styles.storyBody}>
               Sri Lanka is ageing rapidly. By 2040, 1 in 5 Sri Lankans will be over 60 yet most will
               reach retirement without enough set aside.

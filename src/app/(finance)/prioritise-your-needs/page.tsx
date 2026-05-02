@@ -2,6 +2,7 @@
 
 import { useMemo, useState, type TouchEvent } from 'react';
 import FinanceRoutePage from '@/app/finance-route-page';
+import RedLine from '@/app/common/red-line/red-line';
 import { useFinance } from '@/app/finance-provider';
 import { formatCurrency } from '@/lib/calculations';
 import { type NeedKey } from '@/lib/types';
@@ -154,7 +155,7 @@ export default function PriorityNeedsPage() {
               <h1 className={styles.heroTitle}>
                 Prioritise Your <span className={styles.heroAccent}>Needs</span>
               </h1>
-              <div className={styles.heroUnderline} aria-hidden="true" />
+              <RedLine className={styles.heroUnderline} />
               <p className={styles.heroBody}>
                 Based on the gaps we&apos;ve identified, drag or use touch to rank these needs in
                 order of importance to you.
