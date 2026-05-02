@@ -2,10 +2,10 @@
 
 import { type ReactNode, useEffect } from 'react';
 import { financeRoutes, getRouteById, getRouteIndex, type FinanceRouteId } from '@/lib/routes';
-import Header from '@/app/common/Header';
-import Footer from '@/app/common/Footer';
-import { useFinance } from './FinanceProvider';
-import styles from './FinanceRoutePage.module.css';
+import Header from '@/app/common/header/header';
+import Footer from '@/app/common/footer/footer';
+import { useFinance } from './finance-provider';
+import styles from './finance-route-page.module.css';
 
 type FinanceRoutePageProps = {
   routeId: FinanceRouteId;

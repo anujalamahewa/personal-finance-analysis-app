@@ -1,7 +1,7 @@
 'use client';
 
-import FinanceRoutePage from '@/app/FinanceRoutePage';
-import { useFinance } from '@/app/FinanceProvider';
+import FinanceRoutePage from '@/app/finance-route-page';
+import { useFinance } from '@/app/finance-provider';
 import { formatCurrency } from '@/lib/calculations';
 import styles from './page.module.css';
 

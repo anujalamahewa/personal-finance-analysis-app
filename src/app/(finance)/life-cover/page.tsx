@@ -1,7 +1,9 @@
 'use client';
 
-import FinanceRoutePage from '@/app/FinanceRoutePage';
-import { useFinance } from '@/app/FinanceProvider';
+import FinanceRoutePage from '@/app/finance-route-page';
+import LabeledField from '@/app/common/calculator/labeled-field';
+import SummaryCards from '@/app/common/calculator/summary-cards';
+import { useFinance } from '@/app/finance-provider';
 import { formatCurrency } from '@/lib/calculations';
 import styles from './page.module.css';
 
@@ -221,8 +223,7 @@ export default function LifeCoverPage() {
 
             <h3 className={styles.sectionTitle}>Life Cover (Death / Total Permanent Disability)</h3>
             <div className={styles.formGrid}>
-              <div>
-                <label className={styles.label}>Monthly Income (LKR)</label>
+              <LabeledField label="Monthly Income (LKR)" labelClassName={styles.label}>
                 <input
                   type="text"
                   inputMode="numeric"
@@ -233,9 +234,9 @@ export default function LifeCoverPage() {
                     setProfileField('monthlyIncome', toNumber(event.target.value))
                   }
                 />
-              </div>
-              <div>
-                <label className={styles.label}>Family Income Replacement</label>
+              </LabeledField>
+
+              <LabeledField label="Family Income Replacement" labelClassName={styles.label}>
                 <select
                   className={styles.select}
                   value={state.assumptions.lifeReplacementRatio}
@@ -249,9 +250,9 @@ export default function LifeCoverPage() {
                     </option>
                   ))}
                 </select>
-              </div>
-              <div>
-                <label className={styles.label}>Coverage Duration</label>
+              </LabeledField>
+
+              <LabeledField label="Coverage Duration" labelClassName={styles.label}>
                 <select
                   className={styles.select}
                   value={state.assumptions.lifeCoverageMode}
@@ -262,9 +263,9 @@ export default function LifeCoverPage() {
                   <option value="hlv">Full Life Value (HLV)</option>
                   <option value="years">Fixed Years of Income</option>
                 </select>
-              </div>
-              <div>
-                <label className={styles.label}>Outstanding Loans (LKR)</label>
+              </LabeledField>
+
+              <LabeledField label="Outstanding Loans (LKR)" labelClassName={styles.label}>
                 <input
                   type="text"
                   inputMode="numeric"
@@ -275,9 +276,13 @@ export default function LifeCoverPage() {
                     setProfileField('outstandingLoans', toNumber(event.target.value))
                   }
                 />
-              </div>
-              <div className={styles.fullRow}>
-                <label className={styles.label}>Expected Return on Lump Sum (%)</label>
+              </LabeledField>
+
+              <LabeledField
+                label="Expected Return on Lump Sum (%)"
+                labelClassName={styles.label}
+                wrapperClassName={styles.fullRow}
+              >
                 <input
                   type="text"
                   inputMode="numeric"
@@ -288,30 +293,27 @@ export default function LifeCoverPage() {
                     setAssumptionField('lifeFdRate', toNumber(event.target.value))
                   }
                 />
-              </div>
+              </LabeledField>
             </div>
 
-            <div className={styles.summaryCards}>
-              <article className={`${styles.summaryCard} ${styles.cardNeed}`}>
-                <div className={styles.summaryLabel}>I Need</div>
-                <div className={styles.summaryValue}>{formatCurrency(lifeNeed?.need ?? 0)}</div>
-              </article>
-              <article className={`${styles.summaryCard} ${styles.cardHave}`}>
-                <div className={styles.summaryLabel}>I Have</div>
-                <div className={styles.summaryValue}>{formatCurrency(lifeNeed?.have ?? 0)}</div>
-              </article>
-              <article className={`${styles.summaryCard} ${styles.cardGap}`}>
-                <div className={styles.summaryLabel}>My Gap</div>
-                <div className={styles.summaryValue}>{formatCurrency(lifeNeed?.gap ?? 0)}</div>
-              </article>
-            </div>
+            <SummaryCards
+              need={formatCurrency(lifeNeed?.need ?? 0)}
+              have={formatCurrency(lifeNeed?.have ?? 0)}
+              gap={formatCurrency(lifeNeed?.gap ?? 0)}
+              containerClassName={styles.summaryCards}
+              cardClassName={styles.summaryCard}
+              needCardClassName={styles.cardNeed}
+              haveCardClassName={styles.cardHave}
+              gapCardClassName={styles.cardGap}
+              labelClassName={styles.summaryLabel}
+              valueClassName={styles.summaryValue}
+            />
 
             <div className={styles.sectionDivider} />
 
             <h3 className={styles.sectionTitle}>Disability Income Protection</h3>
             <div className={styles.formGrid}>
-              <div>
-                <label className={styles.label}>Income Replacement Rate</label>
+              <LabeledField label="Income Replacement Rate" labelClassName={styles.label}>
                 <select
                   className={styles.select}
                   value={state.assumptions.disabilityReplacementRatio}
@@ -325,9 +327,9 @@ export default function LifeCoverPage() {
                     </option>
                   ))}
                 </select>
-              </div>
-              <div>
-                <label className={styles.label}>Years to Retirement</label>
+              </LabeledField>
+
+              <LabeledField label="Years to Retirement" labelClassName={styles.label}>
                 <input
                   type="text"
                   inputMode="numeric"
@@ -338,29 +340,21 @@ export default function LifeCoverPage() {
                     setProfileField('retirementAge', toNumber(event.target.value))
                   }
                 />
-              </div>
+              </LabeledField>
             </div>
 
-            <div className={styles.summaryCards}>
-              <article className={`${styles.summaryCard} ${styles.cardNeed}`}>
-                <div className={styles.summaryLabel}>I Need</div>
-                <div className={styles.summaryValue}>
-                  {formatCurrency(disabilityNeed?.need ?? 0)}
-                </div>
-              </article>
-              <article className={`${styles.summaryCard} ${styles.cardHave}`}>
-                <div className={styles.summaryLabel}>I Have</div>
-                <div className={styles.summaryValue}>
-                  {formatCurrency(disabilityNeed?.have ?? 0)}
-                </div>
-              </article>
-              <article className={`${styles.summaryCard} ${styles.cardGap}`}>
-                <div className={styles.summaryLabel}>My Gap</div>
-                <div className={styles.summaryValue}>
-                  {formatCurrency(disabilityNeed?.gap ?? 0)}
-                </div>
-              </article>
-            </div>
+            <SummaryCards
+              need={formatCurrency(disabilityNeed?.need ?? 0)}
+              have={formatCurrency(disabilityNeed?.have ?? 0)}
+              gap={formatCurrency(disabilityNeed?.gap ?? 0)}
+              containerClassName={styles.summaryCards}
+              cardClassName={styles.summaryCard}
+              needCardClassName={styles.cardNeed}
+              haveCardClassName={styles.cardHave}
+              gapCardClassName={styles.cardGap}
+              labelClassName={styles.summaryLabel}
+              valueClassName={styles.summaryValue}
+            />
           </div>
         </section>
       }

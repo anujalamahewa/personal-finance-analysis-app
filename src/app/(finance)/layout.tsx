@@ -1,4 +1,4 @@
-import { FinanceProvider } from '@/app/FinanceProvider';
+import { FinanceProvider } from '@/app/finance-provider';
 
 type FinanceLayoutProps = {
   children: React.ReactNode;

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import type { FinanceRoute } from '@/lib/routes';
-import styles from '../../FinanceRoutePage.module.css';
+import styles from '../../finance-route-page.module.css';
 
 type FooterProps = {
   prevRoute: FinanceRoute | null;

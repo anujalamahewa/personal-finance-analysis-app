@@ -1,6 +1,6 @@
-import Card from '@/app/common/Card';
-import Banner from '@/app/common/Banner';
-import FinanceRoutePage from '@/app/FinanceRoutePage';
+import Card from '@/app/common/card/card';
+import Banner from '@/app/common/banner/banner';
+import FinanceRoutePage from '@/app/finance-route-page';
 import { getRouteById } from '@/lib/routes';
 import styles from './page.module.css';
 

@@ -1,11 +1,12 @@
 {
-  "name": "my-next-app",
+  "name": "personal-finance-analysis-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "prettier --write . && next dev",
-    "build": "prettier --write . && next build",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
+    "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },

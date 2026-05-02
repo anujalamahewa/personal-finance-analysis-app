@@ -1,11 +1,11 @@
 .pageWrap {
-  max-width: 1240px;
+  max-width: var(--calc-shell-max-width);
   margin: 0 auto;
-  border: 1px solid #e6eaf0;
-  border-radius: 18px;
+  border: var(--calc-shell-border);
+  border-radius: var(--calc-shell-radius);
   background: #f6f8fb;
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
+  grid-template-columns: var(--calc-shell-columns);
   overflow: hidden;
   font-family: var(--font-poppins), 'Segoe UI', sans-serif;
 }
@@ -20,18 +20,6 @@
   display: flex;
   align-items: center;
   gap: 12px;
-}
-
-.storyStep {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: #d31145;
-  color: #ffffff;
-  font-weight: 800;
-  font-size: 16px;
 }
 
 .storyLabel {
@@ -163,8 +151,8 @@
 }
 
 .calcPanel {
-  padding: 30px 24px 24px;
-  background: #fbfcfe;
+  padding: var(--calc-panel-padding);
+  background: var(--calc-panel-bg);
 }
 
 .headerRow {
@@ -172,18 +160,6 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 14px;
-}
-
-.stepBadge {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: #111827;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 800;
 }
 
 .pageTitle {
@@ -221,25 +197,25 @@
 .inputLabel {
   display: block;
   margin-bottom: 7px;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 2.8px;
+  font-size: var(--calc-label-size);
+  font-weight: var(--calc-label-weight);
+  letter-spacing: var(--calc-label-tracking);
   text-transform: uppercase;
-  color: #64748b;
+  color: var(--calc-label-color);
 }
 
 .inputField,
 .selectField {
   width: 100%;
-  border: 1px solid #d3d9e2;
-  border-radius: 10px;
-  min-height: 46px;
+  border: var(--calc-control-border);
+  border-radius: var(--calc-control-radius);
+  min-height: var(--calc-control-height);
   padding: 8px 12px;
   background: #ffffff;
   color: #0f172a;
-  font-size: 18px;
+  font-size: var(--calc-control-font-size);
   letter-spacing: -0.2px;
-  font-weight: 700;
+  font-weight: var(--calc-control-font-weight);
   font-family: var(--font-poppins), 'Segoe UI', sans-serif;
 }
 
@@ -274,7 +250,7 @@
 .statCard {
   border-radius: 11px;
   border: 1px solid #d6dde7;
-  min-height: 78px;
+  min-height: var(--calc-summary-card-height);
   padding: 8px 10px;
   text-align: center;
 }
@@ -295,18 +271,18 @@
 }
 
 .statLabel {
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 2.8px;
+  font-size: var(--calc-summary-label-size);
+  font-weight: var(--calc-summary-label-weight);
+  letter-spacing: var(--calc-summary-label-tracking);
   text-transform: uppercase;
   color: #5b6677;
 }
 
 .statValue {
   margin-top: 4px;
-  font-size: clamp(14px, 1.7vw, 17px);
+  font-size: var(--calc-summary-value-size);
   line-height: 1.1;
-  font-weight: 900;
+  font-weight: var(--calc-summary-value-weight);
   letter-spacing: -0.4px;
   color: #0f172a;
 }

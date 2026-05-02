@@ -1,11 +1,11 @@
 .retirementLayout {
-  max-width: 1240px;
+  max-width: var(--calc-shell-max-width);
   margin: 0 auto;
-  border: 1px solid #e8e9ed;
-  border-radius: 18px;
+  border: var(--calc-shell-border);
+  border-radius: var(--calc-shell-radius);
   background: #f8f8fb;
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
+  grid-template-columns: var(--calc-shell-columns);
   overflow: hidden;
   font-family: var(--font-poppins), 'Segoe UI', sans-serif;
 }
@@ -20,17 +20,6 @@
   display: flex;
   align-items: center;
   gap: 12px;
-}
-
-.storyStep {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: #d31145;
-  color: #fff;
-  font-weight: 800;
 }
 
 .storyLabel {
@@ -96,8 +85,8 @@
 }
 
 .calcPanel {
-  padding: 30px 24px 24px;
-  background: #fbfcfe;
+  padding: var(--calc-panel-padding);
+  background: var(--calc-panel-bg);
 }
 
 .headerRow {
@@ -105,18 +94,6 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 14px;
-}
-
-.stepBadge {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #0f172a;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 800;
-  display: grid;
-  place-items: center;
 }
 
 .pageTitle {
@@ -134,24 +111,24 @@
 
 .label {
   display: block;
-  font-size: 10px;
-  letter-spacing: 2.8px;
+  font-size: var(--calc-label-size);
+  letter-spacing: var(--calc-label-tracking);
   text-transform: uppercase;
-  color: #64748b;
-  font-weight: 800;
+  color: var(--calc-label-color);
+  font-weight: var(--calc-label-weight);
   margin-bottom: 7px;
 }
 
 .input,
 .select {
   width: 100%;
-  min-height: 46px;
-  border: 1px solid #d0d7e1;
-  border-radius: 10px;
+  min-height: var(--calc-control-height);
+  border: var(--calc-control-border);
+  border-radius: var(--calc-control-radius);
   background: #ffffff;
   color: #0f172a;
-  font-size: 18px;
-  font-weight: 700;
+  font-size: var(--calc-control-font-size);
+  font-weight: var(--calc-control-font-weight);
   letter-spacing: -0.2px;
   font-family: var(--font-poppins), 'Segoe UI', sans-serif;
   padding: 8px 12px;
@@ -261,7 +238,7 @@
 .bottomCard {
   border: 1px solid #d1d5db;
   border-radius: 12px;
-  min-height: 78px;
+  min-height: var(--calc-summary-card-height);
   padding: 8px 10px;
   text-align: center;
 }
@@ -282,10 +259,10 @@
 }
 
 .bottomLabel {
-  font-size: 10px;
-  letter-spacing: 2.8px;
+  font-size: var(--calc-summary-label-size);
+  letter-spacing: var(--calc-summary-label-tracking);
   text-transform: uppercase;
-  font-weight: 800;
+  font-weight: var(--calc-summary-label-weight);
 }
 
 .bottomNeed .bottomLabel {
@@ -303,9 +280,9 @@
 .bottomValue {
   margin-top: 4px;
   color: #0f172a;
-  font-size: clamp(14px, 1.7vw, 17px);
+  font-size: var(--calc-summary-value-size);
   line-height: 1.1;
-  font-weight: 900;
+  font-weight: var(--calc-summary-value-weight);
   letter-spacing: -0.4px;
 }
 

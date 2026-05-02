@@ -1,7 +1,7 @@
 'use client';
 
-import Card from '@/app/common/Card';
-import FinanceRoutePage from '@/app/FinanceRoutePage';
+import Card from '@/app/common/card/card';
+import FinanceRoutePage from '@/app/finance-route-page';
 import styles from './page.module.css';
 
 export default function RisksPage() {

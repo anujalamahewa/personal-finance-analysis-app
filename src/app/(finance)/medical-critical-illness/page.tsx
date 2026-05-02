@@ -1,8 +1,10 @@
 'use client';
 
 import { useMemo } from 'react';
-import FinanceRoutePage from '@/app/FinanceRoutePage';
-import { useFinance } from '@/app/FinanceProvider';
+import FinanceRoutePage from '@/app/finance-route-page';
+import LabeledField from '@/app/common/calculator/labeled-field';
+import SummaryCards from '@/app/common/calculator/summary-cards';
+import { useFinance } from '@/app/finance-provider';
 import { formatCurrency } from '@/lib/calculations';
 import styles from './page.module.css';
 
@@ -152,8 +154,7 @@ export default function MedicalCriticalIllnessPage() {
               <p className={styles.blockLabel}>Annual Hospitalisation Cover</p>
 
               <div className={styles.inputGrid}>
-                <div>
-                  <label className={styles.inputLabel}>Client&apos;s Age</label>
+                <LabeledField label="Client's Age" labelClassName={styles.inputLabel}>
                   <input
                     type="number"
                     min={0}
@@ -161,45 +162,38 @@ export default function MedicalCriticalIllnessPage() {
                     value={age}
                     onChange={(event) => setProfileField('age', toNumber(event.target.value))}
                   />
-                </div>
+                </LabeledField>
 
-                <div>
-                  <label className={styles.inputLabel}>Family Members</label>
+                <LabeledField label="Family Members" labelClassName={styles.inputLabel}>
                   <input
                     type="number"
                     className={styles.inputField}
                     value={familyMembers}
                     readOnly
                   />
-                </div>
+                </LabeledField>
               </div>
 
-              <div className={styles.statRow}>
-                <article className={`${styles.statCard} ${styles.needCard}`}>
-                  <div className={styles.statLabel}>I Need</div>
-                  <div className={styles.statValue}>{formatCurrency(medicalNeed?.need ?? 0)}</div>
-                </article>
-
-                <article className={`${styles.statCard} ${styles.haveCard}`}>
-                  <div className={styles.statLabel}>I Have</div>
-                  <div className={styles.statValue}>{formatCurrency(medicalNeed?.have ?? 0)}</div>
-                </article>
-
-                <article className={`${styles.statCard} ${styles.gapCard}`}>
-                  <div className={styles.statLabel}>My Gap</div>
-                  <div className={`${styles.statValue} ${styles.gapValue}`}>
-                    {formatCurrency(medicalNeed?.gap ?? 0)}
-                  </div>
-                </article>
-              </div>
+              <SummaryCards
+                need={formatCurrency(medicalNeed?.need ?? 0)}
+                have={formatCurrency(medicalNeed?.have ?? 0)}
+                gap={formatCurrency(medicalNeed?.gap ?? 0)}
+                containerClassName={styles.statRow}
+                cardClassName={styles.statCard}
+                needCardClassName={styles.needCard}
+                haveCardClassName={styles.haveCard}
+                gapCardClassName={styles.gapCard}
+                labelClassName={styles.statLabel}
+                valueClassName={styles.statValue}
+                gapValueClassName={styles.gapValue}
+              />
             </section>
 
             <section className={`${styles.blockSection} ${styles.dividerTop}`}>
               <p className={styles.blockLabel}>Critical Illness Lump Sum</p>
 
               <div className={styles.inputGrid}>
-                <div>
-                  <label className={styles.inputLabel}>Income Replacement Period</label>
+                <LabeledField label="Income Replacement Period" labelClassName={styles.inputLabel}>
                   <select
                     className={styles.selectField}
                     value={state.assumptions.ciIncomeMonths}
@@ -213,10 +207,9 @@ export default function MedicalCriticalIllnessPage() {
                       </option>
                     ))}
                   </select>
-                </div>
+                </LabeledField>
 
-                <div>
-                  <label className={styles.inputLabel}>Estimated Treatment Cost</label>
+                <LabeledField label="Estimated Treatment Cost" labelClassName={styles.inputLabel}>
                   <select
                     className={styles.selectField}
                     value={state.assumptions.ciTreatmentCost}
@@ -230,31 +223,22 @@ export default function MedicalCriticalIllnessPage() {
                       </option>
                     ))}
                   </select>
-                </div>
+                </LabeledField>
               </div>
 
-              <div className={styles.statRow}>
-                <article className={`${styles.statCard} ${styles.needCard}`}>
-                  <div className={styles.statLabel}>I Need</div>
-                  <div className={styles.statValue}>
-                    {formatCurrency(criticalIllnessNeed?.need ?? 0)}
-                  </div>
-                </article>
-
-                <article className={`${styles.statCard} ${styles.haveCard}`}>
-                  <div className={styles.statLabel}>I Have</div>
-                  <div className={styles.statValue}>
-                    {formatCurrency(criticalIllnessNeed?.have ?? 0)}
-                  </div>
-                </article>
-
-                <article className={`${styles.statCard} ${styles.gapCard}`}>
-                  <div className={styles.statLabel}>My Gap</div>
-                  <div className={`${styles.statValue} ${styles.gapValue}`}>
-                    {formatCurrency(criticalIllnessNeed?.gap ?? 0)}
-                  </div>
-                </article>
-              </div>
+              <SummaryCards
+                need={formatCurrency(criticalIllnessNeed?.need ?? 0)}
+                have={formatCurrency(criticalIllnessNeed?.have ?? 0)}
+                gap={formatCurrency(criticalIllnessNeed?.gap ?? 0)}
+                containerClassName={styles.statRow}
+                cardClassName={styles.statCard}
+                needCardClassName={styles.needCard}
+                haveCardClassName={styles.haveCard}
+                gapCardClassName={styles.gapCard}
+                labelClassName={styles.statLabel}
+                valueClassName={styles.statValue}
+                gapValueClassName={styles.gapValue}
+              />
             </section>
           </div>
         </section>

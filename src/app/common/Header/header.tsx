@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { financeRoutes, type FinanceRouteId } from '@/lib/routes';
-import styles from '../../FinanceRoutePage.module.css';
+import styles from '../../finance-route-page.module.css';
 
 type HeaderProps = {
   routeId: FinanceRouteId;

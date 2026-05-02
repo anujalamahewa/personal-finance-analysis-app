@@ -1,9 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import FinanceRoutePage from '@/app/FinanceRoutePage';
-import Popup from '@/app/common/Popup';
-import { useFinance } from '@/app/FinanceProvider';
+import FinanceRoutePage from '@/app/finance-route-page';
+import Popup from '@/app/common/popup/popup';
+import LabeledField from '@/app/common/calculator/labeled-field';
+import SummaryCards from '@/app/common/calculator/summary-cards';
+import { useFinance } from '@/app/finance-provider';
 import { formatCurrency } from '@/lib/calculations';
 import styles from './page.module.css';
 
@@ -145,8 +147,7 @@ export default function RetirementCalculatorPage() {
             </div>
 
             <div className={styles.formGrid}>
-              <div>
-                <label className={styles.label}>Monthly Expenses Today (LKR)</label>
+              <LabeledField label="Monthly Expenses Today (LKR)" labelClassName={styles.label}>
                 <input
                   type="text"
                   inputMode="numeric"
@@ -157,9 +158,9 @@ export default function RetirementCalculatorPage() {
                     setProfileField('monthlyExpenses', toNumber(event.target.value))
                   }
                 />
-              </div>
-              <div>
-                <label className={styles.label}>Expenses at Retirement</label>
+              </LabeledField>
+
+              <LabeledField label="Expenses at Retirement" labelClassName={styles.label}>
                 <select
                   className={styles.select}
                   value={state.assumptions.retirementExpenseRatio}
@@ -173,9 +174,9 @@ export default function RetirementCalculatorPage() {
                     </option>
                   ))}
                 </select>
-              </div>
-              <div>
-                <label className={styles.label}>Inflation Rate (% P.A.)</label>
+              </LabeledField>
+
+              <LabeledField label="Inflation Rate (% P.A.)" labelClassName={styles.label}>
                 <input
                   type="text"
                   inputMode="numeric"
@@ -186,9 +187,9 @@ export default function RetirementCalculatorPage() {
                     setAssumptionField('inflationRate', toNumber(event.target.value))
                   }
                 />
-              </div>
-              <div>
-                <label className={styles.label}>Investment Return (% P.A.)</label>
+              </LabeledField>
+
+              <LabeledField label="Investment Return (% P.A.)" labelClassName={styles.label}>
                 <input
                   type="text"
                   inputMode="numeric"
@@ -199,9 +200,9 @@ export default function RetirementCalculatorPage() {
                     setAssumptionField('investmentReturnRate', toNumber(event.target.value))
                   }
                 />
-              </div>
-              <div>
-                <label className={styles.label}>Years to Retirement</label>
+              </LabeledField>
+
+              <LabeledField label="Years to Retirement" labelClassName={styles.label}>
                 <input
                   type="text"
                   inputMode="numeric"
@@ -212,9 +213,9 @@ export default function RetirementCalculatorPage() {
                     setProfileField('retirementAge', toNumber(event.target.value))
                   }
                 />
-              </div>
-              <div>
-                <label className={styles.label}>Life Expectancy</label>
+              </LabeledField>
+
+              <LabeledField label="Life Expectancy" labelClassName={styles.label}>
                 <input
                   type="text"
                   inputMode="numeric"
@@ -225,7 +226,7 @@ export default function RetirementCalculatorPage() {
                     setAssumptionField('lifeExpectancy', toNumber(event.target.value))
                   }
                 />
-              </div>
+              </LabeledField>
             </div>
 
             <div className={styles.resultTopRow}>
@@ -257,24 +258,18 @@ export default function RetirementCalculatorPage() {
               </article>
             </div>
 
-            <div className={styles.bottomCards}>
-              <article className={`${styles.bottomCard} ${styles.bottomNeed}`}>
-                <div className={styles.bottomLabel}>I Need</div>
-                <div className={styles.bottomValue}>
-                  {formatCurrency(retirementNeed?.need ?? 0)}
-                </div>
-              </article>
-              <article className={`${styles.bottomCard} ${styles.bottomHave}`}>
-                <div className={styles.bottomLabel}>I Have</div>
-                <div className={styles.bottomValue}>
-                  {formatCurrency(retirementNeed?.have ?? 0)}
-                </div>
-              </article>
-              <article className={`${styles.bottomCard} ${styles.bottomGap}`}>
-                <div className={styles.bottomLabel}>My Gap</div>
-                <div className={styles.bottomValue}>{formatCurrency(retirementNeed?.gap ?? 0)}</div>
-              </article>
-            </div>
+            <SummaryCards
+              need={formatCurrency(retirementNeed?.need ?? 0)}
+              have={formatCurrency(retirementNeed?.have ?? 0)}
+              gap={formatCurrency(retirementNeed?.gap ?? 0)}
+              containerClassName={styles.bottomCards}
+              cardClassName={styles.bottomCard}
+              needCardClassName={styles.bottomNeed}
+              haveCardClassName={styles.bottomHave}
+              gapCardClassName={styles.bottomGap}
+              labelClassName={styles.bottomLabel}
+              valueClassName={styles.bottomValue}
+            />
           </div>
 
           <Popup

@@ -1,9 +1,9 @@
 'use client';
 
-import { useMemo, useState } from 'react';
-import FinanceRoutePage from '@/app/FinanceRoutePage';
-import Banner from '@/app/common/Banner';
-import { useFinance } from '@/app/FinanceProvider';
+import { useMemo, useState, type TouchEvent } from 'react';
+import FinanceRoutePage from '@/app/finance-route-page';
+import Banner from '@/app/common/banner/banner';
+import { useFinance } from '@/app/finance-provider';
 import { formatCurrency } from '@/lib/calculations';
 import { type NeedKey } from '@/lib/types';
 import styles from './page.module.css';
@@ -115,7 +115,7 @@ export default function PriorityNeedsPage() {
     clearDragState();
   }
 
-  function handleTouchMove(event: React.TouchEvent<HTMLElement>) {
+  function handleTouchMove(event: TouchEvent<HTMLElement>) {
     if (!draggedKey) {
       return;
     }
