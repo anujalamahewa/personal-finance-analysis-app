@@ -1,21 +1,147 @@
 .lifeLayout {
-  max-width: 1180px;
+  max-width: 1240px;
+  margin: 0 auto;
+  border: 1px solid #e8e9ed;
+  border-radius: 18px;
+  background: #f8f8fb;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  overflow: hidden;
+  font-family: var(--font-poppins), 'Segoe UI', sans-serif;
+}
+
+.storyPanel {
+  background: #fbf6f8;
+  border-right: 1px solid #efdae2;
+  padding: 34px 24px 28px;
+}
+
+.storyMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.storyStep {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #d31145;
+  color: #fff;
+  font-weight: 800;
+}
+
+.storyLabel {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d31145;
+  font-weight: 800;
+}
+
+.storyTitle {
+  margin-top: 18px;
+  display: grid;
+  gap: 2px;
+  max-width: 320px;
+  line-height: 1.04;
+  letter-spacing: -0.8px;
+  color: #0f172a;
+  font-weight: 900;
+}
+
+.storyTitleAccent {
+  color: #d31145;
+}
+
+.storyUnderline {
+  width: 40px;
+  height: 4px;
+  border-radius: 999px;
+  background: #d31145;
+  margin-top: 14px;
+}
+
+.storyBody {
+  margin-top: 14px;
+  color: #5b6573;
+  line-height: 1.56;
+  max-width: 620px;
+}
+
+.realityCard {
+  margin-top: 16px;
+  border: 1px solid #dde4ea;
+  border-radius: 14px;
+  background: #f8fafc;
+  padding: 14px;
+}
+
+.realityTitle {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #6b7280;
+}
+
+.realityGrid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.realityItem {
+  border-radius: 10px;
+  border: 1px solid;
+  padding: 8px 10px;
+  font-weight: 600;
+}
+
+.realityIncome {
+  background: #eaf5ef;
+  border-color: #c2e6cf;
+  color: #1b9d5f;
+}
+
+.realityExpense {
+  background: #fff1f5;
+  border-color: #f4d2dd;
+  color: #d31145;
+}
+
+.realityFooter {
+  margin-top: 12px;
+  border-radius: 8px;
+  background: #fff1f5;
+  color: #d31145;
+  text-align: center;
+  padding: 8px 10px;
+  font-weight: 700;
+}
+
+.calcPanel {
+  padding: 30px 24px 24px;
+  background: #fbfcfe;
 }
 
 .headerRow {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .stepBadge {
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   background: #0f172a;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 800;
   display: grid;
   place-items: center;
@@ -24,14 +150,13 @@
 .pageTitle {
   margin: 0;
   color: #0f172a;
-  line-height: 1.06;
-  letter-spacing: -0.6px;
   font-weight: 800;
+  letter-spacing: -0.6px;
 }
 
 .sectionTitle {
   margin: 6px 0 10px;
-  letter-spacing: 2.6px;
+  letter-spacing: 2.4px;
   text-transform: uppercase;
   color: #d31145;
   font-weight: 800;
@@ -52,7 +177,7 @@
   margin-bottom: 7px;
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 2.8px;
+  letter-spacing: 2.6px;
   color: #64748b;
   font-weight: 700;
 }
@@ -60,13 +185,29 @@
 .input,
 .select {
   width: 100%;
-  min-height: 54px;
-  border: 1px solid #cdd4de;
-  border-radius: 11px;
-  background: #f6f7f9;
+  min-height: 42px;
+  border: 1px solid #d0d7e1;
+  border-radius: 9px;
+  background: #ffffff;
   color: #0f172a;
-  padding: 12px 14px;
+  padding: 8px 12px;
   font-size: 16px;
+  font-family: var(--font-poppins), 'Segoe UI', sans-serif;
+}
+
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 38px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%2364758b' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 16px;
+}
+
+.select::-ms-expand {
+  display: none;
 }
 
 .input::placeholder {
@@ -80,9 +221,9 @@
 }
 
 .resultBand {
-  margin-top: 14px;
+  margin-top: 12px;
   border-radius: 14px;
-  padding: 14px 18px 16px;
+  padding: 12px 16px 14px;
   color: #ffffff;
 }
 
@@ -102,9 +243,9 @@
 }
 
 .resultBandValue {
-  margin-top: 5px;
-  font-size: clamp(30px, 4vw, 46px);
-  line-height: 1.08;
+  margin-top: 4px;
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1.1;
   font-weight: 800;
 }
 
@@ -112,13 +253,13 @@
   margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
+  gap: 10px;
 }
 
 .summaryCard {
   border-radius: 12px;
   border: 1px solid #d1d5db;
-  min-height: 76px;
+  min-height: 72px;
   text-align: center;
   padding: 9px 10px;
 }
@@ -139,8 +280,8 @@
 }
 
 .summaryLabel {
-  font-size: 11px;
-  letter-spacing: 3px;
+  font-size: 10px;
+  letter-spacing: 2.6px;
   text-transform: uppercase;
   font-weight: 700;
 }
@@ -158,9 +299,9 @@
 }
 
 .summaryValue {
-  margin-top: 4px;
+  margin-top: 5px;
   color: #0f172a;
-  font-size: 36px;
+  font-size: 24px;
   line-height: 1.1;
   font-weight: 800;
 }
@@ -170,43 +311,48 @@
   border-top: 1px solid #d6dde6;
 }
 
-@media (max-width: 1024px) {
-  .summaryValue {
-    font-size: 28px;
-  }
-}
-
 @media (max-width: 900px) {
+  .lifeLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .storyPanel {
+    border-right: none;
+    border-bottom: 1px solid #efdae2;
+  }
+
   .formGrid,
-  .summaryCards {
+  .summaryCards,
+  .realityGrid {
     grid-template-columns: 1fr;
   }
 
   .fullRow {
     grid-column: auto;
   }
-
-  .resultBandValue {
-    font-size: 34px;
-  }
 }
 
 @media (max-width: 768px) {
-  .label {
-    letter-spacing: 2px;
+  .storyPanel,
+  .calcPanel {
+    padding: 18px 14px;
+  }
+
+  .storyLabel,
+  .label,
+  .summaryLabel,
+  .resultBandLabel,
+  .sectionTitle {
+    letter-spacing: 1.6px;
   }
 
   .input,
   .select {
-    min-height: 50px;
-    font-size: 15px;
+    min-height: 44px;
+    font-size: 16px;
   }
 
   .summaryValue {
-    font-size: 24px;
-  }
-
-  .resultBandValue {
-    font-size: 28px;
+    font-size: 22px;
   }
 }
