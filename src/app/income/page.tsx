@@ -1,5 +1,5 @@
-import FinanceRoutePage from "@/lib/finance/ui/FinanceRoutePage";
-import styles from "./page.module.css";
+import FinanceRoutePage from '@/lib/FinanceRoutePage';
+import styles from './page.module.css';
 
 export default function IncomeCyclePage() {
   return (
@@ -20,8 +20,8 @@ export default function IncomeCyclePage() {
             <div className={styles.incomeStatCard}>
               <div className={styles.incomeStatValue}>50%</div>
               <p className={styles.incomeStatText}>
-                of your life requires income you will not be actively earning. Planning today is
-                the only solution.
+                of your life requires income you will not be actively earning. Planning today is the
+                only solution.
               </p>
             </div>
           </div>
@@ -54,7 +54,10 @@ export default function IncomeCyclePage() {
 
           <div className={styles.incomeLegend}>
             <div className={styles.incomeLegendItem}>
-              <span className={`${styles.incomeLegendDot} ${styles.dotStudent}`} aria-hidden="true" />
+              <span
+                className={`${styles.incomeLegendDot} ${styles.dotStudent}`}
+                aria-hidden="true"
+              />
               <div>
                 <div className={styles.incomeLegendTitle}>Student (0-20)</div>
                 <div className={styles.incomeLegendText}>Learning phase</div>

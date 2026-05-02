@@ -6,19 +6,19 @@ import {
   type NeedResult,
   type NeedKey,
   type RetirementResult,
-} from "./types";
+} from './types';
 
 const NEED_LABELS: Record<NeedKey, string> = {
-  retirement: "Happy Retirement",
-  life: "Life Cover (Death/TPD)",
-  disability: "Disability Protection",
-  education: "Higher Education Fund",
-  medical: "Medical Cover",
-  criticalIllness: "Critical Illness Cover",
+  retirement: 'Happy Retirement',
+  life: 'Life Cover (Death/TPD)',
+  disability: 'Disability Protection',
+  education: 'Higher Education Fund',
+  medical: 'Medical Cover',
+  criticalIllness: 'Critical Illness Cover',
 };
 
 export function formatCurrency(amount: number): string {
-  return `LKR ${Math.round(amount).toLocaleString("en-US")}`;
+  return `LKR ${Math.round(amount).toLocaleString('en-US')}`;
 }
 
 function pmt(annualRate: number, months: number, fv: number, pv = 0): number {
@@ -57,7 +57,7 @@ function calcRetirement(state: FinanceState): RetirementResult {
   const years = yearsToRetirement(state.profile.age, state.profile.retirementAge);
   const retirementPeriodYears = Math.max(
     5,
-    state.assumptions.lifeExpectancy - state.profile.retirementAge
+    state.assumptions.lifeExpectancy - state.profile.retirementAge,
   );
   const monthlyNeedAtRetirement =
     expenses *
@@ -66,7 +66,7 @@ function calcRetirement(state: FinanceState): RetirementResult {
 
   const realReturn = Math.max(
     0.005,
-    (state.assumptions.investmentReturnRate - state.assumptions.inflationRate) / 100
+    (state.assumptions.investmentReturnRate - state.assumptions.inflationRate) / 100,
   );
 
   const corpusNeeded =
@@ -78,7 +78,7 @@ function calcRetirement(state: FinanceState): RetirementResult {
     state.assumptions.investmentReturnRate,
     years * 12,
     corpusNeeded,
-    -state.coverage.retirement
+    -state.coverage.retirement,
   );
 
   return {
@@ -109,7 +109,7 @@ function calcEducation(state: FinanceState): EducationResult {
 
     return {
       childId: child.id,
-      childName: child.name.trim() || "Child",
+      childName: child.name.trim() || 'Child',
       yearsToUniversity: years,
       futureCost,
       allocatedExistingFund: allocatedPerChild,
@@ -118,7 +118,7 @@ function calcEducation(state: FinanceState): EducationResult {
         state.assumptions.educationInvestmentReturnRate,
         years * 12,
         futureCost,
-        -allocatedPerChild
+        -allocatedPerChild,
       ),
     };
   });
@@ -126,10 +126,7 @@ function calcEducation(state: FinanceState): EducationResult {
   return {
     totalNeed: childBreakdown.reduce((sum, child) => sum + child.futureCost, 0),
     totalGap: childBreakdown.reduce((sum, child) => sum + child.gap, 0),
-    totalMonthlyRequired: childBreakdown.reduce(
-      (sum, child) => sum + child.monthlyRequired,
-      0
-    ),
+    totalMonthlyRequired: childBreakdown.reduce((sum, child) => sum + child.monthlyRequired, 0),
     childBreakdown,
   };
 }
@@ -140,20 +137,14 @@ function calcNeedResults(state: FinanceState, education: EducationResult): NeedR
 
   const income = state.profile.monthlyIncome;
   const lifeNeed =
-    state.assumptions.lifeCoverageMode === "hlv"
-      ? income *
-          12 *
-          state.assumptions.lifeReplacementRatio /
+    state.assumptions.lifeCoverageMode === 'hlv'
+      ? (income * 12 * state.assumptions.lifeReplacementRatio) /
           Math.max(0.01, state.assumptions.lifeFdRate / 100) +
         state.profile.outstandingLoans
-      : income *
-          12 *
-          state.assumptions.lifeReplacementRatio *
-          state.assumptions.lifeCoverageYears +
+      : income * 12 * state.assumptions.lifeReplacementRatio * state.assumptions.lifeCoverageYears +
         state.profile.outstandingLoans;
 
-  const disabilityNeed =
-    income * state.assumptions.disabilityReplacementRatio * 12 * years;
+  const disabilityNeed = income * state.assumptions.disabilityReplacementRatio * 12 * years;
 
   const members = familyMembers(state.children, state.profile.spouseName);
   const medicalBase =
@@ -165,42 +156,42 @@ function calcNeedResults(state: FinanceState, education: EducationResult): NeedR
 
   const needs: NeedResult[] = [
     {
-      key: "retirement",
+      key: 'retirement',
       label: NEED_LABELS.retirement,
       need: retirement.corpusNeeded,
       have: state.coverage.retirement,
       gap: Math.max(0, retirement.corpusNeeded - state.coverage.retirement),
     },
     {
-      key: "life",
+      key: 'life',
       label: NEED_LABELS.life,
       need: lifeNeed,
       have: state.coverage.life,
       gap: Math.max(0, lifeNeed - state.coverage.life),
     },
     {
-      key: "disability",
+      key: 'disability',
       label: NEED_LABELS.disability,
       need: disabilityNeed,
       have: state.coverage.disability,
       gap: Math.max(0, disabilityNeed - state.coverage.disability),
     },
     {
-      key: "education",
+      key: 'education',
       label: NEED_LABELS.education,
       need: education.totalNeed,
       have: state.coverage.education,
       gap: Math.max(0, education.totalNeed - state.coverage.education),
     },
     {
-      key: "medical",
+      key: 'medical',
       label: NEED_LABELS.medical,
       need: medicalNeed,
       have: state.coverage.medical,
       gap: Math.max(0, medicalNeed - state.coverage.medical),
     },
     {
-      key: "criticalIllness",
+      key: 'criticalIllness',
       label: NEED_LABELS.criticalIllness,
       need: criticalIllnessNeed,
       have: state.coverage.criticalIllness,

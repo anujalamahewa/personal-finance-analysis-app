@@ -1,10 +1,10 @@
-import Link from "next/link";
-import FinanceRoutePage from "@/lib/finance/ui/FinanceRoutePage";
-import { getRouteById } from "@/lib/finance/routes";
-import styles from "./page.module.css";
+import Link from 'next/link';
+import FinanceRoutePage from '@/lib/FinanceRoutePage';
+import { getRouteById } from '@/lib/routes';
+import styles from './page.module.css';
 
 export default function NeedsAssessmentPage() {
-  const dreamsPath = getRouteById("dreams")?.path ?? "/dreams";
+  const dreamsPath = getRouteById('dreams')?.path ?? '/dreams';
 
   return (
     <FinanceRoutePage
@@ -37,8 +37,8 @@ export default function NeedsAssessmentPage() {
               <div className={styles.discussionPhaseTag}>Phase 03</div>
               <h2 className={styles.discussionPhaseTitle}>Solution Presentation</h2>
               <p className={styles.discussionPhaseBody}>
-                A tailored strategy to close the gaps, delivered as a written report you leave
-                with today.
+                A tailored strategy to close the gaps, delivered as a written report you leave with
+                today.
               </p>
             </article>
           </div>

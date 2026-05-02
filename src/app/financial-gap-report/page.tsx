@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useMemo } from "react";
-import FinanceRoutePage from "@/lib/finance/ui/FinanceRoutePage";
-import { useFinance } from "@/lib/finance/ui/FinanceProvider";
-import { formatCurrency } from "@/lib/finance/calculations";
-import { type NeedKey } from "@/lib/finance/types";
-import styles from "./page.module.css";
+import { useMemo } from 'react';
+import FinanceRoutePage from '@/lib/FinanceRoutePage';
+import { useFinance } from '@/lib/FinanceProvider';
+import { formatCurrency } from '@/lib/calculations';
+import { type NeedKey } from '@/lib/types';
+import styles from './page.module.css';
 
 export default function FinancialGapReportPage() {
   const { computed, state } = useFinance();
@@ -53,7 +53,7 @@ export default function FinancialGapReportPage() {
                       <td>{need.label}</td>
                       <td>{formatCurrency(need.need)}</td>
                       <td>{formatCurrency(need.have)}</td>
-                      <td>{need.gap > 0 ? formatCurrency(need.gap) : "Covered"}</td>
+                      <td>{need.gap > 0 ? formatCurrency(need.gap) : 'Covered'}</td>
                       <td>{Math.min(100, Math.max(0, coveragePct)).toFixed(0)}%</td>
                     </tr>
                   );

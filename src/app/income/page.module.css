@@ -92,7 +92,7 @@
 }
 
 .incomeChart::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   border-radius: 50%;
@@ -100,7 +100,7 @@
 }
 
 .incomeChart::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 50%;
   top: 0;
@@ -313,18 +313,18 @@
     min-width: 78px;
   }
 
-.incomeSlicePercent {
-  font-size: 24px;
-  font-weight: 900;
-  line-height: 1;
-}
+  .incomeSlicePercent {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1;
+  }
 
-.incomeSliceName {
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1.2;
-  opacity: 0.95;
-}
+  .incomeSliceName {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    opacity: 0.95;
+  }
 
   .incomeChartCenter {
     font-size: 12px;

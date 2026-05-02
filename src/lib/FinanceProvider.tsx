@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   createContext,
@@ -7,8 +7,8 @@ import {
   useMemo,
   useState,
   type PropsWithChildren,
-} from "react";
-import { computeFinance } from "@/lib/finance/calculations";
+} from 'react';
+import { computeFinance } from '@/lib/calculations';
 import {
   type ChildProfile,
   type ExistingCoverage,
@@ -16,22 +16,19 @@ import {
   type NeedKey,
   type PlanningAssumptions,
   type ClientProfile,
-} from "@/lib/finance/types";
-import {
-  getRouteById,
-  type FinanceRouteId,
-} from "@/lib/finance/routes";
+} from '@/lib/types';
+import { getRouteById, type FinanceRouteId } from '@/lib/routes';
 
-const STORAGE_KEY = "personal-finance-analysis-cache-v2";
-const LEGACY_STORAGE_KEY = "personal-finance-analysis-state-v1";
+const STORAGE_KEY = 'personal-finance-analysis-cache-v2';
+const LEGACY_STORAGE_KEY = 'personal-finance-analysis-state-v1';
 
 const defaultProfile: ClientProfile = {
-  fullName: "",
-  dateOfBirth: "",
+  fullName: '',
+  dateOfBirth: '',
   age: 0,
   retirementAge: 0,
-  occupation: "",
-  spouseName: "",
+  occupation: '',
+  spouseName: '',
   monthlyIncome: 0,
   monthlyExpenses: 0,
   monthlySavings: 0,
@@ -53,7 +50,7 @@ const defaultAssumptions: PlanningAssumptions = {
   investmentReturnRate: 10,
   lifeExpectancy: 80,
   lifeReplacementRatio: 0.7,
-  lifeCoverageMode: "hlv",
+  lifeCoverageMode: 'hlv',
   lifeCoverageYears: 10,
   lifeFdRate: 8,
   disabilityReplacementRatio: 0.65,
@@ -68,14 +65,7 @@ const defaultState: FinanceState = {
   children: [],
   coverage: defaultCoverage,
   assumptions: defaultAssumptions,
-  priorities: [
-    "retirement",
-    "life",
-    "education",
-    "medical",
-    "disability",
-    "criticalIllness",
-  ],
+  priorities: ['retirement', 'life', 'education', 'medical', 'disability', 'criticalIllness'],
 };
 
 type FinanceUiState = {
@@ -89,7 +79,7 @@ type PersistedFinanceCache = {
 };
 
 const defaultUiState: FinanceUiState = {
-  lastRouteId: "welcome",
+  lastRouteId: 'welcome',
   riskStep: 0,
 };
 
@@ -103,13 +93,13 @@ function clampRiskStep(step: number): number {
 
 function createChild(overrides?: Partial<ChildProfile>): ChildProfile {
   const id =
-    typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+    typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
       ? crypto.randomUUID()
       : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
 
   return {
     id,
-    name: "",
+    name: '',
     age: 0,
     universityAge: 0,
     currentEducationCost: 0,
@@ -123,10 +113,10 @@ function isUntouchedLegacyProfile(profile: Partial<ClientProfile> | undefined): 
   }
 
   return (
-    (profile.fullName ?? "") === "" &&
-    (profile.occupation ?? "") === "" &&
-    (profile.spouseName ?? "") === "" &&
-    (profile.dateOfBirth ?? "") === "" &&
+    (profile.fullName ?? '') === '' &&
+    (profile.occupation ?? '') === '' &&
+    (profile.spouseName ?? '') === '' &&
+    (profile.dateOfBirth ?? '') === '' &&
     (profile.age ?? 0) === 35 &&
     (profile.retirementAge ?? 0) === 60 &&
     (profile.monthlyIncome ?? 0) === 150_000 &&
@@ -169,7 +159,7 @@ function mergeState(raw: Partial<FinanceState>): FinanceState {
 function mergeUiState(raw?: Partial<FinanceUiState>): FinanceUiState {
   const candidateRoute = raw?.lastRouteId;
   const lastRouteId =
-    typeof candidateRoute === "string" && getRouteById(candidateRoute as FinanceRouteId)
+    typeof candidateRoute === 'string' && getRouteById(candidateRoute as FinanceRouteId)
       ? (candidateRoute as FinanceRouteId)
       : defaultUiState.lastRouteId;
 
@@ -186,20 +176,13 @@ type FinanceContextValue = {
   ui: FinanceUiState;
   computed: ReturnType<typeof computeFinance>;
   setProfileField: <K extends keyof ClientProfile>(key: K, value: ClientProfile[K]) => void;
-  setCoverageField: <K extends keyof ExistingCoverage>(
-    key: K,
-    value: ExistingCoverage[K]
-  ) => void;
+  setCoverageField: <K extends keyof ExistingCoverage>(key: K, value: ExistingCoverage[K]) => void;
   setAssumptionField: <K extends keyof PlanningAssumptions>(
     key: K,
-    value: PlanningAssumptions[K]
+    value: PlanningAssumptions[K],
   ) => void;
   addChild: () => void;
-  updateChild: <K extends keyof ChildProfile>(
-    id: string,
-    key: K,
-    value: ChildProfile[K]
-  ) => void;
+  updateChild: <K extends keyof ChildProfile>(id: string, key: K, value: ChildProfile[K]) => void;
   removeChild: (id: string) => void;
   movePriorityUp: (needKey: NeedKey) => void;
   movePriorityDown: (needKey: NeedKey) => void;
@@ -223,20 +206,20 @@ export function FinanceProvider({ children }: PropsWithChildren) {
           | Partial<PersistedFinanceCache>
           | Partial<FinanceState>;
 
-        if (parsed && typeof parsed === "object" && "state" in parsed) {
+        if (parsed && typeof parsed === 'object' && 'state' in parsed) {
           const cache = parsed as Partial<PersistedFinanceCache>;
           if (cache.state) {
             setState(mergeState(cache.state));
           }
           setUi(mergeUiState(cache.ui));
-        } else if (parsed && typeof parsed === "object") {
+        } else if (parsed && typeof parsed === 'object') {
           setState(mergeState(parsed as Partial<FinanceState>));
         }
       } else {
         const legacyRaw = window.localStorage.getItem(LEGACY_STORAGE_KEY);
         if (legacyRaw) {
           const legacyParsed = JSON.parse(legacyRaw) as Partial<FinanceState>;
-          if (legacyParsed && typeof legacyParsed === "object") {
+          if (legacyParsed && typeof legacyParsed === 'object') {
             setState(mergeState(legacyParsed));
           }
         }
@@ -298,7 +281,7 @@ export function FinanceProvider({ children }: PropsWithChildren) {
         setState((current) => ({
           ...current,
           children: current.children.map((child) =>
-            child.id === id ? { ...child, [key]: value } : child
+            child.id === id ? { ...child, [key]: value } : child,
           ),
         }));
       },
@@ -338,13 +321,13 @@ export function FinanceProvider({ children }: PropsWithChildren) {
         }
 
         setUi((current) =>
-          current.lastRouteId === routeId ? current : { ...current, lastRouteId: routeId }
+          current.lastRouteId === routeId ? current : { ...current, lastRouteId: routeId },
         );
       },
       setRiskStep: (step) => {
         const safeStep = clampRiskStep(step);
         setUi((current) =>
-          current.riskStep === safeStep ? current : { ...current, riskStep: safeStep }
+          current.riskStep === safeStep ? current : { ...current, riskStep: safeStep },
         );
       },
       resetAll: () => {
@@ -355,7 +338,7 @@ export function FinanceProvider({ children }: PropsWithChildren) {
         }));
       },
     }),
-    [state, ui, computed]
+    [state, ui, computed],
   );
 
   return <FinanceContext.Provider value={value}>{children}</FinanceContext.Provider>;
@@ -364,7 +347,7 @@ export function FinanceProvider({ children }: PropsWithChildren) {
 export function useFinance() {
   const context = useContext(FinanceContext);
   if (!context) {
-    throw new Error("useFinance must be used within FinanceProvider");
+    throw new Error('useFinance must be used within FinanceProvider');
   }
 
   return context;

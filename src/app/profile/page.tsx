@@ -1,34 +1,27 @@
-"use client";
+'use client';
 
-import FinanceRoutePage from "@/lib/finance/ui/FinanceRoutePage";
-import { useFinance } from "@/lib/finance/ui/FinanceProvider";
-import styles from "./page.module.css";
+import FinanceRoutePage from '@/lib/FinanceRoutePage';
+import { useFinance } from '@/lib/FinanceProvider';
+import styles from './page.module.css';
 
 function toNumber(value: string): number {
-  const parsed = Number(value.replace(/,/g, "").trim());
+  const parsed = Number(value.replace(/,/g, '').trim());
   return Number.isFinite(parsed) ? parsed : 0;
 }
 
 function formatNumber(value: number): string {
   if (!Number.isFinite(value) || value === 0) {
-    return "";
+    return '';
   }
 
-  return new Intl.NumberFormat("en-US", {
+  return new Intl.NumberFormat('en-US', {
     maximumFractionDigits: 0,
   }).format(value);
 }
 
 export default function ProfilePage() {
-  const {
-    state,
-    computed,
-    setProfileField,
-    setCoverageField,
-    addChild,
-    updateChild,
-    removeChild,
-  } = useFinance();
+  const { state, computed, setProfileField, setCoverageField, addChild, updateChild, removeChild } =
+    useFinance();
 
   return (
     <FinanceRoutePage
@@ -43,7 +36,7 @@ export default function ProfilePage() {
               <input
                 className={styles.input}
                 value={state.profile.fullName}
-                onChange={(event) => setProfileField("fullName", event.target.value)}
+                onChange={(event) => setProfileField('fullName', event.target.value)}
               />
             </div>
             <div>
@@ -51,7 +44,7 @@ export default function ProfilePage() {
               <input
                 className={styles.input}
                 value={state.profile.occupation}
-                onChange={(event) => setProfileField("occupation", event.target.value)}
+                onChange={(event) => setProfileField('occupation', event.target.value)}
               />
             </div>
             <div>
@@ -62,13 +55,13 @@ export default function ProfilePage() {
                 value={state.profile.dateOfBirth}
                 onChange={(event) => {
                   const dob = event.target.value;
-                  setProfileField("dateOfBirth", dob);
+                  setProfileField('dateOfBirth', dob);
                   if (dob) {
                     const birthDate = new Date(dob);
                     const age = Math.floor(
-                      (Date.now() - birthDate.getTime()) / (365.25 * 24 * 3600 * 1000)
+                      (Date.now() - birthDate.getTime()) / (365.25 * 24 * 3600 * 1000),
                     );
-                    setProfileField("age", Math.max(0, age));
+                    setProfileField('age', Math.max(0, age));
                   }
                 }}
               />
@@ -81,7 +74,7 @@ export default function ProfilePage() {
                 placeholder="35"
                 className={styles.input}
                 value={formatNumber(state.profile.age)}
-                onChange={(event) => setProfileField("age", toNumber(event.target.value))}
+                onChange={(event) => setProfileField('age', toNumber(event.target.value))}
               />
             </div>
             <div>
@@ -92,9 +85,7 @@ export default function ProfilePage() {
                 placeholder="60"
                 className={styles.input}
                 value={formatNumber(state.profile.retirementAge)}
-                onChange={(event) =>
-                  setProfileField("retirementAge", toNumber(event.target.value))
-                }
+                onChange={(event) => setProfileField('retirementAge', toNumber(event.target.value))}
               />
             </div>
             <div>
@@ -102,7 +93,7 @@ export default function ProfilePage() {
               <input
                 className={styles.input}
                 value={state.profile.spouseName}
-                onChange={(event) => setProfileField("spouseName", event.target.value)}
+                onChange={(event) => setProfileField('spouseName', event.target.value)}
               />
             </div>
             <div>
@@ -113,9 +104,7 @@ export default function ProfilePage() {
                 placeholder="150,000"
                 className={styles.input}
                 value={formatNumber(state.profile.monthlyIncome)}
-                onChange={(event) =>
-                  setProfileField("monthlyIncome", toNumber(event.target.value))
-                }
+                onChange={(event) => setProfileField('monthlyIncome', toNumber(event.target.value))}
               />
             </div>
             <div>
@@ -127,7 +116,7 @@ export default function ProfilePage() {
                 className={styles.input}
                 value={formatNumber(state.profile.monthlyExpenses)}
                 onChange={(event) =>
-                  setProfileField("monthlyExpenses", toNumber(event.target.value))
+                  setProfileField('monthlyExpenses', toNumber(event.target.value))
                 }
               />
             </div>
@@ -140,7 +129,7 @@ export default function ProfilePage() {
                 className={styles.input}
                 value={formatNumber(state.profile.monthlySavings)}
                 onChange={(event) =>
-                  setProfileField("monthlySavings", toNumber(event.target.value))
+                  setProfileField('monthlySavings', toNumber(event.target.value))
                 }
               />
             </div>
@@ -153,7 +142,7 @@ export default function ProfilePage() {
                 className={styles.input}
                 value={formatNumber(state.profile.outstandingLoans)}
                 onChange={(event) =>
-                  setProfileField("outstandingLoans", toNumber(event.target.value))
+                  setProfileField('outstandingLoans', toNumber(event.target.value))
                 }
               />
             </div>
@@ -187,7 +176,7 @@ export default function ProfilePage() {
                     <input
                       className={styles.input}
                       value={child.name}
-                      onChange={(event) => updateChild(child.id, "name", event.target.value)}
+                      onChange={(event) => updateChild(child.id, 'name', event.target.value)}
                     />
                   </div>
                   <div>
@@ -198,7 +187,9 @@ export default function ProfilePage() {
                       placeholder="5"
                       className={styles.input}
                       value={formatNumber(child.age)}
-                      onChange={(event) => updateChild(child.id, "age", toNumber(event.target.value))}
+                      onChange={(event) =>
+                        updateChild(child.id, 'age', toNumber(event.target.value))
+                      }
                     />
                   </div>
                   <div>
@@ -210,7 +201,7 @@ export default function ProfilePage() {
                       className={styles.input}
                       value={formatNumber(child.universityAge)}
                       onChange={(event) =>
-                        updateChild(child.id, "universityAge", toNumber(event.target.value))
+                        updateChild(child.id, 'universityAge', toNumber(event.target.value))
                       }
                     />
                   </div>
@@ -223,7 +214,7 @@ export default function ProfilePage() {
                       className={styles.input}
                       value={formatNumber(child.currentEducationCost)}
                       onChange={(event) =>
-                        updateChild(child.id, "currentEducationCost", toNumber(event.target.value))
+                        updateChild(child.id, 'currentEducationCost', toNumber(event.target.value))
                       }
                     />
                   </div>
@@ -242,7 +233,7 @@ export default function ProfilePage() {
                 placeholder="0"
                 className={styles.input}
                 value={formatNumber(state.coverage.life)}
-                onChange={(event) => setCoverageField("life", toNumber(event.target.value))}
+                onChange={(event) => setCoverageField('life', toNumber(event.target.value))}
               />
             </div>
             <div>
@@ -253,7 +244,7 @@ export default function ProfilePage() {
                 placeholder="0"
                 className={styles.input}
                 value={formatNumber(state.coverage.disability)}
-                onChange={(event) => setCoverageField("disability", toNumber(event.target.value))}
+                onChange={(event) => setCoverageField('disability', toNumber(event.target.value))}
               />
             </div>
             <div>
@@ -265,7 +256,7 @@ export default function ProfilePage() {
                 className={styles.input}
                 value={formatNumber(state.coverage.criticalIllness)}
                 onChange={(event) =>
-                  setCoverageField("criticalIllness", toNumber(event.target.value))
+                  setCoverageField('criticalIllness', toNumber(event.target.value))
                 }
               />
             </div>
@@ -277,7 +268,7 @@ export default function ProfilePage() {
                 placeholder="0"
                 className={styles.input}
                 value={formatNumber(state.coverage.medical)}
-                onChange={(event) => setCoverageField("medical", toNumber(event.target.value))}
+                onChange={(event) => setCoverageField('medical', toNumber(event.target.value))}
               />
             </div>
             <div>
@@ -288,9 +279,7 @@ export default function ProfilePage() {
                 placeholder="0"
                 className={styles.input}
                 value={formatNumber(state.coverage.retirement)}
-                onChange={(event) =>
-                  setCoverageField("retirement", toNumber(event.target.value))
-                }
+                onChange={(event) => setCoverageField('retirement', toNumber(event.target.value))}
               />
             </div>
             <div>
@@ -301,7 +290,7 @@ export default function ProfilePage() {
                 placeholder="0"
                 className={styles.input}
                 value={formatNumber(state.coverage.education)}
-                onChange={(event) => setCoverageField("education", toNumber(event.target.value))}
+                onChange={(event) => setCoverageField('education', toNumber(event.target.value))}
               />
             </div>
           </div>

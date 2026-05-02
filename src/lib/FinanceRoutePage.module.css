@@ -1,6 +1,12 @@
 .shell {
   min-height: 100dvh;
-  background: radial-gradient(circle at 10% -20%, #ffe8ef 0%, #fff6ef 35%, #f7f4ef 70%, #f3f3ef 100%);
+  background: radial-gradient(
+    circle at 10% -20%,
+    #ffe8ef 0%,
+    #fff6ef 35%,
+    #f7f4ef 70%,
+    #f3f3ef 100%
+  );
   color: #1a2028;
 }
 
@@ -737,7 +743,6 @@
     font-size: 12px;
     padding: 9px 10px;
   }
-
 }
 
 @media (max-width: 430px) {

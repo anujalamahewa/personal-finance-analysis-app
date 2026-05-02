@@ -1,5 +1,5 @@
-import FinanceRoutePage from "@/lib/finance/ui/FinanceRoutePage";
-import styles from "./page.module.css";
+import FinanceRoutePage from '@/lib/FinanceRoutePage';
+import styles from './page.module.css';
 
 export default function DreamsPage() {
   return (
@@ -12,8 +12,8 @@ export default function DreamsPage() {
             Dreams <span>= Wealth</span>
           </h1>
           <p className={styles.dreamsBody}>
-            Every milestone in life carries a financial cost. The question is whether your
-            finances are growing fast enough to keep up with your dreams.
+            Every milestone in life carries a financial cost. The question is whether your finances
+            are growing fast enough to keep up with your dreams.
           </p>
 
           <div className={styles.dreamsChartWrap}>

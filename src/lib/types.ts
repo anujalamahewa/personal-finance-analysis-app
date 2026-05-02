@@ -1,12 +1,12 @@
 export type NeedKey =
-  | "retirement"
-  | "life"
-  | "disability"
-  | "education"
-  | "medical"
-  | "criticalIllness";
+  | 'retirement'
+  | 'life'
+  | 'disability'
+  | 'education'
+  | 'medical'
+  | 'criticalIllness';
 
-export type LifeCoverageMode = "hlv" | "years";
+export type LifeCoverageMode = 'hlv' | 'years';
 
 export interface ChildProfile {
   id: string;

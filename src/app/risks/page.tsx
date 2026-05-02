@@ -1,29 +1,29 @@
-"use client";
+'use client';
 
-import FinanceRoutePage from "@/lib/finance/ui/FinanceRoutePage";
-import styles from "./page.module.css";
+import FinanceRoutePage from '@/lib/FinanceRoutePage';
+import styles from './page.module.css';
 
 export default function RisksPage() {
   const risks = [
     {
-      title: "Death",
-      icon: "💀",
-      body: "Income stops immediately and your family relies on what is already planned.",
+      title: 'Death',
+      icon: '💀',
+      body: 'Income stops immediately and your family relies on what is already planned.',
       scale:
-        "Monthly income multiplied by years to retirement estimates the protection your family needs.",
+        'Monthly income multiplied by years to retirement estimates the protection your family needs.',
     },
     {
-      title: "Disease",
-      icon: "🦠",
-      body: "Critical illness can remove earning capacity while treatment costs rise.",
+      title: 'Disease',
+      icon: '🦠',
+      body: 'Critical illness can remove earning capacity while treatment costs rise.',
       scale:
-        "Treatment costs plus at least 12-24 months of income replacement gives a realistic cover target.",
+        'Treatment costs plus at least 12-24 months of income replacement gives a realistic cover target.',
     },
     {
-      title: "Disability",
-      icon: "♿",
-      body: "Permanent disability can wipe out future earnings while expenses continue.",
-      scale: "Monthly income multiplied by years to retirement equals your true financial worth.",
+      title: 'Disability',
+      icon: '♿',
+      body: 'Permanent disability can wipe out future earnings while expenses continue.',
+      scale: 'Monthly income multiplied by years to retirement equals your true financial worth.',
     },
   ];
 

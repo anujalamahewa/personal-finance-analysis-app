@@ -1,45 +1,45 @@
-"use client";
+'use client';
 
-import FinanceRoutePage from "@/lib/finance/ui/FinanceRoutePage";
-import { useFinance } from "@/lib/finance/ui/FinanceProvider";
-import { formatCurrency } from "@/lib/finance/calculations";
-import styles from "./page.module.css";
+import FinanceRoutePage from '@/lib/FinanceRoutePage';
+import { useFinance } from '@/lib/FinanceProvider';
+import { formatCurrency } from '@/lib/calculations';
+import styles from './page.module.css';
 
 function toNumber(value: string): number {
-  const parsed = Number(value.replace(/,/g, "").trim());
+  const parsed = Number(value.replace(/,/g, '').trim());
   return Number.isFinite(parsed) ? parsed : 0;
 }
 
 function formatNumber(value: number): string {
   if (!Number.isFinite(value) || value <= 0) {
-    return "";
+    return '';
   }
 
-  return new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(value);
+  return new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(value);
 }
 
 const lifeRatioOptions = [
-  { label: "50% of income", value: 0.5 },
-  { label: "60% of income", value: 0.6 },
-  { label: "70% of income", value: 0.7 },
-  { label: "80% of income", value: 0.8 },
-  { label: "90% of income", value: 0.9 },
-  { label: "100% of income", value: 1 },
+  { label: '50% of income', value: 0.5 },
+  { label: '60% of income', value: 0.6 },
+  { label: '70% of income', value: 0.7 },
+  { label: '80% of income', value: 0.8 },
+  { label: '90% of income', value: 0.9 },
+  { label: '100% of income', value: 1 },
 ] as const;
 
 const disabilityRatioOptions = [
-  { label: "50% of income", value: 0.5 },
-  { label: "60% of income", value: 0.6 },
-  { label: "65% of income", value: 0.65 },
-  { label: "70% of income", value: 0.7 },
-  { label: "75% of income", value: 0.75 },
+  { label: '50% of income', value: 0.5 },
+  { label: '60% of income', value: 0.6 },
+  { label: '65% of income', value: 0.65 },
+  { label: '70% of income', value: 0.7 },
+  { label: '75% of income', value: 0.75 },
 ] as const;
 
 export default function LifeCoverPage() {
   const { state, computed, setProfileField, setAssumptionField } = useFinance();
 
-  const lifeNeed = computed.needs.find((need) => need.key === "life");
-  const disabilityNeed = computed.needs.find((need) => need.key === "disability");
+  const lifeNeed = computed.needs.find((need) => need.key === 'life');
+  const disabilityNeed = computed.needs.find((need) => need.key === 'disability');
 
   return (
     <FinanceRoutePage
@@ -61,7 +61,7 @@ export default function LifeCoverPage() {
                 className={styles.input}
                 placeholder="150,000"
                 value={formatNumber(state.profile.monthlyIncome)}
-                onChange={(event) => setProfileField("monthlyIncome", toNumber(event.target.value))}
+                onChange={(event) => setProfileField('monthlyIncome', toNumber(event.target.value))}
               />
             </div>
             <div>
@@ -70,7 +70,7 @@ export default function LifeCoverPage() {
                 className={styles.select}
                 value={state.assumptions.lifeReplacementRatio}
                 onChange={(event) =>
-                  setAssumptionField("lifeReplacementRatio", Number(event.target.value))
+                  setAssumptionField('lifeReplacementRatio', Number(event.target.value))
                 }
               >
                 {lifeRatioOptions.map((option) => (
@@ -86,7 +86,7 @@ export default function LifeCoverPage() {
                 className={styles.select}
                 value={state.assumptions.lifeCoverageMode}
                 onChange={(event) =>
-                  setAssumptionField("lifeCoverageMode", event.target.value as "hlv" | "years")
+                  setAssumptionField('lifeCoverageMode', event.target.value as 'hlv' | 'years')
                 }
               >
                 <option value="hlv">Full Life Value (HLV)</option>
@@ -102,7 +102,7 @@ export default function LifeCoverPage() {
                 placeholder="0"
                 value={formatNumber(state.profile.outstandingLoans)}
                 onChange={(event) =>
-                  setProfileField("outstandingLoans", toNumber(event.target.value))
+                  setProfileField('outstandingLoans', toNumber(event.target.value))
                 }
               />
             </div>
@@ -114,7 +114,7 @@ export default function LifeCoverPage() {
                 className={styles.input}
                 placeholder="8"
                 value={formatNumber(state.assumptions.lifeFdRate)}
-                onChange={(event) => setAssumptionField("lifeFdRate", toNumber(event.target.value))}
+                onChange={(event) => setAssumptionField('lifeFdRate', toNumber(event.target.value))}
               />
             </div>
           </div>
@@ -122,7 +122,9 @@ export default function LifeCoverPage() {
           <div className={`${styles.resultBand} ${styles.resultBandLife}`}>
             <div className={styles.resultBandLabel}>Life Cover Required</div>
             <div className={styles.resultBandValue}>
-              {(lifeNeed?.need ?? 0) > 0 ? formatCurrency(lifeNeed?.need ?? 0) : "Enter income above"}
+              {(lifeNeed?.need ?? 0) > 0
+                ? formatCurrency(lifeNeed?.need ?? 0)
+                : 'Enter income above'}
             </div>
           </div>
 
@@ -151,7 +153,7 @@ export default function LifeCoverPage() {
                 className={styles.select}
                 value={state.assumptions.disabilityReplacementRatio}
                 onChange={(event) =>
-                  setAssumptionField("disabilityReplacementRatio", Number(event.target.value))
+                  setAssumptionField('disabilityReplacementRatio', Number(event.target.value))
                 }
               >
                 {disabilityRatioOptions.map((option) => (
@@ -169,14 +171,16 @@ export default function LifeCoverPage() {
                 className={styles.input}
                 placeholder="60"
                 value={formatNumber(state.profile.retirementAge)}
-                onChange={(event) => setProfileField("retirementAge", toNumber(event.target.value))}
+                onChange={(event) => setProfileField('retirementAge', toNumber(event.target.value))}
               />
             </div>
           </div>
 
           <div className={`${styles.resultBand} ${styles.resultBandDisability}`}>
             <div className={styles.resultBandLabel}>Disability Income Protection Required</div>
-            <div className={styles.resultBandValue}>{formatCurrency(disabilityNeed?.need ?? 0)}</div>
+            <div className={styles.resultBandValue}>
+              {formatCurrency(disabilityNeed?.need ?? 0)}
+            </div>
           </div>
 
           <div className={styles.summaryCards}>

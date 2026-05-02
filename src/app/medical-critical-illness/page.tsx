@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useMemo } from "react";
-import FinanceRoutePage from "@/lib/finance/ui/FinanceRoutePage";
-import { useFinance } from "@/lib/finance/ui/FinanceProvider";
-import { formatCurrency } from "@/lib/finance/calculations";
-import styles from "./page.module.css";
+import { useMemo } from 'react';
+import FinanceRoutePage from '@/lib/FinanceRoutePage';
+import { useFinance } from '@/lib/FinanceProvider';
+import { formatCurrency } from '@/lib/calculations';
+import styles from './page.module.css';
 
 function toNumber(value: string): number {
   const parsed = Number(value);
@@ -26,8 +26,8 @@ export default function MedicalCriticalIllnessPage() {
   const familyMembers = computed.familyMembers;
   const perPersonMedicalCover = age < 40 ? 1_500_000 : age < 55 ? 2_000_000 : 3_000_000;
 
-  const medicalNeed = needsByKey.get("medical");
-  const criticalIllnessNeed = needsByKey.get("criticalIllness");
+  const medicalNeed = needsByKey.get('medical');
+  const criticalIllnessNeed = needsByKey.get('criticalIllness');
 
   return (
     <FinanceRoutePage
@@ -50,18 +50,13 @@ export default function MedicalCriticalIllnessPage() {
                   min={0}
                   className={styles.inputField}
                   value={age}
-                  onChange={(event) => setProfileField("age", toNumber(event.target.value))}
+                  onChange={(event) => setProfileField('age', toNumber(event.target.value))}
                 />
               </div>
 
               <div>
                 <label className={styles.inputLabel}>Family Members</label>
-                <input
-                  type="number"
-                  className={styles.inputField}
-                  value={familyMembers}
-                  readOnly
-                />
+                <input type="number" className={styles.inputField} value={familyMembers} readOnly />
               </div>
             </div>
 
@@ -103,7 +98,7 @@ export default function MedicalCriticalIllnessPage() {
                   className={styles.selectField}
                   value={state.assumptions.ciIncomeMonths}
                   onChange={(event) =>
-                    setAssumptionField("ciIncomeMonths", toNumber(event.target.value))
+                    setAssumptionField('ciIncomeMonths', toNumber(event.target.value))
                   }
                 >
                   {INCOME_MONTH_OPTIONS.map((months) => (
@@ -120,7 +115,7 @@ export default function MedicalCriticalIllnessPage() {
                   className={styles.selectField}
                   value={state.assumptions.ciTreatmentCost}
                   onChange={(event) =>
-                    setAssumptionField("ciTreatmentCost", toNumber(event.target.value))
+                    setAssumptionField('ciTreatmentCost', toNumber(event.target.value))
                   }
                 >
                   {TREATMENT_COST_OPTIONS.map((cost) => (
@@ -134,7 +129,9 @@ export default function MedicalCriticalIllnessPage() {
 
             <article className={`${styles.coverCard} ${styles.criticalIllnessCard}`}>
               <div className={styles.coverLabel}>Critical Illness Cover Required</div>
-              <div className={styles.coverValue}>{formatCurrency(criticalIllnessNeed?.need ?? 0)}</div>
+              <div className={styles.coverValue}>
+                {formatCurrency(criticalIllnessNeed?.need ?? 0)}
+              </div>
             </article>
 
             <div className={styles.statRow}>

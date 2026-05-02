@@ -1,30 +1,30 @@
-"use client";
+'use client';
 
-import { useMemo } from "react";
-import FinanceRoutePage from "@/lib/finance/ui/FinanceRoutePage";
-import { useFinance } from "@/lib/finance/ui/FinanceProvider";
-import { formatCurrency } from "@/lib/finance/calculations";
-import { type NeedKey } from "@/lib/finance/types";
-import styles from "./page.module.css";
+import { useMemo } from 'react';
+import FinanceRoutePage from '@/lib/FinanceRoutePage';
+import { useFinance } from '@/lib/FinanceProvider';
+import { formatCurrency } from '@/lib/calculations';
+import { type NeedKey } from '@/lib/types';
+import styles from './page.module.css';
 
-const DISPLAY_KEYS: NeedKey[] = ["retirement", "life", "medical"];
+const DISPLAY_KEYS: NeedKey[] = ['retirement', 'life', 'medical'];
 
 const DISPLAY_LABELS: Record<NeedKey, string> = {
-  retirement: "Happy Retirement",
-  life: "Family Income Protection",
-  medical: "Medical Emergency Funds",
-  disability: "Disability Protection",
-  education: "Higher Education Fund",
-  criticalIllness: "Critical Illness Cover",
+  retirement: 'Happy Retirement',
+  life: 'Family Income Protection',
+  medical: 'Medical Emergency Funds',
+  disability: 'Disability Protection',
+  education: 'Higher Education Fund',
+  criticalIllness: 'Critical Illness Cover',
 };
 
 const DISPLAY_ICONS: Record<NeedKey, string> = {
-  retirement: "💰",
-  life: "👪",
-  medical: "🏥",
-  disability: "🛟",
-  education: "🎓",
-  criticalIllness: "🛡️",
+  retirement: '💰',
+  life: '👪',
+  medical: '🏥',
+  disability: '🛟',
+  education: '🎓',
+  criticalIllness: '🛡️',
 };
 
 export default function PriorityNeedsPage() {
@@ -109,7 +109,9 @@ export default function PriorityNeedsPage() {
               <article key={need.key} className={styles.priorityRow}>
                 <div className={styles.rankBadge}>{index + 1}</div>
 
-                <div className={`${styles.priorityItem} ${index === 0 ? styles.priorityActive : ""}`}>
+                <div
+                  className={`${styles.priorityItem} ${index === 0 ? styles.priorityActive : ''}`}
+                >
                   <div className={styles.priorityName}>
                     <span className={styles.priorityIcon}>{need.icon}</span>
                     {need.label}

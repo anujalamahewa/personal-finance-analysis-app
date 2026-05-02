@@ -3,7 +3,13 @@
   display: grid;
   place-items: center;
   padding: 20px;
-  background: radial-gradient(circle at 15% -15%, #ffe8ef 0%, #fff6ef 38%, #f7f4ef 72%, #f2f2f2 100%);
+  background: radial-gradient(
+    circle at 15% -15%,
+    #ffe8ef 0%,
+    #fff6ef 38%,
+    #f7f4ef 72%,
+    #f2f2f2 100%
+  );
 }
 
 .loginCard {

@@ -166,8 +166,8 @@
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     grid-template-areas:
-      "rank item"
-      "controls controls";
+      'rank item'
+      'controls controls';
     gap: 8px;
   }
 

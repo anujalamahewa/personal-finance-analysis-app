@@ -1,32 +1,32 @@
-"use client";
+'use client';
 
-import FinanceRoutePage from "@/lib/finance/ui/FinanceRoutePage";
-import styles from "./page.module.css";
+import FinanceRoutePage from '@/lib/FinanceRoutePage';
+import styles from './page.module.css';
 
 const needCards = [
   {
-    icon: "💰",
-    title: "Happy Retirement",
-    body: "Having enough to live comfortably after you stop working",
-    tone: "retirement",
+    icon: '💰',
+    title: 'Happy Retirement',
+    body: 'Having enough to live comfortably after you stop working',
+    tone: 'retirement',
   },
   {
-    icon: "👨‍👩‍👧",
-    title: "Family Income Protection",
+    icon: '👨‍👩‍👧',
+    title: 'Family Income Protection',
     body: "Protecting your family's lifestyle if you can no longer provide",
-    tone: "family",
+    tone: 'family',
   },
   {
-    icon: "🎓",
-    title: "Higher Education Funds",
+    icon: '🎓',
+    title: 'Higher Education Funds',
     body: "Ensuring your children's education is funded regardless of what happens",
-    tone: "education",
+    tone: 'education',
   },
   {
-    icon: "🏥",
-    title: "Medical Emergency Funds",
-    body: "Covering healthcare costs without destroying your savings",
-    tone: "medical",
+    icon: '🏥',
+    title: 'Medical Emergency Funds',
+    body: 'Covering healthcare costs without destroying your savings',
+    tone: 'medical',
   },
 ] as const;
 

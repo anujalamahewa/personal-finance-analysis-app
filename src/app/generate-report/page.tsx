@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import FinanceRoutePage from "@/lib/finance/ui/FinanceRoutePage";
-import { useFinance } from "@/lib/finance/ui/FinanceProvider";
-import { formatCurrency } from "@/lib/finance/calculations";
-import styles from "./page.module.css";
+import FinanceRoutePage from '@/lib/FinanceRoutePage';
+import { useFinance } from '@/lib/FinanceProvider';
+import { formatCurrency } from '@/lib/calculations';
+import styles from './page.module.css';
 
 export default function GenerateReportPage() {
   const { state, computed, resetAll } = useFinance();
@@ -24,7 +24,7 @@ export default function GenerateReportPage() {
             <div className={styles.card}>
               <div className={styles.cardTitle}>Client</div>
               <p className={styles.cardMuted}>
-                {state.profile.fullName || "Unnamed client"}
+                {state.profile.fullName || 'Unnamed client'}
                 <br />
                 Age {state.profile.age}, Retirement {state.profile.retirementAge}
               </p>

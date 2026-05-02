@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import { useMemo } from "react";
-import FinanceRoutePage from "@/lib/finance/ui/FinanceRoutePage";
-import styles from "./page.module.css";
+import { useMemo } from 'react';
+import FinanceRoutePage from '@/lib/FinanceRoutePage';
+import styles from './page.module.css';
 
 export default function WelcomePage() {
   const formattedSessionDate = useMemo(
     () =>
-      new Intl.DateTimeFormat("en-GB", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
+      new Intl.DateTimeFormat('en-GB', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
       }).format(new Date()),
-    []
+    [],
   );
 
   return (
@@ -31,8 +31,8 @@ export default function WelcomePage() {
             </h1>
             <div className={styles.welcomeAccent} aria-hidden="true" />
             <p className={styles.welcomeBody}>
-              A structured, data-driven need analysis to understand exactly where you are, where
-              you need to be, and what it takes to get there.
+              A structured, data-driven need analysis to understand exactly where you are, where you
+              need to be, and what it takes to get there.
             </p>
             <div className={styles.welcomeMetaRow}>
               <div className={`${styles.welcomeMetaCard} ${styles.welcomeMetaPrimary}`}>
