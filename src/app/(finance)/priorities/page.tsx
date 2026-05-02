@@ -2,7 +2,7 @@
 
 import { useMemo, useState, type TouchEvent } from 'react';
 import FinanceRoutePage from '@/app/finance-route-page';
-import RedLine from '@/app/common/red-line/red-line';
+import SinglePageTitle from '@/app/common/single-page-title/single-page-title';
 import { useFinance } from '@/app/finance-provider';
 import { formatCurrency } from '@/lib/calculations';
 import { type NeedKey } from '@/lib/types';
@@ -150,37 +150,14 @@ export default function PriorityNeedsPage() {
       customBody={
         <section className={styles.pageWrap}>
           <div className={styles.workspace}>
-            <section className={styles.contextColumn}>
-              <div className={styles.heroLabel}>Now That You&apos;ve Seen the Numbers</div>
-              <h1 className={styles.heroTitle}>
-                Prioritise Your <span className={styles.heroAccent}>Needs</span>
-              </h1>
-              <RedLine className={styles.heroUnderline} />
-              <p className={styles.heroBody}>
-                Based on the gaps we&apos;ve identified, drag or use touch to rank these needs in
-                order of importance to you.
-                <br />
-                This shapes the solution we build together.
-              </p>
-
-              <article className={styles.futureCard}>
-                <div className={styles.futureIcon} aria-hidden="true">
-                  ☆
-                </div>
-                <div>
-                  <h2 className={styles.futureTitle}>Your priorities, your future</h2>
-                  <p className={styles.futureBody}>
-                    You&apos;re in control. Rank what matters most so we can build the right plan
-                    for you.
-                  </p>
-                </div>
-              </article>
-
-              <p className={styles.tipBanner}>Tip: Drag by the handle to reorder priorities</p>
-            </section>
+            <SinglePageTitle
+              className={styles.pageTitle}
+              label="Now That You've Seen the Numbers"
+              title="Prioritise Your Needs"
+              description="Based on the gaps we identified, rank these needs in order of importance to shape the solution we build together."
+            />
 
             <section className={styles.interactionColumn}>
-              <h2 className={styles.listTitle}>Rank These Needs</h2>
               <div className={styles.priorityList}>
                 {displayedPriorityNeeds.map((need, index) => (
                   <article
@@ -208,11 +185,7 @@ export default function PriorityNeedsPage() {
                     onTouchEnd={handleTouchEnd}
                     onTouchCancel={clearDragState}
                   >
-                    <div
-                      className={`${styles.rankBadge} ${index === 0 ? styles.rankBadgeActive : ''}`}
-                    >
-                      {index + 1}
-                    </div>
+                    <div className={styles.rankBadge}>{index + 1}</div>
 
                     <div
                       className={`${styles.priorityItem} ${index === 0 ? styles.priorityActive : ''}`}

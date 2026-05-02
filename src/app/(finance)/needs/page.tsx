@@ -35,7 +35,7 @@ export default function NeedsPage() {
         <section className={styles.needsLayout}>
           <SinglePageTitle
             label="Before We Calculate"
-            title="Understanding the 3 Major Life Needs"
+            title="Understanding The Three Major Life Needs"
             description="Before we look at numbers, it's important to understand the three financial pillars that every financial plan must address."
           />
 

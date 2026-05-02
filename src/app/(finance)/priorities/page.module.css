@@ -1,99 +1,29 @@
 .pageWrap {
-  max-width: 1240px;
-  margin: 0 auto;
-  border: 1px solid #e2e8f0;
-  border-radius: 18px;
-  background: #f4f7fb;
-  padding: 26px 24px 20px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
 }
 
 .workspace {
-  display: grid;
-  grid-template-columns: minmax(300px, 0.95fr) minmax(0, 1.25fr);
-  gap: 18px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+  width: 100%;
 }
 
-.contextColumn,
 .interactionColumn {
   min-width: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: clamp(320px, 44vh, 520px);
 }
 
-.listTitle {
-  color: #0f172a;
-  margin-bottom: 12px;
-  font-weight: 800;
-}
-
-.heroLabel {
-  font-size: 12px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 800;
-  color: #d31145;
-  margin-bottom: 8px;
-}
-
-.heroTitle {
-  line-height: 1.02;
-  letter-spacing: -0.8px;
-  font-weight: 900;
-  margin-bottom: 0;
-  color: #0f172a;
-}
-
-.heroAccent {
-  color: #d31145;
-}
-
-.heroUnderline {
-  margin-top: 10px;
-  margin-bottom: 0;
-}
-
-.heroBody {
-  margin-top: 14px;
-  max-width: 610px;
-  color: #5e6c81;
-  font-size: 16px;
-  line-height: 1.55;
-}
-
-.futureCard {
-  margin-top: 16px;
-  border: 1px solid #d9e2ec;
-  border-radius: 16px;
-  background: #ffffff;
-  padding: 18px 20px;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 14px;
-  align-items: center;
-  box-shadow: var(--elev-card-shadow);
-}
-
-.futureIcon {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background: #eef2f7;
-  color: #d31145;
-  display: grid;
-  place-items: center;
-  font-size: 28px;
-  line-height: 1;
-}
-
-.futureTitle {
-  margin: 0;
-  color: #0f172a;
-  font-weight: 800;
-}
-
-.futureBody {
-  margin: 3px 0 0;
-  color: #5f6d82;
-  line-height: 1.45;
+.pageTitle {
+  width: 100%;
 }
 
 .priorityList {
@@ -143,7 +73,7 @@
   width: 46px;
   height: 46px;
   border-radius: 999px;
-  background: #6b7484;
+  background: #d90a4f;
   color: #ffffff;
   display: inline-flex;
   align-items: center;
@@ -152,10 +82,6 @@
   line-height: 1;
   font-weight: 900;
   flex: 0 0 46px;
-}
-
-.rankBadgeActive {
-  background: #d90a4f;
 }
 
 .priorityItem {
@@ -282,12 +208,8 @@
 }
 
 @media (max-width: 900px) {
-  .workspace {
-    grid-template-columns: 1fr;
-  }
-
-  .futureCard {
-    max-width: none;
+  .interactionColumn {
+    min-height: auto;
   }
 
   .priorityName {
@@ -300,19 +222,6 @@
 }
 
 @media (max-width: 760px) {
-  .pageWrap {
-    padding: 18px 14px;
-  }
-
-  .listTitle {
-    margin-top: 6px;
-  }
-
-  .heroBody {
-    font-size: 14px;
-    line-height: 1.62;
-  }
-
   .priorityName {
     font-size: 18px;
   }
@@ -327,22 +236,6 @@
 }
 
 @media (max-width: 640px) {
-  .heroLabel {
-    letter-spacing: 1.2px;
-    font-size: 10px;
-  }
-
-  .heroTitle {
-    letter-spacing: -0.4px;
-    margin-bottom: 10px;
-    white-space: normal;
-  }
-
-  .heroBody {
-    font-size: 14px;
-    line-height: 1.65;
-  }
-
   .priorityRow {
     align-items: flex-start;
     gap: 8px;

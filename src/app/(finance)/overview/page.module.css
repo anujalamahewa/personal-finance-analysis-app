@@ -21,6 +21,11 @@
   line-height: 1.7;
 }
 
+.overviewDescription {
+  max-width: 72ch;
+  white-space: normal !important;
+}
+
 @media (min-width: 900px) {
   .heroBody {
     white-space: nowrap;

@@ -13,6 +13,7 @@ export default function OverviewPage() {
           <SinglePageTitle
             label="How This Is Structured"
             title="Overview"
+            descriptionClassName={styles.overviewDescription}
             description="We identify the right priorities by mapping each need, measuring your current position, and defining the exact gaps to close."
           />
 
