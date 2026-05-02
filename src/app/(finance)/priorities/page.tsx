@@ -13,7 +13,7 @@ const DISPLAY_KEYS: NeedKey[] = ['retirement', 'life', 'medical'];
 const DISPLAY_LABELS: Record<NeedKey, string> = {
   retirement: 'Happy Retirement',
   life: 'Family Income Protection',
-  medical: 'Medical Emergency Funds',
+  medical: 'Medical Emergency Fund',
   disability: 'Disability Protection',
   education: 'Higher Education Fund',
   criticalIllness: 'Critical Illness Cover',
@@ -146,7 +146,7 @@ export default function PriorityNeedsPage() {
 
   return (
     <FinanceRoutePage
-      routeId="prioritise-your-needs"
+      routeId="priorities"
       customBody={
         <section className={styles.pageWrap}>
           <div className={styles.workspace}>

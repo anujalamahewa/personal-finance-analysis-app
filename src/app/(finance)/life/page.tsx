@@ -156,7 +156,7 @@ export default function LifeCoverPage() {
 
   return (
     <FinanceRoutePage
-      routeId="life-cover"
+      routeId="life"
       customBody={
         <section className={styles.lifeLayout}>
           <aside className={styles.storyPanel}>

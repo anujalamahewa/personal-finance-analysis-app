@@ -32,6 +32,11 @@
   max-width: 350px;
 }
 
+.incomeTitleUnderline {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
 .incomeBody {
   margin-top: 12px;
   max-width: 760px;
@@ -286,7 +291,6 @@
     row-gap: 24px;
   }
 
-  .incomeLeft,
   .incomeLegend {
     grid-column: 1 / -1;
   }
@@ -303,15 +307,13 @@
   .incomeTitle {
     max-width: none;
   }
-
-  .incomeCenter {
-    grid-column: 1 / -1;
-  }
 }
 
 @media (max-width: 860px) {
   .incomeLayout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 14px;
+    row-gap: 16px;
   }
 
   .incomeLegend {
@@ -319,7 +321,12 @@
   }
 
   .incomeCenter {
-    justify-content: center;
+    justify-content: flex-start;
+  }
+
+  .incomeChart {
+    width: min(100%, 280px);
+    margin-left: 0;
   }
 }
 

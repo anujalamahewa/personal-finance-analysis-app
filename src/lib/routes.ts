@@ -1,17 +1,17 @@
 export type FinanceRouteId =
   | 'welcome'
   | 'overview'
-  | 'dreams'
+  | 'goals'
   | 'income'
   | 'risks'
-  | 'profile'
   | 'needs'
+  | 'profile'
   | 'retirement'
-  | 'life-cover'
-  | 'medical-critical-illness'
-  | 'prioritise-your-needs'
-  | 'financial-gap-report'
-  | 'generate-report';
+  | 'life'
+  | 'medical'
+  | 'priorities'
+  | 'summary'
+  | 'report';
 
 export interface FinanceRoute {
   id: FinanceRouteId;
@@ -29,10 +29,10 @@ export const financeRoutes: FinanceRoute[] = [
     shortLabel: 'Overview',
   },
   {
-    id: 'dreams',
+    id: 'goals',
     title: 'Dreams = Wealth',
-    path: '/dreams',
-    shortLabel: 'Dreams',
+    path: '/goals',
+    shortLabel: 'Goals',
   },
   {
     id: 'income',
@@ -47,51 +47,51 @@ export const financeRoutes: FinanceRoute[] = [
     shortLabel: 'Risks',
   },
   {
-    id: 'profile',
-    title: 'Client Profile',
-    path: '/profile',
-    shortLabel: 'Profile',
-  },
-  {
     id: 'needs',
     title: 'Four Major Needs',
     path: '/needs',
     shortLabel: 'Needs',
   },
   {
+    id: 'profile',
+    title: 'Client Profile',
+    path: '/profile',
+    shortLabel: 'Profile',
+  },
+  {
     id: 'retirement',
     title: 'Retirement Calculator',
-    path: '/retirement-calculator',
-    shortLabel: 'Retirement Calculator',
+    path: '/retirement',
+    shortLabel: 'Retirement',
   },
   {
-    id: 'life-cover',
+    id: 'life',
     title: 'Life Cover Calculator',
-    path: '/life-cover',
-    shortLabel: 'Life Cover Calculator',
+    path: '/life',
+    shortLabel: 'Life',
   },
   {
-    id: 'medical-critical-illness',
+    id: 'medical',
     title: 'Medical Calculator',
-    path: '/medical-critical-illness',
-    shortLabel: 'Medical Calculator',
+    path: '/medical',
+    shortLabel: 'Medical',
   },
   {
-    id: 'prioritise-your-needs',
+    id: 'priorities',
     title: 'Priority Needs',
-    path: '/prioritise-your-needs',
-    shortLabel: 'Priority',
+    path: '/priorities',
+    shortLabel: 'Priorities',
   },
   {
-    id: 'financial-gap-report',
+    id: 'summary',
     title: 'Gap Summary',
-    path: '/financial-gap-report',
+    path: '/summary',
     shortLabel: 'Summary',
   },
   {
-    id: 'generate-report',
+    id: 'report',
     title: 'Generate Report',
-    path: '/generate-report',
+    path: '/report',
     shortLabel: 'Report',
   },
 ];

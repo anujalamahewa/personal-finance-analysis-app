@@ -74,7 +74,7 @@ export default function MedicalCriticalIllnessPage() {
 
   return (
     <FinanceRoutePage
-      routeId="medical-critical-illness"
+      routeId="medical"
       customBody={
         <section className={styles.pageWrap}>
           <aside className={styles.storyPanel}>

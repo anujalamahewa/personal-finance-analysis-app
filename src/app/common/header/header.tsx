@@ -7,22 +7,15 @@ import styles from '../../finance-route-page.module.css';
 
 type HeaderProps = {
   routeId: FinanceRouteId;
-  routeIndex: number;
 };
 
-export default function Header({ routeId, routeIndex }: HeaderProps) {
+export default function Header({ routeId }: HeaderProps) {
   const pathname = usePathname();
   const isHomeActive = pathname === '/' || pathname === '/dashboard';
 
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
-        <div className={styles.titleRow}>
-          <div className={styles.appTitle}>Personal Financial Analysis</div>
-          <div className={styles.progress}>
-            Step {routeIndex + 1} / {financeRoutes.length}
-          </div>
-        </div>
         <nav className={styles.routeMenu}>
           <Link
             href="/dashboard"

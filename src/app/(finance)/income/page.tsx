@@ -1,5 +1,6 @@
 import FinanceRoutePage from '@/app/finance-route-page';
 import RedLine from '@/app/common/red-line/red-line';
+import SinglePageTitle from '@/app/common/single-page-title/single-page-title';
 import styles from './page.module.css';
 
 export default function IncomeCyclePage() {
@@ -9,12 +10,17 @@ export default function IncomeCyclePage() {
       customBody={
         <>
           <section className={styles.incomeHeader}>
-            <div className={styles.incomeHeroLabel}>The Financial Reality</div>
-            <h1 className={styles.incomeTitle}>The Income Cycle</h1>
-            <p className={styles.incomeBody}>
-              Of your 80-year life, you only have roughly <strong>40 active earning years</strong>
-              &nbsp;to fund all 80 years of living.
-            </p>
+            <SinglePageTitle
+              label="The Financial Reality"
+              title="The Income Cycle"
+              description={
+                <>
+                  Of your 80-year life, you only have roughly{' '}
+                  <strong>40 active earning years</strong>
+                  &nbsp;to fund all 80 years of living.
+                </>
+              }
+            />
           </section>
 
           <section className={styles.incomeLayout}>

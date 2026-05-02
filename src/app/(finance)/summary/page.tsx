@@ -26,7 +26,7 @@ export default function FinancialGapReportPage() {
 
   return (
     <FinanceRoutePage
-      routeId="financial-gap-report"
+      routeId="summary"
       customBody={
         <section className={styles.pageWrap}>
           <div className={styles.heroLabel}>Need Analysis Summary</div>

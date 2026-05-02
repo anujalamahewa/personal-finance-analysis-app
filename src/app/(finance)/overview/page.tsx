@@ -1,5 +1,5 @@
 import Card from '@/app/common/card/card';
-import RedLine from '@/app/common/red-line/red-line';
+import SinglePageTitle from '@/app/common/single-page-title/single-page-title';
 import FinanceRoutePage from '@/app/finance-route-page';
 import styles from './page.module.css';
 
@@ -9,13 +9,11 @@ export default function OverviewPage() {
       routeId="overview"
       customBody={
         <>
-          <div className={styles.heroLabel}>How This Is Structured</div>
-          <h1 className={styles.heroTitle}>Overview</h1>
-          <RedLine />
-          <p className={styles.heroBody}>
-            We identify the right priorities by mapping each need, measuring your current position,
-            and defining the exact gaps to close.
-          </p>
+          <SinglePageTitle
+            label="How This Is Structured"
+            title="Overview"
+            description="We identify the right priorities by mapping each need, measuring your current position, and defining the exact gaps to close."
+          />
 
           <div className={styles.discussionPhaseGrid}>
             <Card

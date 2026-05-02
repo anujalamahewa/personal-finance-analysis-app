@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Card from '@/app/common/card/card';
 import FinanceRoutePage from '@/app/finance-route-page';
+import SinglePageTitle from '@/app/common/single-page-title/single-page-title';
 import { getRouteById } from '@/lib/routes';
 import styles from './page.module.css';
 
@@ -21,26 +22,25 @@ const needCards = [
   },
   {
     icon: '🏥',
-    title: 'Medical Emergency Funds',
+    title: 'Medical Emergency Fund',
     body: 'Covering healthcare costs without destroying your savings',
     phase: 'Need 03',
   },
 ] as const;
 
 export default function NeedsPage() {
-  const retirementPath = getRouteById('retirement')?.path ?? '/retirement-calculator';
+  const retirementPath = getRouteById('retirement')?.path ?? '/retirement';
 
   return (
     <FinanceRoutePage
       routeId="needs"
       customBody={
         <section className={styles.needsLayout}>
-          <div className={styles.needsLabel}>Before We Calculate</div>
-          <h1 className={styles.needsTitle}>Understanding the 3 Major Life Needs</h1>
-          <p className={styles.needsIntro}>
-            Before we look at numbers, it&apos;s important to understand the three financial pillars
-            that every complete financial plan must address.
-          </p>
+          <SinglePageTitle
+            label="Before We Calculate"
+            title="Understanding the 3 Major Life Needs"
+            description="Before we look at numbers, it's important to understand the three financial pillars that every complete financial plan must address."
+          />
 
           <div className={styles.needsGrid}>
             {needCards.map((card) => (

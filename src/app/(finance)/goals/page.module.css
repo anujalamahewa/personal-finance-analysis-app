@@ -1,35 +1,5 @@
-.dreamsHeroLabel {
-  font-size: 11px;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  font-weight: 700;
+.goalsTitleAccent {
   color: #d31145;
-  margin-bottom: 8px;
-}
-
-.dreamsTitle {
-  line-height: 1.05;
-  letter-spacing: -0.8px;
-  font-weight: 900;
-  margin-bottom: 10px;
-  color: #0f172a;
-}
-
-.dreamsTitle span {
-  color: #d31145;
-}
-
-.dreamsBody {
-  max-width: none;
-  color: #525965;
-  font-size: 15px;
-  line-height: 1.8;
-}
-
-@media (min-width: 900px) {
-  .dreamsBody {
-    white-space: nowrap;
-  }
 }
 
 .dreamsChartWrap {
@@ -234,12 +204,6 @@
     font-size: 10px;
     right: 0;
     bottom: -34px;
-  }
-
-  .dreamsBody {
-    font-size: 14px;
-    line-height: 1.62;
-    white-space: normal;
   }
 }
 

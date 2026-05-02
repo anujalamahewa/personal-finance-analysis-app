@@ -10,7 +10,7 @@ export default function GenerateReportPage() {
 
   return (
     <FinanceRoutePage
-      routeId="generate-report"
+      routeId="report"
       customBody={
         <section className={styles.pageWrap}>
           <div className={styles.heroLabel}>Final Step</div>

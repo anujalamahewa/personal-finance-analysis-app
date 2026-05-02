@@ -1,22 +1,22 @@
 import FinanceRoutePage from '@/app/finance-route-page';
-import RedLine from '@/app/common/red-line/red-line';
+import SinglePageTitle from '@/app/common/single-page-title/single-page-title';
 import styles from './page.module.css';
 
 export default function DreamsPage() {
   return (
     <FinanceRoutePage
-      routeId="dreams"
+      routeId="goals"
       customBody={
         <>
-          <div className={styles.dreamsHeroLabel}>Your Financial Life Cycle</div>
-          <h1 className={styles.dreamsTitle}>
-            Dreams <span>= Wealth</span>
-          </h1>
-          <RedLine />
-          <p className={styles.dreamsBody}>
-            Every milestone in life carries a financial cost. The question is whether your finances
-            are growing fast enough to keep up with your dreams.
-          </p>
+          <SinglePageTitle
+            label="Your Financial Life Cycle"
+            title={
+              <>
+                Dreams <span className={styles.goalsTitleAccent}>= Wealth</span>
+              </>
+            }
+            description="Every milestone in life carries a financial cost. The question is whether your finances are growing fast enough to keep up with your dreams."
+          />
 
           <div className={styles.dreamsChartWrap}>
             <div className={styles.dreamsYAxisLabel}>Dreams = Wealth</div>

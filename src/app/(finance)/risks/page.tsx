@@ -2,6 +2,7 @@
 
 import Card from '@/app/common/card/card';
 import FinanceRoutePage from '@/app/finance-route-page';
+import SinglePageTitle from '@/app/common/single-page-title/single-page-title';
 import styles from './page.module.css';
 
 export default function RisksPage() {
@@ -28,12 +29,11 @@ export default function RisksPage() {
       routeId="risks"
       customBody={
         <section className={styles.riskLayout}>
-          <div className={styles.riskLabel}>Key Risk Events</div>
-          <h1 className={styles.riskTitle}>Three Events That Break Plans</h1>
-          <p className={styles.riskDescription}>
-            Prioritize by impact and build protection where a single event could stop income the
-            fastest.
-          </p>
+          <SinglePageTitle
+            label="Key Risk Events"
+            title="Three Events That Break Plans"
+            description="Prioritize by impact and build protection where a single event could stop income the fastest."
+          />
 
           <div className={styles.riskGrid}>
             {risks.map((risk, index) => (

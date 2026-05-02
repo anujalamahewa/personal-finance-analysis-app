@@ -41,7 +41,7 @@ export default function FinanceRoutePage({ routeId, customBody }: FinanceRoutePa
 
   return (
     <div className={`${styles.shell} ${isWelcomeRoute ? styles.shellWelcome : ''}`}>
-      <Header routeId={routeId} routeIndex={routeIndex} />
+      <Header routeId={routeId} />
 
       <main className={`${styles.main} ${isWelcomeRoute ? styles.mainWelcome : ''}`}>
         <div className={styles.bodyContent}>{body}</div>
