@@ -1,6 +1,6 @@
 "use client";
 
-import FinanceRoutePage from "@/components/finance/FinanceRoutePage";
+import FinanceRoutePage from "@/lib/finance/ui/FinanceRoutePage";
 import styles from "./page.module.css";
 
 export default function RisksPage() {

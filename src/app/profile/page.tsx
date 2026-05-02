@@ -1,7 +1,7 @@
 "use client";
 
-import FinanceRoutePage from "@/components/finance/FinanceRoutePage";
-import { useFinance } from "@/components/finance/FinanceProvider";
+import FinanceRoutePage from "@/lib/finance/ui/FinanceRoutePage";
+import { useFinance } from "@/lib/finance/ui/FinanceProvider";
 import styles from "./page.module.css";
 
 function toNumber(value: string): number {

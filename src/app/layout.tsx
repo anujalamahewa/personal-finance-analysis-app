@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
-import { FinanceProvider } from "@/components/finance/FinanceProvider";
+import { FinanceProvider } from "@/lib/finance/ui/FinanceProvider";
 import "./globals.css";
 
 const poppins = Poppins({

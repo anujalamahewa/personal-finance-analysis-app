@@ -1,0 +1,145 @@
+.pageWrap {
+  max-width: 980px;
+}
+
+.heroLabel {
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #d31145;
+  margin-bottom: 8px;
+}
+
+.heroTitle {
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.8px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  color: #0f172a;
+}
+
+.heroBody {
+  max-width: 740px;
+  color: #525965;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.grid2 {
+  margin-top: 20px;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 20px rgba(17, 24, 39, 0.04);
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.cardMuted {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.62;
+}
+
+.statCard {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 16px;
+}
+
+.statValue {
+  font-size: clamp(30px, 5vw, 42px);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.8px;
+  color: #0f172a;
+}
+
+.statLabel {
+  margin-top: 4px;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.rowActions {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 1px solid #d5dae2;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #374151;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 9px 12px;
+  cursor: pointer;
+  min-height: 42px;
+}
+
+.btn:hover {
+  border-color: #d31145;
+  color: #d31145;
+}
+
+@media (max-width: 760px) {
+  .heroTitle {
+    font-size: clamp(24px, 7.4vw, 34px);
+  }
+
+  .heroBody,
+  .cardMuted {
+    font-size: 14px;
+    line-height: 1.62;
+  }
+
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroLabel {
+    letter-spacing: 1.2px;
+    font-size: 10px;
+  }
+
+  .heroTitle {
+    font-size: clamp(24px, 9vw, 36px);
+    letter-spacing: -0.4px;
+    margin-bottom: 10px;
+  }
+
+  .heroBody {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .card,
+  .statCard {
+    padding: 13px;
+  }
+
+  .btn {
+    min-height: 44px;
+  }
+}

@@ -111,95 +111,6 @@
   line-height: 1.8;
 }
 
-.welcomeLayout {
-  display: grid;
-  grid-template-columns: minmax(360px, 520px) minmax(0, 1fr);
-  min-height: calc(100dvh - 84px);
-}
-
-.welcomePanel {
-  padding: clamp(72px, 12vh, 136px) clamp(26px, 5vw, 56px) 20px;
-}
-
-.welcomeTitle {
-  font-size: clamp(52px, 6.6vw, 66px);
-  line-height: 0.98;
-  letter-spacing: -1.3px;
-  font-weight: 900;
-  margin-bottom: 8px;
-  color: #0f172a;
-}
-
-.welcomeTitle span {
-  color: #d31145;
-}
-
-.welcomeAccent {
-  width: 42px;
-  height: 3px;
-  border-radius: 999px;
-  background: #d31145;
-  margin-bottom: 14px;
-}
-
-.welcomeBody {
-  max-width: 460px;
-  color: #566171;
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-.welcomeMetaRow {
-  margin-top: 28px;
-  display: flex;
-  gap: 12px;
-  align-items: stretch;
-  flex-wrap: wrap;
-}
-
-.welcomeMetaCard {
-  border: 1px solid #d9dde5;
-  border-radius: 14px;
-  background: #f4f4f4;
-  padding: 14px 18px;
-  min-height: 98px;
-  min-width: 124px;
-}
-
-.welcomeMetaPrimary {
-  border-color: #d31145;
-  background: #d31145;
-  color: #ffffff;
-  min-width: 234px;
-}
-
-.welcomeMetaLabel {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-weight: 800;
-  opacity: 0.72;
-}
-
-.welcomeMetaValue {
-  margin-top: 6px;
-  font-size: 32px;
-  line-height: 1.05;
-  letter-spacing: -0.7px;
-  font-weight: 900;
-  color: #0f172a;
-}
-
-.welcomeMetaPrimary .welcomeMetaLabel,
-.welcomeMetaPrimary .welcomeMetaValue {
-  color: #ffffff;
-}
-
-.welcomeCanvas {
-  border-left: 1px solid #ececec;
-  background: #f7f7f7;
-}
-
 .grid2 {
   margin-top: 20px;
   display: grid;
@@ -219,76 +130,6 @@
   display: grid;
   gap: 14px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.discussionPhaseGrid {
-  margin-top: 20px;
-  display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.discussionPhaseCard {
-  border: 2px solid #d5dae2;
-  border-radius: 16px;
-  background: #fafafa;
-  padding: 22px 20px;
-}
-
-.discussionPhaseNeed {
-  border-color: #d31145;
-}
-
-.discussionPhaseGap {
-  border-color: #1f78ad;
-}
-
-.discussionPhaseSolution {
-  border-color: #16a34a;
-}
-
-.discussionPhaseTag {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-weight: 800;
-  color: #64748b;
-  margin-bottom: 10px;
-}
-
-.discussionPhaseTitle {
-  font-size: 35px;
-  line-height: 1.2;
-  letter-spacing: -0.2px;
-  font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 10px;
-}
-
-.discussionPhaseBody {
-  color: #576171;
-  font-size: 15px;
-  line-height: 1.56;
-}
-
-.discussionBeginLink {
-  margin-top: 28px;
-  min-height: 58px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #f1ccd8;
-  border-radius: 14px;
-  background: #f7eef2;
-  color: #d31145;
-  font-size: 33px;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.discussionBeginLink:hover {
-  border-color: #dfb5c3;
-  background: #fbf4f7;
 }
 
 .card {
@@ -667,58 +508,8 @@
     padding: 10px 14px;
   }
 
-  .discussionPhaseGrid {
-    gap: 12px;
-  }
-
-  .discussionPhaseCard {
-    padding: 18px 14px;
-  }
-
-  .discussionPhaseTitle {
-    font-size: 28px;
-  }
-
-  .discussionBeginLink {
-    margin-top: 20px;
-    font-size: 29px;
-  }
-
   .mainWelcome {
     min-height: auto;
-  }
-
-  .welcomeLayout {
-    min-height: auto;
-    grid-template-columns: 1fr;
-  }
-
-  .welcomePanel {
-    padding: 38px 14px 12px;
-  }
-
-  .welcomeTitle {
-    font-size: clamp(38px, 10vw, 58px);
-  }
-
-  .welcomeBody {
-    max-width: none;
-    font-size: 15px;
-  }
-
-  .welcomeMetaRow {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .welcomeMetaCard,
-  .welcomeMetaPrimary {
-    min-width: 0;
-  }
-
-  .welcomeCanvas {
-    display: none;
   }
 
   .navRow {
@@ -815,19 +606,6 @@
     padding: 7px 10px;
   }
 
-  .discussionPhaseGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .discussionPhaseTitle {
-    font-size: 24px;
-  }
-
-  .discussionBeginLink {
-    min-height: 52px;
-    font-size: 24px;
-  }
-
   .heroTitle {
     font-size: clamp(24px, 7.4vw, 34px);
   }
@@ -887,24 +665,6 @@
   .heroBody {
     font-size: 14px;
     line-height: 1.65;
-  }
-
-  .welcomePanel {
-    padding-top: 30px;
-  }
-
-  .welcomeTitle {
-    font-size: clamp(36px, 11vw, 46px);
-    letter-spacing: -0.8px;
-  }
-
-  .welcomeMetaCard {
-    min-height: 90px;
-    padding: 13px 14px;
-  }
-
-  .welcomeMetaValue {
-    font-size: 28px;
   }
 
   .card,
@@ -978,17 +738,6 @@
     padding: 9px 10px;
   }
 
-  .discussionPhaseTag {
-    letter-spacing: 2.5px;
-  }
-
-  .discussionPhaseBody {
-    font-size: 14px;
-  }
-
-  .discussionBeginLink {
-    font-size: 21px;
-  }
 }
 
 @media (max-width: 430px) {

@@ -1,0 +1,205 @@
+.pageWrap {
+  max-width: 980px;
+}
+
+.heroLabel {
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #d31145;
+  margin-bottom: 8px;
+}
+
+.heroTitle {
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.8px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  color: #0f172a;
+}
+
+.heroBody {
+  max-width: 740px;
+  color: #525965;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.priorityList {
+  margin-top: 18px;
+  display: grid;
+  gap: 16px;
+}
+
+.priorityRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rankBadge {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: #6b7484;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  font-weight: 900;
+  flex: 0 0 38px;
+}
+
+.priorityItem {
+  min-height: 52px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border: 1px solid #d2d6de;
+  border-radius: 999px;
+  padding: 10px 18px;
+  background: #ffffff;
+}
+
+.priorityActive {
+  background: #d90a4f;
+  border-color: #d90a4f;
+  color: #ffffff;
+}
+
+.priorityActive .priorityName,
+.priorityActive .priorityGap {
+  color: #ffffff;
+}
+
+.priorityName {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.priorityIcon {
+  font-size: 15px;
+  font-weight: 800;
+  color: #f59e0b;
+}
+
+.priorityActive .priorityIcon {
+  color: #fce38a;
+}
+
+.priorityGap {
+  margin-left: auto;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.arrowControls {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.arrowBtn {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: #f8fafc;
+  color: #6b7280;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+}
+
+.arrowBtn:hover {
+  border-color: #d90a4f;
+  color: #d90a4f;
+}
+
+@media (max-width: 760px) {
+  .heroTitle {
+    font-size: clamp(24px, 7.4vw, 34px);
+  }
+
+  .heroBody,
+  .priorityGap {
+    font-size: 14px;
+    line-height: 1.62;
+  }
+
+  .priorityName {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroLabel {
+    letter-spacing: 1.2px;
+    font-size: 10px;
+  }
+
+  .heroTitle {
+    font-size: clamp(24px, 9vw, 36px);
+    letter-spacing: -0.4px;
+    margin-bottom: 10px;
+  }
+
+  .heroBody {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .priorityRow {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "rank item"
+      "controls controls";
+    gap: 8px;
+  }
+
+  .rankBadge {
+    grid-area: rank;
+  }
+
+  .priorityItem {
+    grid-area: item;
+    border-radius: 16px;
+    min-height: 56px;
+    padding: 12px 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .priorityGap {
+    margin-left: 0;
+    white-space: normal;
+  }
+
+  .arrowControls {
+    grid-area: controls;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .arrowBtn {
+    width: 36px;
+    height: 28px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,200 @@
+.pageWrap {
+  max-width: 1080px;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.stepBadge {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #111827;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.pageTitle {
+  font-size: clamp(30px, 3.6vw, 40px);
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: #0f172a;
+}
+
+.blockSection {
+  margin-top: 18px;
+}
+
+.dividerTop {
+  border-top: 1px solid #d6d9df;
+  margin-top: 14px;
+  padding-top: 14px;
+}
+
+.blockLabel {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  color: #d31145;
+  margin-bottom: 10px;
+}
+
+.inputGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.inputLabel {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2.3px;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.inputField,
+.selectField {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 11px;
+  min-height: 44px;
+  padding: 10px 14px;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 30px;
+  letter-spacing: -0.3px;
+  font-weight: 800;
+}
+
+.selectField {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #6b7280 50%),
+    linear-gradient(135deg, #6b7280 50%, transparent 50%);
+  background-position: calc(100% - 20px) 18px, calc(100% - 14px) 18px;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 40px;
+}
+
+.coverCard {
+  margin-top: 16px;
+  border-radius: 12px;
+  padding: 16px 18px 14px;
+  color: #ffffff;
+}
+
+.medicalCard {
+  background: #d31145;
+}
+
+.criticalIllnessCard {
+  background: #247cab;
+}
+
+.coverLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.7px;
+  font-weight: 800;
+  opacity: 0.95;
+}
+
+.coverValue {
+  margin-top: 4px;
+  font-size: clamp(34px, 5.6vw, 48px);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.8px;
+}
+
+.coverMeta {
+  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.statRow {
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.statCard {
+  border-radius: 10px;
+  border: 1px solid #d8dde5;
+  min-height: 78px;
+  padding: 8px 12px;
+}
+
+.needCard {
+  background: #e8edf5;
+  border-color: #c0d3ea;
+}
+
+.haveCard {
+  background: #ebf5f1;
+  border-color: #bfdfd2;
+}
+
+.gapCard {
+  background: #fbf1f4;
+  border-color: #efccd8;
+}
+
+.statLabel {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #5b6677;
+  text-align: center;
+}
+
+.statValue {
+  margin-top: 6px;
+  font-size: clamp(26px, 4vw, 36px);
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: #0f172a;
+  text-align: center;
+}
+
+.gapValue {
+  color: #d31145;
+}
+
+@media (max-width: 920px) {
+  .inputGrid,
+  .statRow {
+    grid-template-columns: 1fr;
+  }
+
+  .pageTitle {
+    font-size: 30px;
+  }
+
+  .inputField,
+  .selectField {
+    font-size: 26px;
+  }
+
+  .coverMeta {
+    font-size: 16px;
+  }
+}

@@ -1,5 +1,5 @@
-import FinanceRoutePage from "@/components/finance/FinanceRoutePage";
+import { redirect } from "next/navigation";
 
 export default function IncomeProtectionPage() {
-  return <FinanceRoutePage routeId="income-protection" />;
+  redirect("/life-cover");
 }

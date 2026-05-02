@@ -1,0 +1,218 @@
+.lifeLayout {
+  max-width: 1180px;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.stepBadge {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+}
+
+.pageTitle {
+  margin: 0;
+  color: #0f172a;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.06;
+  letter-spacing: -0.6px;
+  font-weight: 800;
+}
+
+.sectionTitle {
+  margin: 6px 0 10px;
+  font-size: 14px;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  color: #d31145;
+  font-weight: 800;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.fullRow {
+  grid-column: 1 / -1;
+}
+
+.label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.8px;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.input,
+.select {
+  width: 100%;
+  min-height: 54px;
+  border: 1px solid #cdd4de;
+  border-radius: 11px;
+  background: #f6f7f9;
+  color: #0f172a;
+  padding: 12px 14px;
+  font-size: 16px;
+}
+
+.input::placeholder {
+  color: #a0aab8;
+}
+
+.input:focus,
+.select:focus {
+  outline: 2px solid rgba(211, 17, 69, 0.12);
+  border-color: #d31145;
+}
+
+.resultBand {
+  margin-top: 14px;
+  border-radius: 14px;
+  padding: 14px 18px 16px;
+  color: #ffffff;
+}
+
+.resultBandLife {
+  background: #d31145;
+}
+
+.resultBandDisability {
+  background: #247cb2;
+}
+
+.resultBandLabel {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.resultBandValue {
+  margin-top: 5px;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.08;
+  font-weight: 800;
+}
+
+.summaryCards {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.summaryCard {
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  min-height: 76px;
+  text-align: center;
+  padding: 9px 10px;
+}
+
+.cardNeed {
+  background: #edf3fb;
+  border-color: #bcd0e6;
+}
+
+.cardHave {
+  background: #eef7ef;
+  border-color: #b9d9bf;
+}
+
+.cardGap {
+  background: #faeef2;
+  border-color: #e9c3d0;
+}
+
+.summaryLabel {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.cardNeed .summaryLabel {
+  color: #1f78ad;
+}
+
+.cardHave .summaryLabel {
+  color: #15803d;
+}
+
+.cardGap .summaryLabel {
+  color: #d31145;
+}
+
+.summaryValue {
+  margin-top: 4px;
+  color: #0f172a;
+  font-size: 36px;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.sectionDivider {
+  margin: 14px 0;
+  border-top: 1px solid #d6dde6;
+}
+
+@media (max-width: 1024px) {
+  .summaryValue {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 900px) {
+  .formGrid,
+  .summaryCards {
+    grid-template-columns: 1fr;
+  }
+
+  .fullRow {
+    grid-column: auto;
+  }
+
+  .resultBandValue {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: clamp(26px, 7vw, 34px);
+  }
+
+  .label {
+    letter-spacing: 2px;
+  }
+
+  .input,
+  .select {
+    min-height: 50px;
+    font-size: 15px;
+  }
+
+  .summaryValue {
+    font-size: 24px;
+  }
+
+  .resultBandValue {
+    font-size: 28px;
+  }
+}

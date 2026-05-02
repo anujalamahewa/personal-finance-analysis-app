@@ -1,0 +1,90 @@
+.pageWrap {
+  max-width: 1080px;
+}
+
+.heroLabel {
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #d31145;
+  margin-bottom: 8px;
+}
+
+.heroTitle {
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.8px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  color: #0f172a;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 7px 12px;
+  min-height: 34px;
+  border: 1px solid #f1ccd8;
+  background: #f7eef2;
+  color: #d31145;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1px;
+}
+
+.tableWrap {
+  margin-top: 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: auto;
+  background: #ffffff;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.table th,
+.table td {
+  border-top: 1px solid #eef2f7;
+  padding: 11px 12px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.table th:first-child,
+.table td:first-child {
+  text-align: left;
+}
+
+.table th {
+  border-top: none;
+  background: #f8fafc;
+  color: #6b7280;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 760px) {
+  .heroTitle {
+    font-size: clamp(24px, 7.4vw, 34px);
+  }
+}
+
+@media (max-width: 640px) {
+  .heroLabel {
+    letter-spacing: 1.2px;
+    font-size: 10px;
+  }
+
+  .heroTitle {
+    font-size: clamp(24px, 9vw, 36px);
+    letter-spacing: -0.4px;
+    margin-bottom: 10px;
+  }
+}

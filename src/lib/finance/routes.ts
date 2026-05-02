@@ -1,18 +1,18 @@
 export type FinanceRouteId =
   | "welcome"
-  | "discussion-design"
+  | "needs-assessment"
   | "dreams"
   | "income"
   | "risks"
   | "profile"
   | "needs"
-  | "retirement-planning"
-  | "income-protection"
+  | "retirement"
+  | "life-cover"
   | "education-fund"
   | "medical-critical-illness"
-  | "priority-needs"
-  | "gap-summary"
-  | "report-ready";
+  | "prioritise-your-needs"
+  | "financial-gap-report"
+  | "generate-report";
 
 export interface FinanceRoute {
   id: FinanceRouteId;
@@ -24,10 +24,10 @@ export interface FinanceRoute {
 export const financeRoutes: FinanceRoute[] = [
   { id: "welcome", title: "Welcome", path: "/welcome", shortLabel: "Welcome" },
   {
-    id: "discussion-design",
-    title: "Discussion Design",
-    path: "/discussion-design",
-    shortLabel: "Design",
+    id: "needs-assessment",
+    title: "Needs Assessment",
+    path: "/needs-assessment",
+    shortLabel: "Assess",
   },
   {
     id: "dreams",
@@ -60,16 +60,16 @@ export const financeRoutes: FinanceRoute[] = [
     shortLabel: "Needs",
   },
   {
-    id: "retirement-planning",
+    id: "retirement",
     title: "Retirement Planning",
-    path: "/retirement-planning",
+    path: "/retirement",
     shortLabel: "Retirement",
   },
   {
-    id: "income-protection",
-    title: "Income Protection",
-    path: "/income-protection",
-    shortLabel: "Protection",
+    id: "life-cover",
+    title: "Life Cover and Disability",
+    path: "/life-cover",
+    shortLabel: "Life Cover",
   },
   {
     id: "education-fund",
@@ -84,21 +84,21 @@ export const financeRoutes: FinanceRoute[] = [
     shortLabel: "Medical",
   },
   {
-    id: "priority-needs",
+    id: "prioritise-your-needs",
     title: "Priority Needs",
-    path: "/priority-needs",
+    path: "/prioritise-your-needs",
     shortLabel: "Priority",
   },
   {
-    id: "gap-summary",
+    id: "financial-gap-report",
     title: "Gap Summary",
-    path: "/gap-summary",
+    path: "/financial-gap-report",
     shortLabel: "Summary",
   },
   {
-    id: "report-ready",
-    title: "Report Ready",
-    path: "/report-ready",
+    id: "generate-report",
+    title: "Generate Report",
+    path: "/generate-report",
     shortLabel: "Report",
   },
 ];
