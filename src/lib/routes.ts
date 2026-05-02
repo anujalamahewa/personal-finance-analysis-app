@@ -8,7 +8,6 @@ export type FinanceRouteId =
   | 'needs'
   | 'retirement'
   | 'life-cover'
-  | 'education-fund'
   | 'medical-critical-illness'
   | 'prioritise-your-needs'
   | 'financial-gap-report'
@@ -70,12 +69,6 @@ export const financeRoutes: FinanceRoute[] = [
     title: 'Life Cover and Disability',
     path: '/life-cover',
     shortLabel: 'Life Cover',
-  },
-  {
-    id: 'education-fund',
-    title: 'Education Fund',
-    path: '/education-fund',
-    shortLabel: 'Education',
   },
   {
     id: 'medical-critical-illness',
