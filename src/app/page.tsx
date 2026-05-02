@@ -5,32 +5,28 @@ export default function Home() {
   return (
     <main className={styles.shell}>
       <section className={styles.heroPanel}>
-        <div className={styles.heroEyebrow}>Advisory Workspace</div>
+        <div className={styles.heroEyebrow}>ADVISORY WORKSPACE</div>
         <h1 className={styles.heroTitle}>Plan smarter with a guided financial journey.</h1>
         <p className={styles.heroBody}>
-          Navigate each life goal step-by-step and generate a complete gap report with actionable
-          priorities.
+          Capture client needs, assess protection gaps, and generate structured financial reports --
+          all in one place. Built for advisors to manage relationships and for clients to track
+          their financial progress.
         </p>
-        <div className={styles.heroPills}>
-          <span className={styles.heroPill}>iPad-ready workflow</span>
-          <span className={styles.heroPill}>Guided calculations</span>
-          <span className={styles.heroPill}>Advisor-style output</span>
-        </div>
       </section>
 
       <section className={styles.loginCard}>
-        <div className={styles.loginLabel}>Personal Financial Analysis</div>
-        <h1 className={styles.loginTitle}>Sign in to begin</h1>
+        <div className={styles.loginLabel}>PERSONAL FINANCIAL ANALYSIS</div>
+        <h1 className={styles.loginTitle}>Sign in to start your session</h1>
         <p className={styles.loginBody}>
-          Continue with Google to access your planning session. Authentication will be wired in the
-          next step.
+          Access your client workspace to run assessments, manage profiles, and generate reports.
+          Your data is securely stored for ongoing advisory and relationship management.
         </p>
 
-        <Link href="/welcome" className={styles.googleButton}>
+        <Link href="/dashboard" className={styles.googleButton}>
           <span className={styles.googleGlyph} aria-hidden="true">
             G
           </span>
-          Continue with Google
+          Continue to Dashboard
         </Link>
       </section>
     </main>

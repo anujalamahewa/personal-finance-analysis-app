@@ -1,6 +1,6 @@
 export type FinanceRouteId =
   | 'welcome'
-  | 'needs-assessment'
+  | 'overview'
   | 'dreams'
   | 'income'
   | 'risks'
@@ -23,10 +23,10 @@ export interface FinanceRoute {
 export const financeRoutes: FinanceRoute[] = [
   { id: 'welcome', title: 'Welcome', path: '/welcome', shortLabel: 'Welcome' },
   {
-    id: 'needs-assessment',
-    title: 'Needs Assessment',
-    path: '/needs-assessment',
-    shortLabel: 'Assess',
+    id: 'overview',
+    title: 'Overview',
+    path: '/overview',
+    shortLabel: 'Overview',
   },
   {
     id: 'dreams',

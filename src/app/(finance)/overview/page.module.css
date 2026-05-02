@@ -14,6 +14,14 @@
   margin-bottom: 12px;
 }
 
+.heroAccent {
+  width: 74px;
+  height: 6px;
+  border-radius: 999px;
+  background: #d31145;
+  margin-bottom: 14px;
+}
+
 .heroBody {
   max-width: 760px;
   color: #525965;

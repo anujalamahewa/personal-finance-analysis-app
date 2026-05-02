@@ -1,0 +1,84 @@
+.shell {
+  min-height: 100dvh;
+  padding: clamp(22px, 4vw, 50px);
+  background: radial-gradient(circle at 20% -20%, #ffe8ef 0%, #fff6ef 40%, #f3f6f8 100%);
+  display: grid;
+  place-items: center;
+}
+
+.panel {
+  width: min(980px, 100%);
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #c91f49;
+  margin-bottom: 10px;
+}
+
+.title {
+  margin: 0;
+  color: #0f172a;
+  line-height: 1.05;
+  letter-spacing: -0.8px;
+  font-weight: 900;
+}
+
+.body {
+  margin-top: 12px;
+  margin-bottom: 18px;
+  color: #566171;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+.cardLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cardStatic {
+  display: block;
+}
+
+.dashboardCard {
+  height: 100%;
+  box-shadow: var(--elev-card-shadow);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.cardDisabled {
+  filter: grayscale(1);
+  opacity: 0.58;
+  cursor: not-allowed;
+}
+
+.cardLink:hover .dashboardCard {
+  transform: translateY(-2px);
+  box-shadow: var(--elev-card-hover-shadow);
+  border-color: #c91f49;
+}
+
+@media (max-width: 768px) {
+  .body {
+    font-size: 15px;
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+}

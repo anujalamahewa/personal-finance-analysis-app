@@ -2,7 +2,6 @@
 
 import { useMemo, useState, type TouchEvent } from 'react';
 import FinanceRoutePage from '@/app/finance-route-page';
-import Banner from '@/app/common/banner/banner';
 import { useFinance } from '@/app/finance-provider';
 import { formatCurrency } from '@/lib/calculations';
 import { type NeedKey } from '@/lib/types';
@@ -149,8 +148,8 @@ export default function PriorityNeedsPage() {
       routeId="prioritise-your-needs"
       customBody={
         <section className={styles.pageWrap}>
-          <section className={styles.heroGrid}>
-            <div>
+          <div className={styles.workspace}>
+            <section className={styles.contextColumn}>
               <div className={styles.heroLabel}>Now That You&apos;ve Seen the Numbers</div>
               <h1 className={styles.heroTitle}>
                 Prioritise Your <span className={styles.heroAccent}>Needs</span>
@@ -162,79 +161,92 @@ export default function PriorityNeedsPage() {
                 <br />
                 This shapes the solution we build together.
               </p>
-            </div>
 
-            <article className={styles.futureCard}>
-              <div className={styles.futureIcon} aria-hidden="true">
-                ☆
-              </div>
-              <div>
-                <h2 className={styles.futureTitle}>Your priorities, your future</h2>
-                <p className={styles.futureBody}>
-                  You&apos;re in control. Rank what matters most so we can build the right plan for
-                  you.
-                </p>
-              </div>
-            </article>
-          </section>
-
-          <div className={styles.priorityList}>
-            {displayedPriorityNeeds.map((need, index) => (
-              <article
-                key={need.key}
-                className={`${styles.priorityRow} ${draggedKey === need.key ? styles.priorityRowDragging : ''} ${dropTargetKey === need.key ? styles.priorityRowDropTarget : ''}`}
-                data-priority-key={need.key}
-                draggable
-                onDragStart={(event) => {
-                  event.dataTransfer.effectAllowed = 'move';
-                  handleDragStart(need.key);
-                }}
-                onDragOver={(event) => {
-                  event.preventDefault();
-                  if (draggedKey && draggedKey !== need.key) {
-                    setDropTargetKey(need.key);
-                  }
-                }}
-                onDrop={(event) => {
-                  event.preventDefault();
-                  handleDrop(need.key);
-                }}
-                onDragEnd={clearDragState}
-                onTouchStart={() => handleDragStart(need.key)}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-                onTouchCancel={clearDragState}
-              >
-                <div className={`${styles.rankBadge} ${index === 0 ? styles.rankBadgeActive : ''}`}>
-                  {index + 1}
+              <article className={styles.futureCard}>
+                <div className={styles.futureIcon} aria-hidden="true">
+                  ☆
                 </div>
-
-                <div
-                  className={`${styles.priorityItem} ${index === 0 ? styles.priorityActive : ''}`}
-                >
-                  <div className={styles.priorityMain}>
-                    <span className={styles.priorityIcon}>{need.icon}</span>
-                    <div>
-                      <div className={styles.priorityName}>{need.label}</div>
-                      <p className={styles.priorityDescription}>{need.description}</p>
-                    </div>
-                  </div>
-                  {need.gap > 0 && (
-                    <div className={styles.priorityGapBlock}>
-                      <div className={styles.priorityGapLabel}>Gap</div>
-                      <div className={styles.priorityGap}>{formatCurrency(need.gap)}</div>
-                    </div>
-                  )}
+                <div>
+                  <h2 className={styles.futureTitle}>Your priorities, your future</h2>
+                  <p className={styles.futureBody}>
+                    You&apos;re in control. Rank what matters most so we can build the right plan
+                    for you.
+                  </p>
                 </div>
               </article>
-            ))}
-          </div>
 
-          <Banner
-            href="/prioritise-your-needs"
-            label="Tip: Drag and drop a need to reorder"
-            className={styles.tipBanner}
-          />
+              <p className={styles.tipBanner}>Tip: Drag by the handle to reorder priorities</p>
+            </section>
+
+            <section className={styles.interactionColumn}>
+              <h2 className={styles.listTitle}>Rank These Needs</h2>
+              <div className={styles.priorityList}>
+                {displayedPriorityNeeds.map((need, index) => (
+                  <article
+                    key={need.key}
+                    className={`${styles.priorityRow} ${draggedKey === need.key ? styles.priorityRowDragging : ''} ${dropTargetKey === need.key ? styles.priorityRowDropTarget : ''}`}
+                    data-priority-key={need.key}
+                    draggable
+                    onDragStart={(event) => {
+                      event.dataTransfer.effectAllowed = 'move';
+                      handleDragStart(need.key);
+                    }}
+                    onDragOver={(event) => {
+                      event.preventDefault();
+                      if (draggedKey && draggedKey !== need.key) {
+                        setDropTargetKey(need.key);
+                      }
+                    }}
+                    onDrop={(event) => {
+                      event.preventDefault();
+                      handleDrop(need.key);
+                    }}
+                    onDragEnd={clearDragState}
+                    onTouchStart={() => handleDragStart(need.key)}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}
+                    onTouchCancel={clearDragState}
+                  >
+                    <div
+                      className={`${styles.rankBadge} ${index === 0 ? styles.rankBadgeActive : ''}`}
+                    >
+                      {index + 1}
+                    </div>
+
+                    <div
+                      className={`${styles.priorityItem} ${index === 0 ? styles.priorityActive : ''}`}
+                    >
+                      <div className={styles.priorityMain}>
+                        <button
+                          type="button"
+                          className={styles.dragHandle}
+                          aria-label={`Drag to reorder ${need.label}`}
+                        >
+                          <span className={styles.dragDot} />
+                          <span className={styles.dragDot} />
+                          <span className={styles.dragDot} />
+                          <span className={styles.dragDot} />
+                          <span className={styles.dragDot} />
+                          <span className={styles.dragDot} />
+                        </button>
+                        <span className={styles.priorityIcon}>{need.icon}</span>
+                        <div>
+                          <div className={styles.priorityName}>{need.label}</div>
+                          <p className={styles.priorityDescription}>{need.description}</p>
+                        </div>
+                      </div>
+                      {need.gap > 0 && (
+                        <div className={styles.priorityGapBlock}>
+                          <div className={styles.priorityGapLabel}>Gap</div>
+                          <div className={styles.priorityGap}>{formatCurrency(need.gap)}</div>
+                        </div>
+                      )}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          </div>
         </section>
       }
     />

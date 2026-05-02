@@ -1,17 +1,28 @@
 .pageWrap {
   max-width: 1240px;
   margin: 0 auto;
-  border: 1px solid #e7ebf1;
+  border: 1px solid #e2e8f0;
   border-radius: 18px;
-  background: #fbfcfe;
+  background: #f4f7fb;
   padding: 26px 24px 20px;
 }
 
-.heroGrid {
+.workspace {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 420px;
+  grid-template-columns: minmax(300px, 0.95fr) minmax(0, 1.25fr);
   gap: 18px;
-  align-items: center;
+  align-items: start;
+}
+
+.contextColumn,
+.interactionColumn {
+  min-width: 0;
+}
+
+.listTitle {
+  color: #0f172a;
+  margin-bottom: 12px;
+  font-weight: 800;
 }
 
 .heroLabel {
@@ -52,21 +63,23 @@
 }
 
 .futureCard {
-  border: 1px solid #f5d4df;
+  margin-top: 16px;
+  border: 1px solid #d9e2ec;
   border-radius: 16px;
-  background: #fef8fb;
+  background: #ffffff;
   padding: 18px 20px;
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 14px;
   align-items: center;
+  box-shadow: var(--elev-card-shadow);
 }
 
 .futureIcon {
   width: 54px;
   height: 54px;
   border-radius: 50%;
-  background: #fcecf2;
+  background: #eef2f7;
   color: #d31145;
   display: grid;
   place-items: center;
@@ -76,7 +89,7 @@
 
 .futureTitle {
   margin: 0;
-  color: #d31145;
+  color: #0f172a;
   font-weight: 800;
 }
 
@@ -87,7 +100,7 @@
 }
 
 .priorityList {
-  margin-top: 22px;
+  margin-top: 0;
   display: grid;
   gap: 12px;
 }
@@ -96,29 +109,37 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  border: 1px solid #dfe5ed;
+  border: 1px solid #d6dee8;
   border-radius: 16px;
   background: #ffffff;
   padding: 10px 12px;
   cursor: grab;
   user-select: none;
+  box-shadow: var(--elev-card-shadow);
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease,
-    background-color 0.2s ease;
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.priorityRow:hover {
+  border-color: #c5d1de;
+  box-shadow: var(--elev-card-hover-shadow);
 }
 
 .priorityRow:active {
   cursor: grabbing;
+  transform: translateY(1px);
 }
 
 .priorityRowDropTarget {
-  border-color: #f2b9cb;
-  box-shadow: 0 0 0 2px rgba(211, 17, 69, 0.08);
+  border-color: #d31145;
+  box-shadow: var(--elev-active-shadow);
 }
 
 .priorityRowDragging {
-  opacity: 0.7;
+  opacity: 0.78;
 }
 
 .rankBadge {
@@ -141,21 +162,21 @@
 }
 
 .priorityItem {
-  min-height: 72px;
+  min-height: 88px;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  border: 1px solid #f1d7df;
+  border: 1px solid #dfe6ee;
   border-radius: 14px;
   padding: 10px 14px;
-  background: #fff8fa;
+  background: #ffffff;
 }
 
 .priorityActive {
-  background: #fff3f7;
-  border-color: #f4b3c6;
+  border-color: #d31145;
+  box-shadow: var(--elev-active-shadow);
 }
 
 .priorityMain {
@@ -165,17 +186,44 @@
   gap: 14px;
 }
 
+.dragHandle {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #d1dae5;
+  border-radius: 12px;
+  background: #f8fafd;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  gap: 4px;
+  padding: 9px;
+  color: #64748b;
+  flex: 0 0 44px;
+  cursor: grab;
+}
+
+.dragHandle:active {
+  cursor: grabbing;
+}
+
+.dragDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
 .priorityIcon {
   width: 54px;
   height: 54px;
   border-radius: 50%;
-  background: #f7edf2;
+  background: #eef2f7;
   display: grid;
   place-items: center;
   flex: 0 0 54px;
   font-size: 30px;
   font-weight: 800;
-  color: #d31145;
+  color: #1f2937;
 }
 
 .priorityName {
@@ -212,7 +260,7 @@
 .priorityGap {
   margin-top: 3px;
   color: #d31145;
-  font-size: 34px;
+  font-size: 30px;
   line-height: 1.1;
   font-weight: 900;
   letter-spacing: -0.2px;
@@ -220,10 +268,10 @@
 
 .tipBanner {
   margin-top: 16px;
-  border: 1px dashed #f3c5d5;
+  border: 1px dashed #cbd5e1;
   border-radius: 14px;
-  background: #fef7fa;
-  color: #d31145;
+  background: #f8fafc;
+  color: #334155;
   justify-content: flex-start;
   text-align: left;
   padding: 12px 16px;
@@ -231,18 +279,18 @@
 }
 
 .tipBanner:hover {
-  border-color: #e9a8bf;
-  background: #fdf1f6;
-  color: #d90a4f;
+  border-color: #94a3b8;
+  background: #f1f5f9;
+  color: #0f172a;
 }
 
-@media (max-width: 1024px) {
-  .heroGrid {
+@media (max-width: 900px) {
+  .workspace {
     grid-template-columns: 1fr;
   }
 
   .futureCard {
-    max-width: 700px;
+    max-width: none;
   }
 
   .priorityName {
@@ -257,6 +305,10 @@
 @media (max-width: 760px) {
   .pageWrap {
     padding: 18px 14px;
+  }
+
+  .listTitle {
+    margin-top: 6px;
   }
 
   .heroBody {
@@ -312,6 +364,12 @@
   .priorityMain {
     width: 100%;
     align-items: flex-start;
+  }
+
+  .dragHandle {
+    width: 100%;
+    grid-template-columns: repeat(6, 1fr);
+    height: 44px;
   }
 
   .priorityIcon {

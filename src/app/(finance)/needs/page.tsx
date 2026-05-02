@@ -1,6 +1,6 @@
 'use client';
 
-import Banner from '@/app/common/banner/banner';
+import Link from 'next/link';
 import Card from '@/app/common/card/card';
 import FinanceRoutePage from '@/app/finance-route-page';
 import { getRouteById } from '@/lib/routes';
@@ -54,11 +54,9 @@ export default function NeedsPage() {
             ))}
           </div>
 
-          <Banner
-            href={retirementPath}
-            label="Next: Build your retirement need"
-            className={styles.needsBanner}
-          />
+          <Link href={retirementPath} className={styles.needsBanner}>
+            Next: Build your retirement need
+          </Link>
         </section>
       }
     />

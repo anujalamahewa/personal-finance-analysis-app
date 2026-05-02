@@ -11,8 +11,8 @@
 }
 
 .storyPanel {
-  background: #fbf6f8;
-  border-right: 1px solid #efdae2;
+  background: #f8fafd;
+  border-right: 1px solid #dce5ef;
   padding: 34px 24px 28px;
 }
 
@@ -56,11 +56,12 @@
 
 .storyStatCard {
   margin-top: 18px;
-  background: #fff3f7;
-  border: 1px solid #f4d6e1;
+  background: #ffffff;
+  border: 1px solid #d7e0ea;
   border-radius: 16px;
   padding: 20px;
   max-width: 470px;
+  box-shadow: var(--elev-card-shadow);
 }
 
 .storyStatValue {
@@ -208,9 +209,11 @@
 .savingsBand {
   margin-top: 10px;
   border-radius: 13px;
-  background: #d31145;
-  color: #ffffff;
+  border: 1px solid #d7e0ea;
+  background: #ffffff;
+  color: #0f172a;
   padding: 12px 16px 14px;
+  box-shadow: var(--elev-card-shadow);
 }
 
 .savingsBandLabel {
@@ -218,7 +221,7 @@
   letter-spacing: 3px;
   text-transform: uppercase;
   font-weight: 700;
-  opacity: 0.95;
+  color: #64748b;
 }
 
 .savingsBandValue {

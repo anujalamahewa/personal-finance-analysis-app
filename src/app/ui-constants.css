@@ -23,4 +23,8 @@
   --calc-summary-label-weight: 800;
   --calc-summary-value-size: clamp(14px, 1.7vw, 17px);
   --calc-summary-value-weight: 900;
+
+  --elev-card-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  --elev-card-hover-shadow: 0 12px 26px rgba(15, 23, 42, 0.12);
+  --elev-active-shadow: 0 0 0 2px rgba(211, 17, 69, 0.18), 0 16px 28px rgba(15, 23, 42, 0.14);
 }

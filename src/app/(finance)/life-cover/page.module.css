@@ -11,8 +11,8 @@
 }
 
 .storyPanel {
-  background: #fbf6f8;
-  border-right: 1px solid #efdae2;
+  background: #f8fafd;
+  border-right: 1px solid #dce5ef;
   padding: 34px 24px 28px;
 }
 
@@ -228,7 +228,7 @@
   margin: 6px 0 10px;
   letter-spacing: 2.4px;
   text-transform: uppercase;
-  color: #d31145;
+  color: #0f172a;
   font-weight: 800;
 }
 

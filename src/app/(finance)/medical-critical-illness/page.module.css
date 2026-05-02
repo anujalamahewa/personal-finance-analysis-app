@@ -11,8 +11,8 @@
 }
 
 .storyPanel {
-  background: #fdf7f9;
-  border-right: 1px solid #f0dce4;
+  background: #f8fafd;
+  border-right: 1px solid #dce5ef;
   padding: 34px 24px 28px;
 }
 
@@ -185,7 +185,7 @@
   font-weight: 900;
   letter-spacing: 2.6px;
   text-transform: uppercase;
-  color: #d31145;
+  color: #0f172a;
 }
 
 .inputGrid {
