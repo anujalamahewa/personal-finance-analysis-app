@@ -117,7 +117,6 @@ export default function RetirementCalculatorPage() {
         <section className={styles.retirementLayout}>
           <aside className={styles.storyPanel}>
             <div className={styles.storyMeta}>
-              <span className={styles.storyStep}>01</span>
               <span className={styles.storyLabel}>Happy Retirement</span>
             </div>
             <h1 className={styles.storyTitle}>Will Your Savings Last As Long As You Do?</h1>
@@ -142,7 +141,6 @@ export default function RetirementCalculatorPage() {
 
           <div className={styles.calcPanel}>
             <div className={styles.headerRow}>
-              <div className={styles.stepBadge}>01</div>
               <h2 className={styles.pageTitle}>Retirement Calculator</h2>
             </div>
 

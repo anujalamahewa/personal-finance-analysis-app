@@ -158,7 +158,6 @@ export default function LifeCoverPage() {
         <section className={styles.lifeLayout}>
           <aside className={styles.storyPanel}>
             <div className={styles.storyMeta}>
-              <span className={styles.storyStep}>02</span>
               <span className={styles.storyLabel}>Income Protection</span>
             </div>
 
@@ -217,7 +216,6 @@ export default function LifeCoverPage() {
 
           <div className={styles.calcPanel}>
             <div className={styles.headerRow}>
-              <div className={styles.stepBadge}>02</div>
               <h2 className={styles.pageTitle}>Life Cover and Disability Calculator</h2>
             </div>
 
