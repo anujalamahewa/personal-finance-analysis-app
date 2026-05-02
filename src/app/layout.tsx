@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { geistSans, poppins } from '../lib/fonts';
+import { poppins } from '../lib/fonts';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${poppins.variable} ${geistSans.variable}`}>
+    <html lang="en" className={poppins.variable}>
       <body>{children}</body>
     </html>
   );

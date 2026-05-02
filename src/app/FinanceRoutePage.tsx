@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { type ReactNode, useEffect } from 'react';
 import { financeRoutes, getRouteById, getRouteIndex, type FinanceRouteId } from '@/lib/routes';
+import FinanceHeader from './FinanceHeader';
 import { useFinance } from './FinanceProvider';
 import styles from './FinanceRoutePage.module.css';
 
@@ -40,31 +41,7 @@ export default function FinanceRoutePage({ routeId, customBody }: FinanceRoutePa
 
   return (
     <div className={`${styles.shell} ${isWelcomeRoute ? styles.shellWelcome : ''}`}>
-      {!isWelcomeRoute && (
-        <header className={styles.header}>
-          <div className={styles.headerInner}>
-            <div className={styles.titleRow}>
-              <div className={styles.appTitle}>Personal Financial Analysis</div>
-              <div className={styles.progress}>
-                Step {routeIndex + 1} / {financeRoutes.length}
-              </div>
-            </div>
-            <nav className={styles.routeMenu}>
-              {financeRoutes.map((routeOption) => (
-                <Link
-                  key={routeOption.id}
-                  href={routeOption.path}
-                  className={`${styles.routeLink} ${
-                    routeOption.id === routeId ? styles.routeLinkActive : ''
-                  }`}
-                >
-                  {routeOption.shortLabel}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        </header>
-      )}
+      <FinanceHeader routeId={routeId} routeIndex={routeIndex} />
 
       <main className={`${styles.main} ${isWelcomeRoute ? styles.mainWelcome : ''}`}>
         {body}

@@ -41,7 +41,7 @@ body {
 }
 
 :where(h1, h2, h3) {
-  font-family: var(--font-geist-sans), 'Segoe UI', sans-serif;
+  font-family: var(--font-poppins), 'Segoe UI', sans-serif;
 }
 
 h1 {
