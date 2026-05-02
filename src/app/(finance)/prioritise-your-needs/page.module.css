@@ -1,142 +1,279 @@
 .pageWrap {
-  max-width: 980px;
+  max-width: 1240px;
+  margin: 0 auto;
+  border: 1px solid #e7ebf1;
+  border-radius: 18px;
+  background: #fbfcfe;
+  padding: 26px 24px 20px;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 18px;
+  align-items: center;
 }
 
 .heroLabel {
-  font-size: 11px;
-  letter-spacing: 1.8px;
+  font-size: 12px;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 800;
   color: #d31145;
   margin-bottom: 8px;
 }
 
 .heroTitle {
-  line-height: 1.05;
+  line-height: 1.02;
   letter-spacing: -0.8px;
   font-weight: 900;
-  margin-bottom: 12px;
+  margin-bottom: 0;
   color: #0f172a;
 }
 
+.heroAccent {
+  color: #d31145;
+}
+
+.heroUnderline {
+  margin-top: 10px;
+  width: 58px;
+  height: 5px;
+  border-radius: 999px;
+  background: #d31145;
+}
+
 .heroBody {
-  max-width: 740px;
-  color: #525965;
-  font-size: 15px;
-  line-height: 1.8;
+  margin-top: 14px;
+  max-width: 610px;
+  color: #5e6c81;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.futureCard {
+  border: 1px solid #f5d4df;
+  border-radius: 16px;
+  background: #fef8fb;
+  padding: 18px 20px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: center;
+}
+
+.futureIcon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #fcecf2;
+  color: #d31145;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.futureTitle {
+  margin: 0;
+  color: #d31145;
+  font-weight: 800;
+}
+
+.futureBody {
+  margin: 3px 0 0;
+  color: #5f6d82;
+  line-height: 1.45;
 }
 
 .priorityList {
-  margin-top: 18px;
+  margin-top: 22px;
   display: grid;
-  gap: 16px;
+  gap: 12px;
 }
 
 .priorityRow {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  border: 1px solid #dfe5ed;
+  border-radius: 16px;
+  background: #ffffff;
+  padding: 10px 12px;
+  cursor: grab;
+  user-select: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.priorityRow:active {
+  cursor: grabbing;
+}
+
+.priorityRowDropTarget {
+  border-color: #f2b9cb;
+  box-shadow: 0 0 0 2px rgba(211, 17, 69, 0.08);
+}
+
+.priorityRowDragging {
+  opacity: 0.7;
 }
 
 .rankBadge {
-  width: 38px;
-  height: 38px;
+  width: 46px;
+  height: 46px;
   border-radius: 999px;
   background: #6b7484;
   color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 21px;
+  font-size: 19px;
+  line-height: 1;
   font-weight: 900;
-  flex: 0 0 38px;
+  flex: 0 0 46px;
+}
+
+.rankBadgeActive {
+  background: #d90a4f;
 }
 
 .priorityItem {
-  min-height: 52px;
+  min-height: 72px;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  border: 1px solid #d2d6de;
-  border-radius: 999px;
-  padding: 10px 18px;
-  background: #ffffff;
+  border: 1px solid #f1d7df;
+  border-radius: 14px;
+  padding: 10px 14px;
+  background: #fff8fa;
 }
 
 .priorityActive {
-  background: #d90a4f;
-  border-color: #d90a4f;
-  color: #ffffff;
+  background: #fff3f7;
+  border-color: #f4b3c6;
 }
 
-.priorityActive .priorityName,
-.priorityActive .priorityGap {
-  color: #ffffff;
-}
-
-.priorityName {
+.priorityMain {
+  min-width: 0;
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 20px;
-  font-weight: 700;
-  color: #0f172a;
+  gap: 14px;
 }
 
 .priorityIcon {
-  font-size: 15px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #f7edf2;
+  display: grid;
+  place-items: center;
+  flex: 0 0 54px;
+  font-size: 30px;
   font-weight: 800;
-  color: #f59e0b;
+  color: #d31145;
 }
 
-.priorityActive .priorityIcon {
-  color: #fce38a;
+.priorityName {
+  font-size: 20px;
+  line-height: 1.04;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.4px;
+}
+
+.priorityDescription {
+  margin: 4px 0 0;
+  color: #5f6d82;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.priorityGapBlock {
+  margin-left: auto;
+  min-width: 184px;
+  border-left: 1px solid #e2e7ee;
+  padding-left: 16px;
+  text-align: right;
+}
+
+.priorityGapLabel {
+  font-size: 10px;
+  letter-spacing: 2.3px;
+  text-transform: uppercase;
+  color: #65748a;
+  font-weight: 800;
 }
 
 .priorityGap {
-  margin-left: auto;
-  color: #6b7280;
-  font-size: 14px;
-  line-height: 1.3;
-  white-space: nowrap;
+  margin-top: 3px;
+  color: #d31145;
+  font-size: 34px;
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -0.2px;
 }
 
-.arrowControls {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.tipBanner {
+  margin-top: 16px;
+  border: 1px dashed #f3c5d5;
+  border-radius: 14px;
+  background: #fef7fa;
+  color: #d31145;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 12px 16px;
+  font-weight: 700;
 }
 
-.arrowBtn {
-  width: 22px;
-  height: 22px;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  background: #f8fafc;
-  color: #6b7280;
-  font-size: 11px;
-  font-weight: 800;
-  line-height: 1;
-  padding: 0;
-  cursor: pointer;
-}
-
-.arrowBtn:hover {
-  border-color: #d90a4f;
+.tipBanner:hover {
+  border-color: #e9a8bf;
+  background: #fdf1f6;
   color: #d90a4f;
 }
 
+@media (max-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .futureCard {
+    max-width: 700px;
+  }
+
+  .priorityName {
+    font-size: 19px;
+  }
+
+  .priorityDescription {
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 760px) {
-  .heroBody,
-  .priorityGap {
+  .pageWrap {
+    padding: 18px 14px;
+  }
+
+  .heroBody {
     font-size: 14px;
     line-height: 1.62;
   }
 
   .priorityName {
     font-size: 18px;
+  }
+
+  .priorityDescription {
+    font-size: 14px;
+  }
+
+  .priorityGap {
+    font-size: 26px;
   }
 }
 
@@ -149,6 +286,7 @@
   .heroTitle {
     letter-spacing: -0.4px;
     margin-bottom: 10px;
+    white-space: normal;
   }
 
   .heroBody {
@@ -157,43 +295,52 @@
   }
 
   .priorityRow {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    grid-template-areas:
-      'rank item'
-      'controls controls';
+    align-items: flex-start;
     gap: 8px;
-  }
-
-  .rankBadge {
-    grid-area: rank;
+    padding: 10px;
   }
 
   .priorityItem {
-    grid-area: item;
-    border-radius: 16px;
+    border-radius: 12px;
     min-height: 56px;
-    padding: 12px 14px;
+    padding: 10px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
-  }
-
-  .priorityGap {
-    margin-left: 0;
-    white-space: normal;
-  }
-
-  .arrowControls {
-    grid-area: controls;
-    flex-direction: row;
-    justify-content: flex-end;
     gap: 8px;
   }
 
-  .arrowBtn {
-    width: 36px;
-    height: 28px;
-    font-size: 13px;
+  .priorityMain {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .priorityIcon {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+    font-size: 24px;
+  }
+
+  .priorityName {
+    font-size: 18px;
+  }
+
+  .priorityDescription {
+    font-size: 14px;
+  }
+
+  .priorityGapBlock {
+    margin-left: 0;
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #e2e7ee;
+    padding-left: 0;
+    padding-top: 8px;
+    text-align: left;
+  }
+
+  .tipBanner {
+    justify-content: center;
+    text-align: center;
   }
 }
